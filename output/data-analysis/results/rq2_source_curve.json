@@ -1,0 +1,4227 @@
+{
+ "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md",
+ "task": 11,
+ "hypothesis": null,
+ "note": "descriptive (no hypothesis attached)",
+ "recipe": "(stated; checks in code and in the JSON `parity` block; note knowledge/synthesis/rq2_source_curve-assumptions.md)\n  A1  \"M1 + M2 (no M3)\" = Task 14's pre-M3 recipe (rq3_build_preds.py), rebuilt on the subset S:\n      harness M1 = 0.5 x S4 + 0.5 x fused(S), 0.3 DepMap-neighbour blend from the library(S) where a covered neighbour\n      exists, energy-matched to (0.5 S4 + 0.5 fused(S)) (ml_h1fuse.build); fused(S) = ml_h1fuse.fixed_fusion over the 8\n      min_cells members with the frozen family weights zeroed outside S (member data = h1fuse/<P>_data.npz, the exact\n      arrays the ERA pack was built from); library(S) = both recipe parts (part 0: c 100 uncentred, equal weights, x3;\n      part 1: c 50 centred, W_NEW, x1.6; 0.5/0.5) fused over S only -- linear in the per-family means, so it is\n      assembled exactly from per-family arrays (A4); then F2's sum side: ew (1+cpm/50)^-0.25 -> centring 0.5 ->\n      guarded top-3 library-PC removal with V3 = PCs of library(S) -> M2 = rank(cross-family agreement over S)^0.5 ->\n      budget match.\n  A2  S4 (the learned refit + FiLM residual model, 50 % of M1) is HELD FIXED at its frozen leave-destination-out fit for\n      every subset (KOLF: the A3 kolf-free S4 of Task 14). Refitting it 841 times is out of budget and its training\n      table mixes sources outside the family registry. So the primary curve prices a family through the fusion part,\n      the neighbour library, the library PCs and M2, CONDITIONAL on S4. Sensitivity arm `noS4`: M1 without S4\n      (total = fused(S) with the same neighbour blend, energy-matched to fused(S)), i.e. a pure source-count curve.\n  A3  M2 is undefined when < 2 families of S measure a target (verbatim agreement -> NaN -> median rank). If no target\n      has an agreement (always at k = 1), M2 is off (constant amplitude) -- the only change to the verbatim code.\n  A4  Library per family (exact): fam_mean_f(t, g) = mean over the family's sources of log((fp 1e6 + c)/(fc 1e6 + c)) - centre\n      (sources with >= 20 cells for t); part L = clip(sum_f w_f fam_mean_f / sum_f w_f has_f, +-3). Stored float32.\n  A5  Budget. PRIMARY arm `own`: the recipe's own budget, Bt(S) = B(max(1, kink(S))) from the subset's own M1 (kink factor\n      1.17, margin 0.8; C_real(n) jackknife is control-only and computed once per panel, rng 0) -- what the builder would\n      do with fewer sources. Because Bt(S) != Bt(K) in general, offline numbers of this arm are NOT guaranteed exact\n      (AGENTS.md: the offline evaluator is exact iff budget-invariant) -> the `bt_rel` column flags it and the H1 real\n      scorer spot check (k = 1, ceil(K/2), K) decides whether the curve is reported in absolute or relative terms\n      (threshold |PDS_real - PDS_offline| > 0.002). Arm `fixBt`: same direction, budget matched to the full-set Bt(K)\n      (budget-invariant relative to the K build -> offline-exact for the comparison with k = K).\n  A6  Offline scorer = the ERA pack evaluator (`score_<P>.npz` real moments), with the subset's own override Od (the\n      promoter-floor override depends on the fused delta). KOLF: Task 14's kolf-free FENG stores + S4 (Amendment A3).\n  A7  Fits (descriptive; subsets overlap, so points are not independent and AIC is a descriptive comparison only):\n      log-linear PDS = a + b ln k (OLS) vs saturating PDS = a - c exp(-k / tau) (least squares, tau in [0.05, 200]);\n      Gaussian AIC = n ln(RSS / n) + 2 p (p = 3 / 4 incl. the variance), on subset-level points (primary) and on the K\n      k-means (sensitivity). Delta AIC < 2 -> \"indistinguishable\".\n  A8  LOFO marginal value = mean over families f and targets t of pds_t(K) - pds_t(K \\ f) (positive = the family helps);\n      95 % percentile CI from B = 2,000 bootstrap draws resampling families (the K LOFO subsets) and targets\n      independently (rng 0). Composite on H1: sum-side composite change from the vcc2026 preset scaling constants\n      (tv2_score.CONST: PDS (x - 0.5)/0.4515, MSE clip((x - 0.984)/(0.043 - 0.984), 0, 1), each / 6); the DE side is\n      not rebuilt (NMAE/reach/fid/jaccard fixed), so this is the PDS + MSE share only.",
+ "arms": {
+  "own": "PRIMARY: frozen M1 (S4 fixed) + M2, own budget (recipe-faithful)",
+  "fixBt": "same direction, budget matched to the full-set Bt(K) (offline-exact relative to k = K)",
+  "noS4": "sensitivity: M1 without S4 (pure source-count curve), own budget"
+ },
+ "R": 20,
+ "B": 2000,
+ "panels": {
+  "H1": {
+   "K": 9,
+   "families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "parity": {
+    "fused_maxabs": 1.1708696989742862e-07,
+    "knn_maxabs": 4.437097600451523e-08,
+    "knn_has_equal": true,
+    "base_total_maxabs": 1.3338110060878705e-08,
+    "V3_absdot_min": 0.9999999999999989,
+    "Od_equal": true,
+    "Bt_rel": 9.98221094689324e-12,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 4.5516491126237605e-08,
+    "prem3_pds_task14": 0.9092444444444444,
+    "prem3_pds_here": 0.9092444444444444,
+    "prem3_mse_task14": 0.7202368460628635,
+    "prem3_mse_here": 0.7202368460628635,
+    "pass": true
+   },
+   "n_subsets_done": 139,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.8734037037037037,
+      "pds_sd": 0.018867281759375288,
+      "mse": 0.808763137405653,
+      "n": 9,
+      "composite_sum": 0.1688755546009436
+     },
+     "2": {
+      "pds": 0.8847766666666667,
+      "pds_sd": 0.01591761109840054,
+      "mse": 0.7681392489270993,
+      "n": 20,
+      "composite_sum": 0.18026893173530198
+     },
+     "3": {
+      "pds": 0.8861077777777778,
+      "pds_sd": 0.01601403181821252,
+      "mse": 0.7585489381538701,
+      "n": 20,
+      "composite_sum": 0.1824589006505322
+     },
+     "4": {
+      "pds": 0.895545,
+      "pds_sd": 0.014044284122169567,
+      "mse": 0.7280622685048769,
+      "n": 20,
+      "composite_sum": 0.191342249482105
+     },
+     "5": {
+      "pds": 0.8993011111111111,
+      "pds_sd": 0.010282368754935555,
+      "mse": 0.7220437298095791,
+      "n": 20,
+      "composite_sum": 0.19379476274289018
+     },
+     "6": {
+      "pds": 0.9052055555555555,
+      "pds_sd": 0.006552200053116662,
+      "mse": 0.7229338816238811,
+      "n": 20,
+      "composite_sum": 0.1958166681866112
+     },
+     "7": {
+      "pds": 0.9045005555555555,
+      "pds_sd": 0.005969220896872542,
+      "mse": 0.7188346520816087,
+      "n": 20,
+      "composite_sum": 0.1962824659184744
+     },
+     "8": {
+      "pds": 0.907104938271605,
+      "pds_sd": 0.004702764196052835,
+      "mse": 0.7206115539205187,
+      "n": 9,
+      "composite_sum": 0.1969291287939191
+     },
+     "9": {
+      "pds": 0.9092444444444444,
+      "pds_sd": null,
+      "mse": 0.7202368460628635,
+      "n": 1,
+      "composite_sum": 0.1977852728574839
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8715873867712463,
+      "b": 0.017197719477231956,
+      "rss": 0.020568981192581666,
+      "aic": -1219.7638603479788
+     },
+     "saturating": {
+      "a": 0.9171294502209003,
+      "c": 0.05358740567265515,
+      "tau": 4.544481958698101,
+      "rss": 0.02043416228617061,
+      "aic": -1218.6779315110155,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.085928836963376,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8722213459731386,
+      "b": 0.01680991558923917,
+      "rss": 3.160889154957217e-05,
+      "aic": -107.03367008522414
+     },
+     "saturating": {
+      "a": 0.9156859523255795,
+      "c": 0.05305478387869621,
+      "tau": 4.251488449708886,
+      "rss": 2.4072641240025033e-05,
+      "aic": -107.48493242117584,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -0.4512623359516965,
+     "verdict": "indistinguishable",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.04417613350253757,
+    "lofo": {
+     "mean_dPDS": 0.002139505963358614,
+     "ci95": [
+      -0.0003236422146911974,
+      0.005878333955175344
+     ],
+     "mean_dcomposite_sum": 0.0008561439862369723,
+     "ci95_composite_sum": [
+      -0.00044639033660004326,
+      0.002549393170042313
+     ],
+     "mean_dcomposite_pds_only": 0.0007897770259721721,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.0005222216248512268,
+       "ci95": [
+        -0.0019888876086721816,
+        0.000866666437437137
+       ],
+       "dcomposite_sum": 5.2913918844599284e-05
+      },
+      "RNJURKAT": {
+       "dPDS": -0.0002888891845941544,
+       "ci95": [
+        -0.0010333339323600134,
+        0.0005222212492177883
+       ],
+       "dcomposite_sum": 0.0002453284881248907
+      },
+      "HEPG2": {
+       "dPDS": -8.888944983482361e-05,
+       "ci95": [
+        -0.0009444441062708696,
+        0.0007447220596174383
+       ],
+       "dcomposite_sum": 0.00025627413158757495
+      },
+      "FENG": {
+       "dPDS": 0.00013333305716514587,
+       "ci95": [
+        -0.0014113894850015642,
+        0.0017111088683207831
+       ],
+       "dcomposite_sum": 0.0007912689126897687
+      },
+      "KOLF": {
+       "dPDS": 0.002444444422920545,
+       "ci95": [
+        -0.0009558334245036045,
+        0.005978056830043593
+       ],
+       "dcomposite_sum": 0.002972708310776395
+      },
+      "CD4": {
+       "dPDS": 0.0014555548628171285,
+       "ci95": [
+        -0.002511111018558343,
+        0.005366944044207531
+       ],
+       "dcomposite_sum": -0.0008286671058820305
+      },
+      "HEK293T": {
+       "dPDS": 3.333245714505513e-05,
+       "ci95": [
+        -0.0025225018685062725,
+        0.002678055459012586
+       ],
+       "dcomposite_sum": -0.0009778076399229452
+      },
+      "HCT116": {
+       "dPDS": 0.001711110956966877,
+       "ci95": [
+        -0.001544722121208906,
+        0.005400277488554516
+       ],
+       "dcomposite_sum": -0.00043678409386246897
+      },
+      "K562": {
+       "dPDS": 0.01437777817249298,
+       "ci95": [
+        0.006298889771103859,
+        0.022989167510221398
+       ],
+       "dcomposite_sum": 0.005630060953776966
+      }
+     },
+     "n_families": 9,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0021395061728394227
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.8734876543209877,
+      "pds_sd": 0.01861564243712938,
+      "mse": 0.794127457181482,
+      "n": 9,
+      "composite_sum": 0.1714987652049002
+     },
+     "2": {
+      "pds": 0.8848844444444446,
+      "pds_sd": 0.015663688240792555,
+      "mse": 0.7604436089105391,
+      "n": 20,
+      "composite_sum": 0.1816717419673289
+     },
+     "3": {
+      "pds": 0.8864322222222223,
+      "pds_sd": 0.01596639335288834,
+      "mse": 0.7525483560038039,
+      "n": 20,
+      "composite_sum": 0.183641468406133
+     },
+     "4": {
+      "pds": 0.8954672222222223,
+      "pds_sd": 0.01419769287968694,
+      "mse": 0.7309130876390819,
+      "n": 20,
+      "composite_sum": 0.19080861137181004
+     },
+     "5": {
+      "pds": 0.8993377777777777,
+      "pds_sd": 0.010285573082975306,
+      "mse": 0.7246913390462258,
+      "n": 20,
+      "composite_sum": 0.1933393624783284
+     },
+     "6": {
+      "pds": 0.9052338888888889,
+      "pds_sd": 0.006753637842419756,
+      "mse": 0.7249748730835608,
+      "n": 20,
+      "composite_sum": 0.19546563379957027
+     },
+     "7": {
+      "pds": 0.9045072222222222,
+      "pds_sd": 0.006183806090490087,
+      "mse": 0.7196806695860651,
+      "n": 20,
+      "composite_sum": 0.1961350831557275
+     },
+     "8": {
+      "pds": 0.9070432098765432,
+      "pds_sd": 0.004796090371669762,
+      "mse": 0.7211190987073345,
+      "n": 9,
+      "composite_sum": 0.19681644780219185
+     },
+     "9": {
+      "pds": 0.9092444444444444,
+      "pds_sd": null,
+      "mse": 0.7202368460628635,
+      "n": 1,
+      "composite_sum": 0.1977852728574839
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8717827615794657,
+      "b": 0.017101411271896048,
+      "rss": 0.020459444396169507,
+      "aic": -1220.5060604523005
+     },
+     "saturating": {
+      "a": 0.916797498626494,
+      "c": 0.053155157221746525,
+      "tau": 4.487611344347543,
+      "rss": 0.02033633893542898,
+      "aic": -1219.3449565138515,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.1611039384490596,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8723811437971625,
+      "b": 0.01673259482512014,
+      "rss": 2.9282579925442488e-05,
+      "aic": -107.7216810409317
+     },
+     "saturating": {
+      "a": 0.9154732073146735,
+      "c": 0.052749823643248324,
+      "tau": 4.212187507604837,
+      "rss": 2.248119453591593e-05,
+      "aic": -108.10050376571273,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -0.3788227247810312,
+     "verdict": "indistinguishable",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.03594823507798114,
+    "lofo": {
+     "mean_dPDS": 0.0022012342967920834,
+     "ci95": [
+      -0.00026558664544588993,
+      0.00647061738151091
+     ],
+     "mean_dcomposite_sum": 0.0009688249552148001,
+     "ci95_composite_sum": [
+      6.265796869336694e-05,
+      0.002143873266146912
+     ],
+     "mean_dcomposite_pds_only": 0.0008125634170513412,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.0004999994238217672,
+       "ci95": [
+        -0.0019666652027517557,
+        0.0010336122736334784
+       ],
+       "dcomposite_sum": 0.0001989862126619002
+      },
+      "RNJURKAT": {
+       "dPDS": -0.00019999993344148,
+       "ci95": [
+        -0.0009669459592550993,
+        0.0006555551129082839
+       ],
+       "dcomposite_sum": 0.00046853702628160687
+      },
+      "HEPG2": {
+       "dPDS": -0.0001000004510084788,
+       "ci95": [
+        -0.0009000002394119898,
+        0.0007333329866329828
+       ],
+       "dcomposite_sum": 0.0003747940961772722
+      },
+      "FENG": {
+       "dPDS": 9.999990463256836e-05,
+       "ci95": [
+        -0.0015224998829265436,
+        0.0017666668308277925
+       ],
+       "dcomposite_sum": 0.000761319388260101
+      },
+      "KOLF": {
+       "dPDS": 0.002522221530477206,
+       "ci95": [
+        -0.0009347235138217608,
+        0.00601138801500201
+       ],
+       "dcomposite_sum": 0.0029468813792924986
+      },
+      "CD4": {
+       "dPDS": 0.0012222207834323246,
+       "ci95": [
+        -0.002667223780726393,
+        0.005277775933966041
+       ],
+       "dcomposite_sum": 0.0008691730154221089
+      },
+      "HEK293T": {
+       "dPDS": 0.00034444369375705717,
+       "ci95": [
+        -0.002433332954843839,
+        0.0031780546115090435
+       ],
+       "dcomposite_sum": -7.454958732233674e-05
+      },
+      "HCT116": {
+       "dPDS": 0.0017111110563079515,
+       "ci95": [
+        -0.0015558338969325026,
+        0.005311388197665412
+       ],
+       "dcomposite_sum": 0.000634308293772895
+      },
+      "K562": {
+       "dPDS": 0.014711111510793368,
+       "ci95": [
+        0.007088332821304599,
+        0.02304555668185154
+       ],
+       "dcomposite_sum": 0.0025399747723871546
+      }
+     },
+     "n_families": 9,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0022012345679012224
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.7518740740740741,
+      "pds_sd": 0.052526351117590436,
+      "mse": 1.0009176843890946,
+      "n": 9,
+      "composite_sum": 0.10206214175873235
+     },
+     "2": {
+      "pds": 0.8039388888888889,
+      "pds_sd": 0.043669144536336135,
+      "mse": 0.9391918646265086,
+      "n": 20,
+      "composite_sum": 0.12615784418908915
+     },
+     "3": {
+      "pds": 0.826001111111111,
+      "pds_sd": 0.04332025787135037,
+      "mse": 0.935097126901766,
+      "n": 20,
+      "composite_sum": 0.1359501280130763
+     },
+     "4": {
+      "pds": 0.8581,
+      "pds_sd": 0.03315420916633495,
+      "mse": 0.8514369270840652,
+      "n": 20,
+      "composite_sum": 0.1559561114669858
+     },
+     "5": {
+      "pds": 0.8698750000000001,
+      "pds_sd": 0.022884818486367666,
+      "mse": 0.8072218120707554,
+      "n": 20,
+      "composite_sum": 0.16784596346890063
+     },
+     "6": {
+      "pds": 0.8869116666666667,
+      "pds_sd": 0.012501124822685344,
+      "mse": 0.7964024686078875,
+      "n": 20,
+      "composite_sum": 0.1760511616753821
+     },
+     "7": {
+      "pds": 0.8865333333333332,
+      "pds_sd": 0.011289402299878322,
+      "mse": 0.7834540062036681,
+      "n": 20,
+      "composite_sum": 0.17820489063914965
+     },
+     "8": {
+      "pds": 0.8932777777777778,
+      "pds_sd": 0.008308028245819403,
+      "mse": 0.776590161363056,
+      "n": 9,
+      "composite_sum": 0.18191023468176068
+     },
+     "9": {
+      "pds": 0.8986000000000002,
+      "pds_sd": null,
+      "mse": 0.7783120436417961,
+      "n": 1,
+      "composite_sum": 0.18356990544594307
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7541816696486099,
+      "b": 0.07053200930900964,
+      "rss": 0.13420836611483758,
+      "aic": -959.0541551931065
+     },
+     "saturating": {
+      "a": 0.9065819455396383,
+      "c": 0.220800677025838,
+      "tau": 2.742071258813714,
+      "rss": 0.13281682192892708,
+      "aic": -958.5029053598058,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.5512498333006306,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7554540100254747,
+      "b": 0.0684297427836455,
+      "rss": 0.0002688977399143797,
+      "aic": -87.76563579291707
+     },
+     "saturating": {
+      "a": 0.9061456563991727,
+      "c": 0.22193917562905033,
+      "tau": 2.714562263753481,
+      "rss": 0.00010546923423807658,
+      "aic": -94.18884259158796,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -6.42320679867089,
+     "verdict": "saturating",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.1244924630453693,
+    "lofo": {
+     "mean_dPDS": 0.00532222150462783,
+     "ci95": [
+      0.0008097835220310285,
+      0.012308734518906999
+     ],
+     "mean_dcomposite_sum": 0.001659670499289624,
+     "ci95_composite_sum": [
+      -9.212499631466833e-05,
+      0.003930374444278985
+     ],
+     "mean_dcomposite_pds_only": 0.00196464433541079,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.0007111103522280852,
+       "ci95": [
+        -0.0012780563686974346,
+        0.0028113882124113526
+       ],
+       "dcomposite_sum": 0.0012129237357090816
+      },
+      "RNJURKAT": {
+       "dPDS": -5.555652702848117e-05,
+       "ci95": [
+        -0.0011000012697962424,
+        0.0012005551909096508
+       ],
+       "dcomposite_sum": 0.0006213305457684615
+      },
+      "HEPG2": {
+       "dPDS": 0.0002999996580183506,
+       "ci95": [
+        -0.000711111523831884,
+        0.0012558340181907002
+       ],
+       "dcomposite_sum": 0.000532257196598801
+      },
+      "FENG": {
+       "dPDS": 0.0025222209515050054,
+       "ci95": [
+        8.861119094459962e-05,
+        0.0052230540874879765
+       ],
+       "dcomposite_sum": 0.0016821217291558554
+      },
+      "KOLF": {
+       "dPDS": 0.008688887772150338,
+       "ci95": [
+        0.0020441648830892517,
+        0.01622388792631681
+       ],
+       "dcomposite_sum": 0.005461224438481654
+      },
+      "CD4": {
+       "dPDS": 0.0028888875416790446,
+       "ci95": [
+        -0.004811389985339095,
+        0.010400277021961906
+       ],
+       "dcomposite_sum": 0.0006430396673679228
+      },
+      "HEK293T": {
+       "dPDS": 0.0012333332483346264,
+       "ci95": [
+        -0.0023780564897848914,
+        0.004633611857153784
+       ],
+       "dcomposite_sum": -0.0012218597776172957
+      },
+      "HCT116": {
+       "dPDS": 0.00543333262981226,
+       "ci95": [
+        -0.0010791670295875518,
+        0.012422499963858474
+       ],
+       "dcomposite_sum": -3.937935740372378e-05
+      },
+      "K562": {
+       "dPDS": 0.026177777914951246,
+       "ci95": [
+        0.010485833931714296,
+        0.04209111163966977
+       ],
+       "dcomposite_sum": 0.006045376315545858
+      }
+     },
+     "n_families": 9,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.005322222222222339
+   },
+   "budget": {
+    "max_abs_bt_rel": 0.6883617673597979,
+    "median_abs_bt_rel": 0.07391078700887466,
+    "budget_changes": true,
+    "own_minus_fixBt_pds_maxabs": 0.0018555555555556102
+   }
+  },
+  "OR_HCT116X": {
+   "K": 7,
+   "families": [
+    "K562",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "parity": {
+    "fused_maxabs": 1.1869560712085558e-07,
+    "knn_maxabs": 1.4305114737211966e-07,
+    "knn_has_equal": true,
+    "base_total_maxabs": 4.550760968058398e-08,
+    "V3_absdot_min": 1.0000000000000002,
+    "Od_equal": true,
+    "Bt_rel": 1.331204975227649e-12,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 3.54996122345086e-08,
+    "prem3_pds_task14": 0.7328282901299715,
+    "prem3_pds_here": 0.7328282901299715,
+    "prem3_mse_task14": 0.13437548791544526,
+    "prem3_mse_here": 0.13437548791544526,
+    "pass": true
+   },
+   "n_subsets_done": 95,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.7117598098239715,
+      "pds_sd": 0.014101997380673269,
+      "mse": 0.39226833353439255,
+      "n": 7,
+      "composite_sum": 0.1829744628361552
+     },
+     "2": {
+      "pds": 0.7092592057135423,
+      "pds_sd": 0.023252646718781505,
+      "mse": 0.3458363749831647,
+      "n": 20,
+      "composite_sum": 0.190275258043521
+     },
+     "3": {
+      "pds": 0.7197545143055415,
+      "pds_sd": 0.022223507148807376,
+      "mse": 0.26966387915633916,
+      "n": 20,
+      "composite_sum": 0.20764090435841148
+     },
+     "4": {
+      "pds": 0.7179784296433374,
+      "pds_sd": 0.028163866735727943,
+      "mse": 0.26252324806108884,
+      "n": 20,
+      "composite_sum": 0.20825000452884795
+     },
+     "5": {
+      "pds": 0.7276352123060909,
+      "pds_sd": 0.016680047084671166,
+      "mse": 0.21307793075836373,
+      "n": 20,
+      "composite_sum": 0.22057229200677958
+     },
+     "6": {
+      "pds": 0.7315023451876667,
+      "pds_sd": 0.008115463486893279,
+      "mse": 0.16362282127227795,
+      "n": 7,
+      "composite_sum": 0.230759123077819
+     },
+     "7": {
+      "pds": 0.7328282901299715,
+      "pds_sd": null,
+      "mse": 0.13437548791544526,
+      "n": 1,
+      "composite_sum": 0.2364287688334825
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7042797051758818,
+      "b": 0.012896077872252956,
+      "rss": 0.04295668545728129,
+      "aic": -725.6367883642787
+     },
+     "saturating": {
+      "a": 1.6474571842706218,
+      "c": 0.9447487630224458,
+      "tau": 199.9999999999821,
+      "rss": 0.04237272941193523,
+      "aic": -724.9370830041021,
+      "tau_at_bound": true,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.6997053601766083,
+     "verdict": "indistinguishable",
+     "n": 95
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7066896601016247,
+      "b": 0.012186301466763716,
+      "rss": 0.00010829456152338648,
+      "aic": -71.53596039733213
+     },
+     "saturating": {
+      "a": 1.546890171858222,
+      "c": 0.8419903153245466,
+      "tau": 199.99999999981003,
+      "rss": 4.932610502312001e-05,
+      "aic": -75.04077076722194,
+      "tau_at_bound": true,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -3.5048103698898103,
+     "verdict": "saturating",
+     "n": 7
+    },
+    "mse_loglin_slope": -0.12643085772540266,
+    "lofo": {
+     "mean_dPDS": 0.001325946037153198,
+     "ci95": [
+      -0.0047176888941153315,
+      0.009629675426526978
+     ],
+     "mean_dcomposite_sum": 0.005669646159815641,
+     "ci95_composite_sum": [
+      -0.029000625706277563,
+      0.04647953786103578
+     ],
+     "mean_dcomposite_pds_only": 0.0004894595928952374,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.006303401366442782,
+       "ci95": [
+        -0.01357689269149088,
+        0.0007666001606293485
+       ],
+       "dcomposite_sum": -0.0015135621619138395
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0006939541449338311,
+       "ci95": [
+        -0.0017496987934730692,
+        0.00313724503664746
+       ],
+       "dcomposite_sum": 0.0002471332730099307
+      },
+      "HEPG2": {
+       "dPDS": -0.002240886593046297,
+       "ci95": [
+        -0.005117898020440068,
+        0.0006072095467818781
+       ],
+       "dcomposite_sum": 0.0005907894588867424
+      },
+      "H1": {
+       "dPDS": 0.001879454898460283,
+       "ci95": [
+        -0.0019083671663098123,
+        0.006014615668784187
+       ],
+       "dcomposite_sum": 0.005965624205976905
+      },
+      "FENG": {
+       "dPDS": -0.003209529536645222,
+       "ci95": [
+        -0.010106044464493206,
+        0.003022669912262782
+       ],
+       "dcomposite_sum": 0.0004135001910587355
+      },
+      "CD4": {
+       "dPDS": -0.00020240132162212873,
+       "ci95": [
+        -0.015152378087976643,
+        0.013287745622701993
+       ],
+       "dcomposite_sum": 0.025764543894832403
+      },
+      "K562": {
+       "dPDS": 0.0186644320344347,
+       "ci95": [
+        0.0007940700134269525,
+        0.03621600933254345
+       ],
+       "dcomposite_sum": 0.008219494256858612
+      }
+     },
+     "n_families": 7,
+     "n_targets": 263
+    },
+    "last_family_marginal_kmeans": 0.0013259449423048686
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.7117598098239715,
+      "pds_sd": 0.014101997380673269,
+      "mse": 0.39226833353439255,
+      "n": 7,
+      "composite_sum": 0.1829744628361552
+     },
+     "2": {
+      "pds": 0.7092592057135423,
+      "pds_sd": 0.023252646718781505,
+      "mse": 0.3458363749831647,
+      "n": 20,
+      "composite_sum": 0.190275258043521
+     },
+     "3": {
+      "pds": 0.7197545143055415,
+      "pds_sd": 0.022223507148807376,
+      "mse": 0.26966387915633916,
+      "n": 20,
+      "composite_sum": 0.20764090435841148
+     },
+     "4": {
+      "pds": 0.7179784296433374,
+      "pds_sd": 0.028163866735727943,
+      "mse": 0.26252324806108884,
+      "n": 20,
+      "composite_sum": 0.20825000452884795
+     },
+     "5": {
+      "pds": 0.7276352123060909,
+      "pds_sd": 0.016680047084671166,
+      "mse": 0.21307793075836373,
+      "n": 20,
+      "composite_sum": 0.22057229200677958
+     },
+     "6": {
+      "pds": 0.7315023451876667,
+      "pds_sd": 0.008115463486893279,
+      "mse": 0.16362282127227795,
+      "n": 7,
+      "composite_sum": 0.230759123077819
+     },
+     "7": {
+      "pds": 0.7328282901299715,
+      "pds_sd": null,
+      "mse": 0.13437548791544526,
+      "n": 1,
+      "composite_sum": 0.2364287688334825
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7042797051758818,
+      "b": 0.012896077872252956,
+      "rss": 0.04295668545728129,
+      "aic": -725.6367883642787
+     },
+     "saturating": {
+      "a": 1.6474571842706218,
+      "c": 0.9447487630224458,
+      "tau": 199.9999999999821,
+      "rss": 0.04237272941193523,
+      "aic": -724.9370830041021,
+      "tau_at_bound": true,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.6997053601766083,
+     "verdict": "indistinguishable",
+     "n": 95
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7066896601016247,
+      "b": 0.012186301466763716,
+      "rss": 0.00010829456152338648,
+      "aic": -71.53596039733213
+     },
+     "saturating": {
+      "a": 1.546890171858222,
+      "c": 0.8419903153245466,
+      "tau": 199.99999999981003,
+      "rss": 4.932610502312001e-05,
+      "aic": -75.04077076722194,
+      "tau_at_bound": true,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -3.5048103698898103,
+     "verdict": "saturating",
+     "n": 7
+    },
+    "mse_loglin_slope": -0.12643085772540266,
+    "lofo": {
+     "mean_dPDS": 0.001325946037153198,
+     "ci95": [
+      -0.004952980924421989,
+      0.010093602132596507
+     ],
+     "mean_dcomposite_sum": 0.005669646159815641,
+     "ci95_composite_sum": [
+      -0.03208044701143204,
+      0.042957480843805095
+     ],
+     "mean_dcomposite_pds_only": 0.0004894595928952374,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.006303401366442782,
+       "ci95": [
+        -0.013836039348324837,
+        0.0009545472241626474
+       ],
+       "dcomposite_sum": -0.0015135621619138395
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0006939541449338311,
+       "ci95": [
+        -0.0017496975581427264,
+        0.003180978508106654
+       ],
+       "dcomposite_sum": 0.0002471332730099307
+      },
+      "HEPG2": {
+       "dPDS": -0.002240886593046297,
+       "ci95": [
+        -0.005074524626971538,
+        0.0005931152512422059
+       ],
+       "dcomposite_sum": 0.0005907894588867424
+      },
+      "H1": {
+       "dPDS": 0.001879454898460283,
+       "ci95": [
+        -0.0018505404062370836,
+        0.0056683622249278105
+       ],
+       "dcomposite_sum": 0.005965624205976905
+      },
+      "FENG": {
+       "dPDS": -0.003209529536645222,
+       "ci95": [
+        -0.009774247624206677,
+        0.0028484596700864354
+       ],
+       "dcomposite_sum": 0.0004135001910587355
+      },
+      "CD4": {
+       "dPDS": -0.00020240132162212873,
+       "ci95": [
+        -0.014125184439823826,
+        0.01385194425880129
+       ],
+       "dcomposite_sum": 0.025764543894832403
+      },
+      "K562": {
+       "dPDS": 0.0186644320344347,
+       "ci95": [
+        0.00047709491314586015,
+        0.03790751638567295
+       ],
+       "dcomposite_sum": 0.008219494256858612
+      }
+     },
+     "n_families": 7,
+     "n_targets": 263
+    },
+    "last_family_marginal_kmeans": 0.0013259449423048686
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.6000107397409656,
+      "pds_sd": 0.06235424164748004,
+      "mse": 0.8840828591093912,
+      "n": 7,
+      "composite_sum": 0.07142065737411786
+     },
+     "2": {
+      "pds": 0.6307753473376801,
+      "pds_sd": 0.0645710986496769,
+      "mse": 0.6645923314782497,
+      "n": 20,
+      "composite_sum": 0.11072878450491305
+     },
+     "3": {
+      "pds": 0.6680391504864895,
+      "pds_sd": 0.06211317023789066,
+      "mse": 0.45986771206554317,
+      "n": 20,
+      "composite_sum": 0.15682312242615265
+     },
+     "4": {
+      "pds": 0.6830516560887102,
+      "pds_sd": 0.06070398876817109,
+      "mse": 0.39905928264594664,
+      "n": 20,
+      "composite_sum": 0.17117434829343658
+     },
+     "5": {
+      "pds": 0.7069135017131952,
+      "pds_sd": 0.03836560941715719,
+      "mse": 0.30727353423172443,
+      "n": 20,
+      "composite_sum": 0.19623948212397574
+     },
+     "6": {
+      "pds": 0.7188748882137539,
+      "pds_sd": 0.019496672497479856,
+      "mse": 0.22841502782429016,
+      "n": 7,
+      "composite_sum": 0.214622053204976
+     },
+     "7": {
+      "pds": 0.7244285734939062,
+      "pds_sd": null,
+      "mse": 0.17624963114816844,
+      "n": 1,
+      "composite_sum": 0.2259114947633396
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.5884067062472012,
+      "b": 0.07106061097770049,
+      "rss": 0.27876796654207936,
+      "aic": -547.9689776126661
+     },
+     "saturating": {
+      "a": 0.7746203192021797,
+      "c": 0.2240969969192751,
+      "tau": 4.279322643775889,
+      "rss": 0.277196461328021,
+      "aic": -546.5060385664326,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.4629390462334868,
+     "verdict": "indistinguishable",
+     "n": 95
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.5936134898070179,
+      "b": 0.06765847636149507,
+      "rss": 0.00019110005953638755,
+      "aic": -67.5603648095938
+     },
+     "saturating": {
+      "a": 0.7616044814491297,
+      "c": 0.21182782135768077,
+      "tau": 3.8571080480114897,
+      "rss": 7.3326101483605e-05,
+      "aic": -72.2655284923162,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -4.705163682722386,
+     "verdict": "saturating",
+     "n": 7
+    },
+    "mse_loglin_slope": -0.3694636307641585,
+    "lofo": {
+     "mean_dPDS": 0.005553684396682422,
+     "ci95": [
+      -0.006316413657700805,
+      0.024242590801319363
+     ],
+     "mean_dcomposite_sum": 0.011289441232239652,
+     "ci95_composite_sum": [
+      -0.02755556188093223,
+      0.0531861828298225
+     ],
+     "mean_dcomposite_pds_only": 0.0020500865251688524,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.006578090774185757,
+       "ci95": [
+        -0.014284576492617792,
+        0.0009129829453339703
+       ],
+       "dcomposite_sum": -0.0013669240559865403
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0004337196071904875,
+       "ci95": [
+        -0.0021107715667852208,
+        0.0029785743482524207
+       ],
+       "dcomposite_sum": -3.931454388131361e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0020818586811819913,
+       "ci95": [
+        -0.004626351346690279,
+        0.0004919109968716408
+       ],
+       "dcomposite_sum": 0.0006834371509605031
+      },
+      "H1": {
+       "dPDS": 0.006766034970095402,
+       "ci95": [
+        -0.0007232314182849097,
+        0.016134393592666083
+       ],
+       "dcomposite_sum": 0.013245010276560054
+      },
+      "FENG": {
+       "dPDS": -0.0056961932832183945,
+       "ci95": [
+        -0.012346571106853199,
+        0.00020312631676263514
+       ],
+       "dcomposite_sum": 0.0023584704270532275
+      },
+      "CD4": {
+       "dPDS": -0.0025878660345428797,
+       "ci95": [
+        -0.022293949700155413,
+        0.017296044320618785
+       ],
+       "dcomposite_sum": 0.040544272733437636
+      },
+      "K562": {
+       "dPDS": 0.04862004497262008,
+       "ci95": [
+        0.01727363313318092,
+        0.07925551907077942
+       ],
+       "dcomposite_sum": 0.023601136637533993
+      }
+     },
+     "n_families": 7,
+     "n_targets": 263
+    },
+    "last_family_marginal_kmeans": 0.005553685280152321
+   },
+   "budget": {
+    "max_abs_bt_rel": 5.739408948102209e-12,
+    "median_abs_bt_rel": 2.9607427620703675e-12,
+    "budget_changes": false,
+    "own_minus_fixBt_pds_maxabs": 0.0
+   }
+  },
+  "KOLF": {
+   "K": 9,
+   "families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "parity": {
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 4.7520123028213365e-08,
+    "prem3_pds_task14": 0.6366439280070914,
+    "prem3_pds_here": 0.6366439280070914,
+    "prem3_mse_task14": 0.916649738941552,
+    "prem3_mse_here": 0.916649738941552,
+    "pass": true
+   },
+   "n_subsets_done": 139,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.6012098736883876,
+      "pds_sd": 0.012232060407279147,
+      "mse": 0.9806450776271465,
+      "n": 9,
+      "composite_sum": 0.03896874477714626
+     },
+     "2": {
+      "pds": 0.6096664996595624,
+      "pds_sd": 0.012243527597228167,
+      "mse": 0.9593840137247251,
+      "n": 20,
+      "composite_sum": 0.045114832749353954
+     },
+     "3": {
+      "pds": 0.6156954561220951,
+      "pds_sd": 0.015290021095194789,
+      "mse": 0.9427957081858451,
+      "n": 20,
+      "composite_sum": 0.05002325547192377
+     },
+     "4": {
+      "pds": 0.6217468943101965,
+      "pds_sd": 0.01053345350795684,
+      "mse": 0.9313042589990788,
+      "n": 20,
+      "composite_sum": 0.054274924341152254
+     },
+     "5": {
+      "pds": 0.6303516141878959,
+      "pds_sd": 0.009049727005383215,
+      "mse": 0.9268752986440105,
+      "n": 20,
+      "composite_sum": 0.05823571195673538
+     },
+     "6": {
+      "pds": 0.6284503025397926,
+      "pds_sd": 0.010036641930802828,
+      "mse": 0.9233333182548635,
+      "n": 20,
+      "composite_sum": 0.05816120527821968
+     },
+     "7": {
+      "pds": 0.6312907079816549,
+      "pds_sd": 0.007391637752915583,
+      "mse": 0.9183116529976811,
+      "n": 20,
+      "composite_sum": 0.060099132259290866
+     },
+     "8": {
+      "pds": 0.6344228762620099,
+      "pds_sd": 0.0031003858075562287,
+      "mse": 0.9173069343260588,
+      "n": 9,
+      "composite_sum": 0.06143329285517582
+     },
+     "9": {
+      "pds": 0.6366439280070914,
+      "pds_sd": null,
+      "mse": 0.916649738941552,
+      "n": 1,
+      "composite_sum": 0.06236957185755917
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.5988809285201752,
+      "b": 0.017014924987452103,
+      "rss": 0.015691246484045976,
+      "aic": -1257.3885423606662
+     },
+     "saturating": {
+      "a": 0.6399869791035446,
+      "c": 0.051934497693572085,
+      "tau": 3.6871284015440815,
+      "rss": 0.015564158586679144,
+      "aic": -1256.518927012501,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.8696153481650981,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.599583704637847,
+      "b": 0.016655810379402607,
+      "rss": 2.7820419543543737e-05,
+      "aic": -108.18268381446524
+     },
+     "saturating": {
+      "a": 0.6417698788273478,
+      "c": 0.05236839710251882,
+      "tau": 4.042354264716917,
+      "rss": 1.9920377355663436e-05,
+      "aic": -109.1889274578946,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -1.0062436434293573,
+     "verdict": "indistinguishable",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.03163987991378138,
+    "lofo": {
+     "mean_dPDS": 0.0022210511766531374,
+     "ci95": [
+      -0.0021698789578524598,
+      0.006575262929397817
+     ],
+     "mean_dcomposite_sum": 0.0009362787925537528,
+     "ci95_composite_sum": [
+      -0.005143222572843245,
+      0.006603434583184552
+     ],
+     "mean_dcomposite_pds_only": 0.0008198786181812984,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.0015929903648126084,
+       "ci95": [
+        -0.004548373250257371,
+        0.007400662317291217
+       ],
+       "dcomposite_sum": 0.0006369358437220973
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0002954725483198747,
+       "ci95": [
+        -0.0014259860673952699,
+        0.002081163319688971
+       ],
+       "dcomposite_sum": 8.167705889633448e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0005267151367707065,
+       "ci95": [
+        -0.0030578365850706304,
+        0.0019533423081834807
+       ],
+       "dcomposite_sum": -9.349148306520005e-05
+      },
+      "H1": {
+       "dPDS": 0.004329336283054189,
+       "ci95": [
+        -0.00013007462979377802,
+        0.009108628318428085
+       ],
+       "dcomposite_sum": 0.005369107136734448
+      },
+      "FENG": {
+       "dPDS": 0.004008169486237469,
+       "ci95": [
+        -0.0023008463895081883,
+        0.010637388048079332
+       ],
+       "dcomposite_sum": 0.0020309998629569476
+      },
+      "CD4": {
+       "dPDS": -0.0018370787856773236,
+       "ci95": [
+        -0.012064657919108868,
+        0.007967203734342437
+       ],
+       "dcomposite_sum": 0.00041329772613094007
+      },
+      "HEK293T": {
+       "dPDS": 0.007399698532450157,
+       "ci95": [
+        -0.002530799118141013,
+        0.017704680027259924
+       ],
+       "dcomposite_sum": 0.0026312146181119433
+      },
+      "HCT116": {
+       "dPDS": 0.005035906856525756,
+       "ci95": [
+        -0.0052167218470592115,
+        0.015379104558645496
+       ],
+       "dcomposite_sum": 0.0013333558335210521
+      },
+      "K562": {
+       "dPDS": -0.00030831955907379,
+       "ci95": [
+        -0.016920068019944307,
+        0.015315194750591888
+       ],
+       "dcomposite_sum": -0.0039765874640247875
+      }
+     },
+     "n_families": 9,
+     "n_targets": 279
+    },
+    "last_family_marginal_kmeans": 0.0022210517450814704
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.6012098736883876,
+      "pds_sd": 0.012232060407279147,
+      "mse": 0.9806450776271465,
+      "n": 9,
+      "composite_sum": 0.03896874477714626
+     },
+     "2": {
+      "pds": 0.6096664996595624,
+      "pds_sd": 0.012243527597228167,
+      "mse": 0.9593840137247251,
+      "n": 20,
+      "composite_sum": 0.045114832749353954
+     },
+     "3": {
+      "pds": 0.6156954561220951,
+      "pds_sd": 0.015290021095194789,
+      "mse": 0.9427957081858451,
+      "n": 20,
+      "composite_sum": 0.05002325547192377
+     },
+     "4": {
+      "pds": 0.6217468943101965,
+      "pds_sd": 0.01053345350795684,
+      "mse": 0.9313042589990788,
+      "n": 20,
+      "composite_sum": 0.054274924341152254
+     },
+     "5": {
+      "pds": 0.6303516141878959,
+      "pds_sd": 0.009049727005383215,
+      "mse": 0.9268752986440105,
+      "n": 20,
+      "composite_sum": 0.05823571195673538
+     },
+     "6": {
+      "pds": 0.6284503025397926,
+      "pds_sd": 0.010036641930802828,
+      "mse": 0.9233333182548635,
+      "n": 20,
+      "composite_sum": 0.05816120527821968
+     },
+     "7": {
+      "pds": 0.6312907079816549,
+      "pds_sd": 0.007391637752915583,
+      "mse": 0.9183116529976811,
+      "n": 20,
+      "composite_sum": 0.060099132259290866
+     },
+     "8": {
+      "pds": 0.6344228762620099,
+      "pds_sd": 0.0031003858075562287,
+      "mse": 0.9173069343260588,
+      "n": 9,
+      "composite_sum": 0.06143329285517582
+     },
+     "9": {
+      "pds": 0.6366439280070914,
+      "pds_sd": null,
+      "mse": 0.916649738941552,
+      "n": 1,
+      "composite_sum": 0.06236957185755917
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.5988809285201752,
+      "b": 0.017014924987452103,
+      "rss": 0.015691246484045976,
+      "aic": -1257.3885423606662
+     },
+     "saturating": {
+      "a": 0.6399869791035446,
+      "c": 0.051934497693572085,
+      "tau": 3.6871284015440815,
+      "rss": 0.015564158586679144,
+      "aic": -1256.518927012501,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.8696153481650981,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.599583704637847,
+      "b": 0.016655810379402607,
+      "rss": 2.7820419543543737e-05,
+      "aic": -108.18268381446524
+     },
+     "saturating": {
+      "a": 0.6417698788273478,
+      "c": 0.05236839710251882,
+      "tau": 4.042354264716917,
+      "rss": 1.9920377355663436e-05,
+      "aic": -109.1889274578946,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -1.0062436434293573,
+     "verdict": "indistinguishable",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.03163987991378138,
+    "lofo": {
+     "mean_dPDS": 0.0022210511766531374,
+     "ci95": [
+      -0.0020646427912238505,
+      0.00668749248644923
+     ],
+     "mean_dcomposite_sum": 0.0009362787925537528,
+     "ci95_composite_sum": [
+      -0.005194017054384656,
+      0.006401129573306847
+     ],
+     "mean_dcomposite_pds_only": 0.0008198786181812984,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.0015929903648126084,
+       "ci95": [
+        -0.004575671051966033,
+        0.0075801947531307
+       ],
+       "dcomposite_sum": 0.0006369358437220973
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0002954725483198747,
+       "ci95": [
+        -0.0013363819028581342,
+        0.0020169296462128877
+       ],
+       "dcomposite_sum": 8.167705889633448e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0005267151367707065,
+       "ci95": [
+        -0.002903354478045283,
+        0.0018630928819745388
+       ],
+       "dcomposite_sum": -9.349148306520005e-05
+      },
+      "H1": {
+       "dPDS": 0.004329336283054189,
+       "ci95": [
+        3.789661720889127e-05,
+        0.009147491611834065
+       ],
+       "dcomposite_sum": 0.005369107136734448
+      },
+      "FENG": {
+       "dPDS": 0.004008169486237469,
+       "ci95": [
+        -0.0020965810746662187,
+        0.010535900335421771
+       ],
+       "dcomposite_sum": 0.0020309998629569476
+      },
+      "CD4": {
+       "dPDS": -0.0018370787856773236,
+       "ci95": [
+        -0.011986614087860243,
+        0.008338150445548781
+       ],
+       "dcomposite_sum": 0.00041329772613094007
+      },
+      "HEK293T": {
+       "dPDS": 0.007399698532450157,
+       "ci95": [
+        -0.003083532204264007,
+        0.01790862231695604
+       ],
+       "dcomposite_sum": 0.0026312146181119433
+      },
+      "HCT116": {
+       "dPDS": 0.005035906856525756,
+       "ci95": [
+        -0.005191029633619024,
+        0.015392274222099695
+       ],
+       "dcomposite_sum": 0.0013333558335210521
+      },
+      "K562": {
+       "dPDS": -0.00030831955907379,
+       "ci95": [
+        -0.016263921775748306,
+        0.015468713240013667
+       ],
+       "dcomposite_sum": -0.0039765874640247875
+      }
+     },
+     "n_families": 9,
+     "n_targets": 279
+    },
+    "last_family_marginal_kmeans": 0.0022210517450814704
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.5660527371322454,
+      "pds_sd": 0.030089040373517065,
+      "mse": 1.0343522952339175,
+      "n": 9,
+      "composite_sum": 0.025188049222246513
+     },
+     "2": {
+      "pds": 0.5880249482920312,
+      "pds_sd": 0.02393511639950259,
+      "mse": 0.9959464379788608,
+      "n": 20,
+      "composite_sum": 0.03503839483038744
+     },
+     "3": {
+      "pds": 0.6011375753137806,
+      "pds_sd": 0.01485086060333011,
+      "mse": 0.9667161887487083,
+      "n": 20,
+      "composite_sum": 0.041554284864948596
+     },
+     "4": {
+      "pds": 0.6109421770018371,
+      "pds_sd": 0.011750443182001758,
+      "mse": 0.9567953195628988,
+      "n": 20,
+      "composite_sum": 0.04643555887577981
+     },
+     "5": {
+      "pds": 0.6178543441117149,
+      "pds_sd": 0.010642957494317772,
+      "mse": 0.9497150441079562,
+      "n": 20,
+      "composite_sum": 0.050009347291553
+     },
+     "6": {
+      "pds": 0.6175460233039144,
+      "pds_sd": 0.010279787661644548,
+      "mse": 0.9443953041163,
+      "n": 20,
+      "composite_sum": 0.050509548524023874
+     },
+     "7": {
+      "pds": 0.6211623694454079,
+      "pds_sd": 0.007605913454029501,
+      "mse": 0.9339582211881885,
+      "n": 20,
+      "composite_sum": 0.053602961196786945
+     },
+     "8": {
+      "pds": 0.6253402591322197,
+      "pds_sd": 0.004756096939816079,
+      "mse": 0.9328415169140896,
+      "n": 9,
+      "composite_sum": 0.05532910487955378
+     },
+     "9": {
+      "pds": 0.6276126976786013,
+      "pds_sd": null,
+      "mse": 0.932497946093199,
+      "n": 1,
+      "composite_sum": 0.056228804702428296
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.569295683631345,
+      "b": 0.027956986067550108,
+      "rss": 0.031176530469831043,
+      "aic": -1161.9563444163066
+     },
+     "saturating": {
+      "a": 0.6257276378641031,
+      "c": 0.09414046391461463,
+      "tau": 2.193258312261211,
+      "rss": 0.03060084196716308,
+      "aic": -1162.5470346690108,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -0.5906902527042348,
+     "verdict": "indistinguishable",
+     "n": 139
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.5688159970131507,
+      "b": 0.02783424154463996,
+      "rss": 5.321161158608648e-05,
+      "aic": -102.3461264988517
+     },
+     "saturating": {
+      "a": 0.6279742355964318,
+      "c": 0.09345811410965049,
+      "tau": 2.3944922237190758,
+      "rss": 1.7743838090810275e-05,
+      "aic": -110.23027146516718,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -7.884144966315475,
+     "verdict": "saturating",
+     "n": 9
+    },
+    "mse_loglin_slope": -0.04807206230572214,
+    "lofo": {
+     "mean_dPDS": 0.0022724394429488423,
+     "ci95": [
+      -0.0044748269699140045,
+      0.009055854064376808
+     ],
+     "mean_dcomposite_sum": 0.0008997001538332411,
+     "ci95_composite_sum": [
+      -0.007434414021320041,
+      0.007481344696942523
+     ],
+     "mean_dcomposite_pds_only": 0.0008388480778696354,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.002954739993805313,
+       "ci95": [
+        -0.008916252266321879,
+        0.0029675880316010674
+       ],
+       "dcomposite_sum": -0.0009968288708195605
+      },
+      "RNJURKAT": {
+       "dPDS": 0.0002826279075983177,
+       "ci95": [
+        -0.0016315297667591376,
+        0.0022484949766574777
+       ],
+       "dcomposite_sum": 6.209936464387361e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0014131360330141573,
+       "ci95": [
+        -0.0036484614513667573,
+        0.0008867454730094423
+       ],
+       "dcomposite_sum": -0.000456687174472864
+      },
+      "H1": {
+       "dPDS": 0.008774297959488352,
+       "ci95": [
+        0.0003060764676514066,
+        0.017652653203108826
+       ],
+       "dcomposite_sum": 0.009897222374910974
+      },
+      "FENG": {
+       "dPDS": 0.004072404393131801,
+       "ci95": [
+        -0.002852288307872431,
+        0.01201166414553934
+       ],
+       "dcomposite_sum": 0.0024235513367414016
+      },
+      "CD4": {
+       "dPDS": 0.00043678867186696725,
+       "ci95": [
+        -0.015365295830319592,
+        0.01489157236029316
+       ],
+       "dcomposite_sum": 0.001698413914191288
+      },
+      "HEK293T": {
+       "dPDS": 0.009635025415048805,
+       "ci95": [
+        -0.004626096836391396,
+        0.023599708497384058
+       ],
+       "dcomposite_sum": 0.004092983934918144
+      },
+      "HCT116": {
+       "dPDS": 0.0045991196233685725,
+       "ci95": [
+        -0.010457534095152252,
+        0.01824456300731667
+       ],
+       "dcomposite_sum": 0.002135920855391861
+      },
+      "K562": {
+       "dPDS": -0.0029804329571437665,
+       "ci95": [
+        -0.0313077274417024,
+        0.026196670714819185
+       ],
+       "dcomposite_sum": -0.010759374351005949
+      }
+     },
+     "n_families": 9,
+     "n_targets": 279
+    },
+    "last_family_marginal_kmeans": 0.0022724385463815944
+   },
+   "budget": {
+    "max_abs_bt_rel": 3.304911899704166e-12,
+    "median_abs_bt_rel": 1.4386269953092778e-12,
+    "budget_changes": false,
+    "own_minus_fixBt_pds_maxabs": 0.0
+   }
+  },
+  "RN_K562": {
+   "K": 8,
+   "families": [
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "parity": {
+    "fused_maxabs": 1.0148226081696521e-07,
+    "knn_maxabs": 6.447449862889698e-08,
+    "knn_has_equal": true,
+    "base_total_maxabs": 1.6706438676905577e-08,
+    "V3_absdot_min": 0.9999999999999999,
+    "Od_equal": true,
+    "Bt_rel": 1.2771206523752213e-11,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 4.666093674167497e-08,
+    "prem3_pds_task14": 0.9055222222222221,
+    "prem3_pds_here": 0.9055222222222221,
+    "prem3_mse_task14": 0.4670222121070912,
+    "prem3_mse_here": 0.4670222121070912,
+    "pass": true
+   },
+   "n_subsets_done": 117,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.8941069444444444,
+      "pds_sd": 0.022423714249837787,
+      "mse": 0.6183862814058811,
+      "n": 8,
+      "composite_sum": 0.21023683744289487
+     },
+     "2": {
+      "pds": 0.8983694444444443,
+      "pds_sd": 0.017611963148352366,
+      "mse": 0.5760662307369004,
+      "n": 20,
+      "composite_sum": 0.21930587734454315
+     },
+     "3": {
+      "pds": 0.9031611111111111,
+      "pds_sd": 0.01410050229751534,
+      "mse": 0.5528068837602864,
+      "n": 20,
+      "composite_sum": 0.2251942878396004
+     },
+     "4": {
+      "pds": 0.9009666666666668,
+      "pds_sd": 0.008988169251006047,
+      "mse": 0.504985504623652,
+      "n": 20,
+      "composite_sum": 0.2328541881671064
+     },
+     "5": {
+      "pds": 0.9025566666666667,
+      "pds_sd": 0.008572767603257815,
+      "mse": 0.49840235644661374,
+      "n": 20,
+      "composite_sum": 0.23460710505960464
+     },
+     "6": {
+      "pds": 0.9034094444444445,
+      "pds_sd": 0.005569779772903754,
+      "mse": 0.4833362468369723,
+      "n": 20,
+      "composite_sum": 0.23759035661242126
+     },
+     "7": {
+      "pds": 0.9042,
+      "pds_sd": 0.0024956752716907287,
+      "mse": 0.47273909834616407,
+      "n": 8,
+      "composite_sum": 0.2397591125173368
+     },
+     "8": {
+      "pds": 0.9055222222222221,
+      "pds_sd": null,
+      "mse": 0.4670222121070912,
+      "n": 1,
+      "composite_sum": 0.24125975262713428
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.895512563801332,
+      "b": 0.004598716383094314,
+      "rss": 0.01693063054482835,
+      "aic": -1028.3741585694129
+     },
+     "saturating": {
+      "a": 0.9034015781458149,
+      "c": 0.020433222521068106,
+      "tau": 1.3005962492938388,
+      "rss": 0.016887861283806354,
+      "aic": -1026.670091707574,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.7040668618387826,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8949274462868662,
+      "b": 0.0049858472014430045,
+      "rss": 9.627212051501539e-06,
+      "aic": -103.04286737874413
+     },
+     "saturating": {
+      "a": 0.90458430713621,
+      "c": 0.017676373279600678,
+      "tau": 1.8532581526280196,
+      "rss": 9.189262583835206e-06,
+      "aic": -101.41533126116484,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.6275361175792966,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.08084328869218504,
+    "lofo": {
+     "mean_dPDS": 0.0013222223706543445,
+     "ci95": [
+      -0.0010862151527156433,
+      0.0034028125948583083
+     ],
+     "mean_dcomposite_sum": 0.0015006401645897734,
+     "ci95_composite_sum": [
+      -0.001003417687544454,
+      0.0046336744415736925
+     ],
+     "mean_dcomposite_pds_only": 0.00048808503900123456,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.003044444272915522,
+       "ci95": [
+        -0.009178056536863249,
+        0.0029241650775074855
+       ],
+       "dcomposite_sum": -0.0007406754153114203
+      },
+      "RNJURKAT": {
+       "dPDS": 0.005755555927753449,
+       "ci95": [
+        0.0028777783003946142,
+        0.008589721043904618
+       ],
+       "dcomposite_sum": 0.00959552633790628
+      },
+      "HEPG2": {
+       "dPDS": 0.00023333375652631125,
+       "ci95": [
+        -0.0035891670435667035,
+        0.0033555560347934567
+       ],
+       "dcomposite_sum": 0.003932140561527575
+      },
+      "H1": {
+       "dPDS": 0.0005000002185503641,
+       "ci95": [
+        -0.00014444401115179062,
+        0.001344723003606
+       ],
+       "dcomposite_sum": 0.0003689546858086368
+      },
+      "FENG": {
+       "dPDS": 0.0020333335796991984,
+       "ci95": [
+        0.0007555560705562432,
+        0.0034336121740440513
+       ],
+       "dcomposite_sum": -0.00010269094964665548
+      },
+      "CD4": {
+       "dPDS": 0.0028777776658535006,
+       "ci95": [
+        0.0003994449277718863,
+        0.005456667973349486
+       ],
+       "dcomposite_sum": 0.0006602223942995811
+      },
+      "HEK293T": {
+       "dPDS": 0.0010999995470046997,
+       "ci95": [
+        -0.0014555545076727868,
+        0.003866947025060652
+       ],
+       "dcomposite_sum": -0.00025202048163630586
+      },
+      "HCT116": {
+       "dPDS": 0.0011222225427627564,
+       "ci95": [
+        -0.0014777771756052972,
+        0.0036558336193362856
+       ],
+       "dcomposite_sum": -0.0014563358162295037
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0013222222222221136
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.8941402777777778,
+      "pds_sd": 0.022386035059756535,
+      "mse": 0.6270366688236719,
+      "n": 8,
+      "composite_sum": 0.20871701539403664
+     },
+     "2": {
+      "pds": 0.8985666666666667,
+      "pds_sd": 0.017515572946567345,
+      "mse": 0.5944224894216524,
+      "n": 20,
+      "composite_sum": 0.2161274828618492
+     },
+     "3": {
+      "pds": 0.9032216666666667,
+      "pds_sd": 0.014149775493756653,
+      "mse": 0.5543914481876566,
+      "n": 20,
+      "composite_sum": 0.22493598873852866
+     },
+     "4": {
+      "pds": 0.9009633333333333,
+      "pds_sd": 0.008789633048245388,
+      "mse": 0.5063152274732762,
+      "n": 20,
+      "composite_sum": 0.23261744178690485
+     },
+     "5": {
+      "pds": 0.9025094444444445,
+      "pds_sd": 0.00841644038836584,
+      "mse": 0.5025927046699359,
+      "n": 20,
+      "composite_sum": 0.23384749346306427
+     },
+     "6": {
+      "pds": 0.90344,
+      "pds_sd": 0.005515194205239532,
+      "mse": 0.4864134040078983,
+      "n": 20,
+      "composite_sum": 0.2370566204478534
+     },
+     "7": {
+      "pds": 0.9042291666666666,
+      "pds_sd": 0.002429804192254686,
+      "mse": 0.4737953231785819,
+      "n": 8,
+      "composite_sum": 0.23958280420725483
+     },
+     "8": {
+      "pds": 0.9055222222222221,
+      "pds_sd": null,
+      "mse": 0.4670222121070912,
+      "n": 1,
+      "composite_sum": 0.24125975262713428
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8956636244265082,
+      "b": 0.004515499923850071,
+      "rss": 0.0167532923206589,
+      "aic": -1029.6061269488525
+     },
+     "saturating": {
+      "a": 0.903341180796361,
+      "c": 0.020862170176600334,
+      "tau": 1.2455178014084873,
+      "rss": 0.016708153530941374,
+      "aic": -1027.9217882399919,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.6843387088606505,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8950277234321318,
+      "b": 0.004938514982693183,
+      "rss": 9.919990409429852e-06,
+      "aic": -102.80320116111314
+     },
+     "saturating": {
+      "a": 0.9045198540341408,
+      "c": 0.017780990671497174,
+      "tau": 1.7946980155133072,
+      "rss": 9.430069130700972e-06,
+      "aic": -101.20838937673857,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.5948117843745706,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.08821246864656418,
+    "lofo": {
+     "mean_dPDS": 0.0012930555331210295,
+     "ci95": [
+      -0.0011696186945773662,
+      0.0033586456446597955
+     ],
+     "mean_dcomposite_sum": 0.0016769484115980622,
+     "ci95_composite_sum": [
+      -0.001303065903985471,
+      0.0050207785558067
+     ],
+     "mean_dcomposite_pds_only": 0.000477318395393514,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.002911110520362854,
+       "ci95": [
+        -0.008678333781659603,
+        0.002622777760028836
+       ],
+       "dcomposite_sum": -0.004271537838885925
+      },
+      "RNJURKAT": {
+       "dPDS": 0.005566666573286056,
+       "ci95": [
+        0.0026549986973404883,
+        0.008623054491976893
+       ],
+       "dcomposite_sum": 0.010815384839827136
+      },
+      "HEPG2": {
+       "dPDS": 7.777775327364604e-05,
+       "ci95": [
+        -0.0037891676239669323,
+        0.0033225002350906513
+       ],
+       "dcomposite_sum": 0.0018997077057757994
+      },
+      "H1": {
+       "dPDS": 0.00046666691700617474,
+       "ci95": [
+        -0.00015555540720621746,
+        0.001255833821992078
+       ],
+       "dcomposite_sum": 0.0003022214031610515
+      },
+      "FENG": {
+       "dPDS": 0.0020666666825612384,
+       "ci95": [
+        0.0008444453117748102,
+        0.0034558338510493423
+       ],
+       "dcomposite_sum": 0.000743208544868923
+      },
+      "CD4": {
+       "dPDS": 0.0028888884683450065,
+       "ci95": [
+        0.00034388722727696105,
+        0.005422222122550011
+       ],
+       "dcomposite_sum": 0.0017385797965301375
+      },
+      "HEK293T": {
+       "dPDS": 0.0010444441437721253,
+       "ci95": [
+        -0.0015002792105078696,
+        0.00372222176939249
+       ],
+       "dcomposite_sum": 0.0017668526345489821
+      },
+      "HCT116": {
+       "dPDS": 0.0011444442470868428,
+       "ci95": [
+        -0.001455833283563455,
+        0.003600277428825695
+       ],
+       "dcomposite_sum": 0.00042117020695839336
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.001293055555555478
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.7722722222222221,
+      "pds_sd": 0.09406233607976716,
+      "mse": 0.9090801957903039,
+      "n": 8,
+      "composite_sum": 0.1222703230907436
+     },
+     "2": {
+      "pds": 0.8379788888888889,
+      "pds_sd": 0.0483876175499863,
+      "mse": 0.7531309128821383,
+      "n": 20,
+      "composite_sum": 0.16753206263283923
+     },
+     "3": {
+      "pds": 0.8605061111111111,
+      "pds_sd": 0.03848091726852622,
+      "mse": 0.6948901419380498,
+      "n": 20,
+      "composite_sum": 0.18455065715054686
+     },
+     "4": {
+      "pds": 0.8753183333333332,
+      "pds_sd": 0.021767954961890056,
+      "mse": 0.596264335111783,
+      "n": 20,
+      "composite_sum": 0.20721937398567794
+     },
+     "5": {
+      "pds": 0.8811038888888889,
+      "pds_sd": 0.014103528964048892,
+      "mse": 0.5677370211826717,
+      "n": 20,
+      "composite_sum": 0.21440771262339536
+     },
+     "6": {
+      "pds": 0.8877505555555555,
+      "pds_sd": 0.010899428885610867,
+      "mse": 0.5258989066189695,
+      "n": 20,
+      "composite_sum": 0.22427148472279126
+     },
+     "7": {
+      "pds": 0.8929388888888888,
+      "pds_sd": 0.005365508107223083,
+      "mse": 0.48423313028495035,
+      "n": 8,
+      "composite_sum": 0.23356640384407204
+     },
+     "8": {
+      "pds": 0.8965222222222221,
+      "pds_sd": null,
+      "mse": 0.4594064824220684,
+      "n": 1,
+      "composite_sum": 0.23928636520275712
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7924742783858397,
+      "b": 0.0559658133397071,
+      "rss": 0.15663596783674544,
+      "aic": -768.0725588999704
+     },
+     "saturating": {
+      "a": 0.8895987976538625,
+      "c": 0.23823876037260167,
+      "tau": 1.370056677444772,
+      "rss": 0.1506529587536383,
+      "aic": -770.6291860919844,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -2.5566271920139343,
+     "verdict": "saturating",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7872942275917186,
+      "b": 0.057148513332872596,
+      "rss": 0.0006648093390114007,
+      "aic": -69.16361446680366
+     },
+     "saturating": {
+      "a": 0.8932992704118143,
+      "c": 0.234244961119311,
+      "tau": 1.4820080520888363,
+      "rss": 8.173741055187857e-05,
+      "aic": -83.93152240873013,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -14.767907941926467,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.2154416713768084,
+    "lofo": {
+     "mean_dPDS": 0.0035833323420956732,
+     "ci95": [
+      -0.00046590339858084903,
+      0.008338923193824788
+     ],
+     "mean_dcomposite_sum": 0.005719960992779671,
+     "ci95_composite_sum": [
+      0.000565537590747982,
+      0.012250811522371313
+     ],
+     "mean_dcomposite_pds_only": 0.001322750956845948,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.0010666665434837341,
+       "ci95": [
+        -0.01000138871371746,
+        0.012601111220816766
+       ],
+       "dcomposite_sum": -0.0029085014895592898
+      },
+      "RNJURKAT": {
+       "dPDS": 0.01617777650554975,
+       "ci95": [
+        0.011643609928588072,
+        0.020889444141338268
+       ],
+       "dcomposite_sum": 0.025806899790283666
+      },
+      "HEPG2": {
+       "dPDS": 0.005344443370898564,
+       "ci95": [
+        0.0001880531956752142,
+        0.010466943189501761
+       ],
+       "dcomposite_sum": 0.009467917269930348
+      },
+      "H1": {
+       "dPDS": -0.00014444492757320404,
+       "ci95": [
+        -0.0026563893612474203,
+        0.0015888878454764683
+       ],
+       "dcomposite_sum": 0.00016828382436409606
+      },
+      "FENG": {
+       "dPDS": 0.001833333099881808,
+       "ci95": [
+        9.972217244406543e-05,
+        0.0038444431020567818
+       ],
+       "dcomposite_sum": 0.0012758702932372246
+      },
+      "CD4": {
+       "dPDS": 0.0021888876333832743,
+       "ci95": [
+        -0.002511390410053233,
+        0.006422221122620006
+       ],
+       "dcomposite_sum": 0.0035253386193123126
+      },
+      "HEK293T": {
+       "dPDS": 4.444221655527751e-05,
+       "ci95": [
+        -0.0041225024163723,
+        0.003933330787966648
+       ],
+       "dcomposite_sum": 0.004693909598229684
+      },
+      "HCT116": {
+       "dPDS": 0.0021555542945861815,
+       "ci95": [
+        -0.002888890321056048,
+        0.007533330069233973
+       ],
+       "dcomposite_sum": 0.003729970036439323
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0035833333333332718
+   },
+   "budget": {
+    "max_abs_bt_rel": 0.3346675289199563,
+    "median_abs_bt_rel": 0.05122666660976383,
+    "budget_changes": true,
+    "own_minus_fixBt_pds_maxabs": 0.0009444444444445255
+   }
+  },
+  "RN_HepG2": {
+   "K": 8,
+   "families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "parity": {
+    "fused_maxabs": 1.1258655119306127e-07,
+    "knn_maxabs": 6.667059260223596e-08,
+    "knn_has_equal": true,
+    "base_total_maxabs": 1.1208000597062728e-08,
+    "V3_absdot_min": 0.9999999999999994,
+    "Od_equal": true,
+    "Bt_rel": 3.2564100575128896e-12,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 3.086180900343261e-08,
+    "prem3_pds_task14": 0.9077333333333333,
+    "prem3_pds_here": 0.9077333333333333,
+    "prem3_mse_task14": 0.3106545938327487,
+    "prem3_mse_here": 0.31065459615120244,
+    "pass": true
+   },
+   "n_subsets_done": 117,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.8980458333333333,
+      "pds_sd": 0.028112868028101163,
+      "mse": 0.44103402861154406,
+      "n": 8,
+      "composite_sum": 0.24310285636164355
+     },
+     "2": {
+      "pds": 0.9070766666666668,
+      "pds_sd": 0.01753446467936629,
+      "mse": 0.42733709589915525,
+      "n": 20,
+      "composite_sum": 0.24886245067897214
+     },
+     "3": {
+      "pds": 0.9025722222222223,
+      "pds_sd": 0.020986659489857073,
+      "mse": 0.3677454163055031,
+      "n": 20,
+      "composite_sum": 0.2577543527514953
+     },
+     "4": {
+      "pds": 0.9072477777777778,
+      "pds_sd": 0.013918304335713706,
+      "mse": 0.3733956751606532,
+      "n": 20,
+      "composite_sum": 0.2584795325668302
+     },
+     "5": {
+      "pds": 0.9082616666666666,
+      "pds_sd": 0.012708757641591913,
+      "mse": 0.34776629575907364,
+      "n": 20,
+      "composite_sum": 0.2633931864847374
+     },
+     "6": {
+      "pds": 0.908965,
+      "pds_sd": 0.009532703038775042,
+      "mse": 0.3362626611040883,
+      "n": 20,
+      "composite_sum": 0.26569029888230405
+     },
+     "7": {
+      "pds": 0.9076027777777778,
+      "pds_sd": 0.007084662495897495,
+      "mse": 0.32003472458692916,
+      "n": 8,
+      "composite_sum": 0.2680616843127664
+     },
+     "8": {
+      "pds": 0.9077333333333333,
+      "pds_sd": null,
+      "mse": 0.31065459615120244,
+      "n": 1,
+      "composite_sum": 0.2697712534964919
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.9008166479552905,
+      "b": 0.004287566761715967,
+      "rss": 0.029060391569797825,
+      "aic": -965.1647105004058
+     },
+     "saturating": {
+      "a": 0.9083367216849241,
+      "c": 0.016733410575260146,
+      "tau": 1.4810051814897274,
+      "rss": 0.02906206210352175,
+      "aic": -963.1579849603296,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 2.006725540076218,
+     "verdict": "log-linear",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.9001809764015063,
+      "b": 0.004343158059581722,
+      "rss": 3.185445893668176e-05,
+      "aic": -93.47019783530207
+     },
+     "saturating": {
+      "a": 0.9077373995117927,
+      "c": 0.025771443189643944,
+      "tau": 0.9746356963628641,
+      "rss": 2.5177374153808308e-05,
+      "aic": -93.35205087580604,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.11814695949603049,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.06743258254832774,
+    "lofo": {
+     "mean_dPDS": 0.00013055577874183656,
+     "ci95": [
+      -0.004850554522437354,
+      0.005330347562519198
+     ],
+     "mean_dcomposite_sum": 0.0017095692661124526,
+     "ci95_composite_sum": [
+      -0.0011127338384252698,
+      0.005566457826063959
+     ],
+     "mean_dcomposite_pds_only": 4.819334763449116e-05,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.012044443488121033,
+       "ci95": [
+        -0.017345555275678635,
+        -0.007100000031292439
+       ],
+       "dcomposite_sum": 0.009208453246132176
+      },
+      "RNJURKAT": {
+       "dPDS": 0.00027777830759684243,
+       "ci95": [
+        -0.001533332792421182,
+        0.002189168239633241
+       ],
+       "dcomposite_sum": -0.00010827054430434524
+      },
+      "H1": {
+       "dPDS": 0.0003444443146387736,
+       "ci95": [
+        -0.0001555554121732712,
+        0.000866666833559672
+       ],
+       "dcomposite_sum": 0.00015952156938275897
+      },
+      "FENG": {
+       "dPDS": 0.0006444444259007772,
+       "ci95": [
+        -0.0006666659389932951,
+        0.0018444444810350735
+       ],
+       "dcomposite_sum": 0.00020727240567686156
+      },
+      "CD4": {
+       "dPDS": 0.0013888893524805705,
+       "ci95": [
+        -0.000890000099937121,
+        0.003789167421559491
+       ],
+       "dcomposite_sum": -0.0011636476222149916
+      },
+      "HEK293T": {
+       "dPDS": 0.0011999999483426412,
+       "ci95": [
+        -0.0005333330531915029,
+        0.003199998542666435
+       ],
+       "dcomposite_sum": -0.00027708471840831583
+      },
+      "HCT116": {
+       "dPDS": -0.0043222221732139585,
+       "ci95": [
+        -0.00715583314994971,
+        -0.0017327770590782195
+       ],
+       "dcomposite_sum": 0.005681767608623212
+      },
+      "K562": {
+       "dPDS": 0.01355555554231008,
+       "ci95": [
+        0.005410554905732473,
+        0.022701390256484343
+       ],
+       "dcomposite_sum": -3.145781598773434e-05
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.00013055555555552267
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.8980458333333333,
+      "pds_sd": 0.028112868028101163,
+      "mse": 0.44103402861154406,
+      "n": 8,
+      "composite_sum": 0.24310285636164355
+     },
+     "2": {
+      "pds": 0.9070766666666668,
+      "pds_sd": 0.01753446467936629,
+      "mse": 0.42733709589915525,
+      "n": 20,
+      "composite_sum": 0.24886245067897214
+     },
+     "3": {
+      "pds": 0.9025722222222223,
+      "pds_sd": 0.020986659489857073,
+      "mse": 0.3677454163055031,
+      "n": 20,
+      "composite_sum": 0.2577543527514953
+     },
+     "4": {
+      "pds": 0.9072477777777778,
+      "pds_sd": 0.013918304335713706,
+      "mse": 0.3733956751606532,
+      "n": 20,
+      "composite_sum": 0.2584795325668302
+     },
+     "5": {
+      "pds": 0.9082616666666666,
+      "pds_sd": 0.012708757641591913,
+      "mse": 0.34776629575907364,
+      "n": 20,
+      "composite_sum": 0.2633931864847374
+     },
+     "6": {
+      "pds": 0.908965,
+      "pds_sd": 0.009532703038775042,
+      "mse": 0.3362626611040883,
+      "n": 20,
+      "composite_sum": 0.26569029888230405
+     },
+     "7": {
+      "pds": 0.9076027777777778,
+      "pds_sd": 0.007084662495897495,
+      "mse": 0.32003472458692916,
+      "n": 8,
+      "composite_sum": 0.2680616843127664
+     },
+     "8": {
+      "pds": 0.9077333333333333,
+      "pds_sd": null,
+      "mse": 0.31065459615120244,
+      "n": 1,
+      "composite_sum": 0.2697712534964919
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.9008166479552905,
+      "b": 0.004287566761715967,
+      "rss": 0.029060391569797825,
+      "aic": -965.1647105004058
+     },
+     "saturating": {
+      "a": 0.9083367216849241,
+      "c": 0.016733410575260146,
+      "tau": 1.4810051814897274,
+      "rss": 0.02906206210352175,
+      "aic": -963.1579849603296,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 2.006725540076218,
+     "verdict": "log-linear",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.9001809764015063,
+      "b": 0.004343158059581722,
+      "rss": 3.185445893668176e-05,
+      "aic": -93.47019783530207
+     },
+     "saturating": {
+      "a": 0.9077373995117927,
+      "c": 0.025771443189643944,
+      "tau": 0.9746356963628641,
+      "rss": 2.5177374153808308e-05,
+      "aic": -93.35205087580604,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 0.11814695949603049,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.06743258254832774,
+    "lofo": {
+     "mean_dPDS": 0.00013055577874183656,
+     "ci95": [
+      -0.004350589742573598,
+      0.005840416538529097
+     ],
+     "mean_dcomposite_sum": 0.0017095692661124526,
+     "ci95_composite_sum": [
+      -0.001322267887712125,
+      0.00575678791248458
+     ],
+     "mean_dcomposite_pds_only": 4.819334763449116e-05,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.012044443488121033,
+       "ci95": [
+        -0.01707805385192235,
+        -0.007066388120253882
+       ],
+       "dcomposite_sum": 0.009208453246132176
+      },
+      "RNJURKAT": {
+       "dPDS": 0.00027777830759684243,
+       "ci95": [
+        -0.0017113867849111557,
+        0.0021777786910533903
+       ],
+       "dcomposite_sum": -0.00010827054430434524
+      },
+      "H1": {
+       "dPDS": 0.0003444443146387736,
+       "ci95": [
+        -0.0001111116111278534,
+        0.000855555738011996
+       ],
+       "dcomposite_sum": 0.00015952156938275897
+      },
+      "FENG": {
+       "dPDS": 0.0006444444259007772,
+       "ci95": [
+        -0.0006666670267780622,
+        0.0018777760018905004
+       ],
+       "dcomposite_sum": 0.00020727240567686156
+      },
+      "CD4": {
+       "dPDS": 0.0013888893524805705,
+       "ci95": [
+        -0.0010447229892015459,
+        0.0038225013116995475
+       ],
+       "dcomposite_sum": -0.0011636476222149916
+      },
+      "HEK293T": {
+       "dPDS": 0.0011999999483426412,
+       "ci95": [
+        -0.0006338887736201286,
+        0.0030777774328986803
+       ],
+       "dcomposite_sum": -0.00027708471840831583
+      },
+      "HCT116": {
+       "dPDS": -0.0043222221732139585,
+       "ci95": [
+        -0.007311389376719792,
+        -0.00174416490395864
+       ],
+       "dcomposite_sum": 0.005681767608623212
+      },
+      "K562": {
+       "dPDS": 0.01355555554231008,
+       "ci95": [
+        0.005377501132587593,
+        0.0223236101369063
+       ],
+       "dcomposite_sum": -3.145781598773434e-05
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.00013055555555552267
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.7598986111111111,
+      "pds_sd": 0.10081285811398821,
+      "mse": 0.7514840081635059,
+      "n": 8,
+      "composite_sum": 0.1383223401634186
+     },
+     "2": {
+      "pds": 0.8337705555555555,
+      "pds_sd": 0.04873570462667073,
+      "mse": 0.6330188994198499,
+      "n": 20,
+      "composite_sum": 0.18537258992625266
+     },
+     "3": {
+      "pds": 0.8596561111111111,
+      "pds_sd": 0.019542207524196897,
+      "mse": 0.5002407671870658,
+      "n": 20,
+      "composite_sum": 0.21844518514488268
+     },
+     "4": {
+      "pds": 0.8751877777777779,
+      "pds_sd": 0.018757254052689628,
+      "mse": 0.4910830296531432,
+      "n": 20,
+      "composite_sum": 0.22580052989836874
+     },
+     "5": {
+      "pds": 0.8860455555555555,
+      "pds_sd": 0.01043058237745829,
+      "mse": 0.4535957477474538,
+      "n": 20,
+      "composite_sum": 0.2364481867109644
+     },
+     "6": {
+      "pds": 0.8909600000000001,
+      "pds_sd": 0.006210070004491813,
+      "mse": 0.4323098344892123,
+      "n": 20,
+      "composite_sum": 0.24203239162571047
+     },
+     "7": {
+      "pds": 0.8935805555555556,
+      "pds_sd": 0.005815747490327619,
+      "mse": 0.4037682576371423,
+      "n": 8,
+      "composite_sum": 0.24805492866679613
+     },
+     "8": {
+      "pds": 0.8966555555555555,
+      "pds_sd": null,
+      "mse": 0.3911652877231994,
+      "n": 1,
+      "composite_sum": 0.25142222833039046
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7824506775739879,
+      "b": 0.06359343641782274,
+      "rss": 0.14208303824423402,
+      "aic": -779.4815534349256
+     },
+     "saturating": {
+      "a": 0.8931274322846818,
+      "c": 0.2687823100985099,
+      "tau": 1.3849672137783318,
+      "rss": 0.13404913912347433,
+      "aic": -784.2915642273512,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -4.810010792425601,
+     "verdict": "saturating",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.777547016753407,
+      "b": 0.06368730582265593,
+      "rss": 0.0009686101048417379,
+      "aic": -66.15271949847745
+     },
+     "saturating": {
+      "a": 0.8949939054470464,
+      "c": 0.26942183565913147,
+      "tau": 1.4262572077069164,
+      "rss": 5.412483188698111e-05,
+      "aic": -87.22927215472389,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -21.076552656246434,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.17702897406128454,
+    "lofo": {
+     "mean_dPDS": 0.003075000268096725,
+     "ci95": [
+      -0.0006917356023720155,
+      0.009540903160348531
+     ],
+     "mean_dcomposite_sum": 0.0033672997625595925,
+     "ci95_composite_sum": [
+      -0.005575948695928228,
+      0.011177755993664835
+     ],
+     "mean_dcomposite_pds_only": 0.0011351053038378461,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.003322222406665484,
+       "ci95": [
+        -0.005289444865037998,
+        0.013434443840136125
+       ],
+       "dcomposite_sum": 0.022817089811785457
+      },
+      "RNJURKAT": {
+       "dPDS": 0.001755555123090744,
+       "ci95": [
+        -0.0013338891801734764,
+        0.005144443931678931
+       ],
+       "dcomposite_sum": 0.005634102829537219
+      },
+      "H1": {
+       "dPDS": 0.0019888886312643688,
+       "ci95": [
+        0.00014444380750258762,
+        0.004533610696593918
+       ],
+       "dcomposite_sum": 0.0008445095081019427
+      },
+      "FENG": {
+       "dPDS": 0.001188889741897583,
+       "ci95": [
+        -0.0004113891199231148,
+        0.0026555568079153695
+       ],
+       "dcomposite_sum": 0.0004886240996146984
+      },
+      "CD4": {
+       "dPDS": 0.0008666670322418213,
+       "ci95": [
+        -0.003788887672126293,
+        0.004945001386106011
+       ],
+       "dcomposite_sum": -0.00018798772125022678
+      },
+      "HEK293T": {
+       "dPDS": 0.0015666669607162476,
+       "ci95": [
+        -0.0010225001821915307,
+        0.004222500905394552
+       ],
+       "dcomposite_sum": 0.0007334068209034483
+      },
+      "HCT116": {
+       "dPDS": -0.002866666813691457,
+       "ci95": [
+        -0.007156389037768046,
+        0.0012891663834452614
+       ],
+       "dcomposite_sum": 0.013948395531830832
+      },
+      "K562": {
+       "dPDS": 0.01677777906258901,
+       "ci95": [
+        0.0024108385729293027,
+        0.03149250008290011
+       ],
+       "dcomposite_sum": -0.01733974278004663
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.003074999999999939
+   },
+   "budget": {
+    "max_abs_bt_rel": 7.1667116685603105e-12,
+    "median_abs_bt_rel": 3.4021674366613297e-12,
+    "budget_changes": false,
+    "own_minus_fixBt_pds_maxabs": 0.0
+   }
+  },
+  "RN_Jurkat": {
+   "K": 8,
+   "families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RPE1"
+   ],
+   "parity": {
+    "fused_maxabs": 1.1833027091512349e-07,
+    "knn_maxabs": 4.777914719422682e-08,
+    "knn_has_equal": true,
+    "base_total_maxabs": 1.150598705201844e-08,
+    "V3_absdot_min": 0.9999999999999998,
+    "Od_equal": true,
+    "Bt_rel": 4.712266678859419e-12,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 3.64042829372287e-08,
+    "prem3_pds_task14": 0.9204777777777777,
+    "prem3_pds_here": 0.9204777777777777,
+    "prem3_mse_task14": 0.24215280275218995,
+    "prem3_mse_here": 0.24215280275218995,
+    "pass": true
+   },
+   "n_subsets_done": 117,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.8974375,
+      "pds_sd": 0.02311555279166384,
+      "mse": 0.45995082532265036,
+      "n": 8,
+      "composite_sum": 0.23952781862121472
+     },
+     "2": {
+      "pds": 0.8989105555555555,
+      "pds_sd": 0.022370990182698294,
+      "mse": 0.41885064275662753,
+      "n": 20,
+      "composite_sum": 0.24735110444743386
+     },
+     "3": {
+      "pds": 0.908466111111111,
+      "pds_sd": 0.017692053727795715,
+      "mse": 0.36333185171345384,
+      "n": 20,
+      "composite_sum": 0.2607117376317267
+     },
+     "4": {
+      "pds": 0.9128655555555556,
+      "pds_sd": 0.014961348903546286,
+      "mse": 0.3106563335886019,
+      "n": 20,
+      "composite_sum": 0.2716654537861256
+     },
+     "5": {
+      "pds": 0.9154744444444445,
+      "pds_sd": 0.011405329226411414,
+      "mse": 0.2870662135136396,
+      "n": 20,
+      "composite_sum": 0.27680669928938173
+     },
+     "6": {
+      "pds": 0.9169416666666667,
+      "pds_sd": 0.01089413877202531,
+      "mse": 0.2724991309941066,
+      "n": 20,
+      "composite_sum": 0.27992838085254224
+     },
+     "7": {
+      "pds": 0.9188152777777778,
+      "pds_sd": 0.008071363662706705,
+      "mse": 0.25505184751642274,
+      "n": 8,
+      "composite_sum": 0.2837102080070894
+     },
+     "8": {
+      "pds": 0.9204777777777777,
+      "pds_sd": null,
+      "mse": 0.24215280275218995,
+      "n": 1,
+      "composite_sum": 0.2866085373101097
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8932771825830204,
+      "b": 0.013336547650250946,
+      "rss": 0.029074432564091767,
+      "aic": -965.108193726207
+     },
+     "saturating": {
+      "a": 0.9257315233001242,
+      "c": 0.04082641191979754,
+      "tau": 3.736689484439632,
+      "rss": 0.028932644124995563,
+      "aic": -963.6801680907195,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.4280256354875291,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8949662132969354,
+      "b": 0.01222668908044036,
+      "rss": 2.8243942698842165e-05,
+      "aic": -94.43258466226024
+     },
+     "saturating": {
+      "a": 0.9262826357743471,
+      "c": 0.038728745638082304,
+      "tau": 4.124928610932174,
+      "rss": 1.8015418570404543e-05,
+      "aic": -96.02979296931785,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -1.5972083070576133,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.11932440872960715,
+    "lofo": {
+     "mean_dPDS": 0.0016624991223216058,
+     "ci95": [
+      -0.0026875009238719943,
+      0.007870693335930498
+     ],
+     "mean_dcomposite_sum": 0.0028983289790342273,
+     "ci95_composite_sum": [
+      -0.0016941415566363127,
+      0.010118019956015785
+     ],
+     "mean_dcomposite_pds_only": 0.0006136947664531582,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.004377779513597488,
+       "ci95": [
+        -0.008666667617857456,
+        -0.0010994465462863476
+       ],
+       "dcomposite_sum": -0.0010373690966128946
+      },
+      "HEPG2": {
+       "dPDS": -0.0020222229758898418,
+       "ci95": [
+        -0.004388889682789644,
+        -7.749896248181813e-05
+       ],
+       "dcomposite_sum": -0.001479956747844735
+      },
+      "H1": {
+       "dPDS": 0.0008666664361953735,
+       "ci95": [
+        6.66662057240804e-05,
+        0.0022888884991407394
+       ],
+       "dcomposite_sum": 0.0006231856998738516
+      },
+      "FENG": {
+       "dPDS": 0.00017777716120084128,
+       "ci95": [
+        -0.001255555963764588,
+        0.0013447216985126322
+       ],
+       "dcomposite_sum": -0.00013725052914803637
+      },
+      "CD4": {
+       "dPDS": 0.0003444438179334005,
+       "ci95": [
+        -0.0015222235632439455,
+        0.002300277620553969
+       ],
+       "dcomposite_sum": -0.0005439906102905345
+      },
+      "HEK293T": {
+       "dPDS": -0.0007777782281239827,
+       "ci95": [
+        -0.0029116660840809347,
+        0.0012777760773897172
+       ],
+       "dcomposite_sum": 0.001547250204914974
+      },
+      "HCT116": {
+       "dPDS": -0.00210000142455101,
+       "ci95": [
+        -0.005289169408380985,
+        0.0007002756508688116
+       ],
+       "dcomposite_sum": 0.00014354628565682592
+      },
+      "K562": {
+       "dPDS": 0.021188887705405553,
+       "ci95": [
+        0.01395527671277523,
+        0.02812333262339234
+       ],
+       "dcomposite_sum": 0.024071216625724368
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0016624999999999002
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.8974375,
+      "pds_sd": 0.02311555279166384,
+      "mse": 0.45995082532265036,
+      "n": 8,
+      "composite_sum": 0.23952781862121472
+     },
+     "2": {
+      "pds": 0.8989105555555555,
+      "pds_sd": 0.022370990182698294,
+      "mse": 0.41885064275662753,
+      "n": 20,
+      "composite_sum": 0.24735110444743386
+     },
+     "3": {
+      "pds": 0.908466111111111,
+      "pds_sd": 0.017692053727795715,
+      "mse": 0.36333185171345384,
+      "n": 20,
+      "composite_sum": 0.2607117376317267
+     },
+     "4": {
+      "pds": 0.9128655555555556,
+      "pds_sd": 0.014961348903546286,
+      "mse": 0.3106563335886019,
+      "n": 20,
+      "composite_sum": 0.2716654537861256
+     },
+     "5": {
+      "pds": 0.9154744444444445,
+      "pds_sd": 0.011405329226411414,
+      "mse": 0.2870662135136396,
+      "n": 20,
+      "composite_sum": 0.27680669928938173
+     },
+     "6": {
+      "pds": 0.9169416666666667,
+      "pds_sd": 0.01089413877202531,
+      "mse": 0.2724991309941066,
+      "n": 20,
+      "composite_sum": 0.27992838085254224
+     },
+     "7": {
+      "pds": 0.9188152777777778,
+      "pds_sd": 0.008071363662706705,
+      "mse": 0.25505184751642274,
+      "n": 8,
+      "composite_sum": 0.2837102080070894
+     },
+     "8": {
+      "pds": 0.9204777777777777,
+      "pds_sd": null,
+      "mse": 0.24215280275218995,
+      "n": 1,
+      "composite_sum": 0.2866085373101097
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8932771825830204,
+      "b": 0.013336547650250946,
+      "rss": 0.029074432564091767,
+      "aic": -965.108193726207
+     },
+     "saturating": {
+      "a": 0.9257315233001242,
+      "c": 0.04082641191979754,
+      "tau": 3.736689484439632,
+      "rss": 0.028932644124995563,
+      "aic": -963.6801680907195,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.4280256354875291,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8949662132969354,
+      "b": 0.01222668908044036,
+      "rss": 2.8243942698842165e-05,
+      "aic": -94.43258466226024
+     },
+     "saturating": {
+      "a": 0.9262826357743471,
+      "c": 0.038728745638082304,
+      "tau": 4.124928610932174,
+      "rss": 1.8015418570404543e-05,
+      "aic": -96.02979296931785,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -1.5972083070576133,
+     "verdict": "indistinguishable",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.11932440872960715,
+    "lofo": {
+     "mean_dPDS": 0.0016624991223216058,
+     "ci95": [
+      -0.0027070152554661037,
+      0.00846826207032427
+     ],
+     "mean_dcomposite_sum": 0.0028983289790342273,
+     "ci95_composite_sum": [
+      -0.0017403603025601762,
+      0.010917701764883507
+     ],
+     "mean_dcomposite_pds_only": 0.0006136947664531582,
+     "per_family": {
+      "RPE1": {
+       "dPDS": -0.004377779513597488,
+       "ci95": [
+        -0.008256112667421501,
+        -0.0009550027127067279
+       ],
+       "dcomposite_sum": -0.0010373690966128946
+      },
+      "HEPG2": {
+       "dPDS": -0.0020222229758898418,
+       "ci95": [
+        -0.004400279539326826,
+        -0.0002666671002904574
+       ],
+       "dcomposite_sum": -0.001479956747844735
+      },
+      "H1": {
+       "dPDS": 0.0008666664361953735,
+       "ci95": [
+        5.555530389149984e-05,
+        0.0023111108988523484
+       ],
+       "dcomposite_sum": 0.0006231856998738516
+      },
+      "FENG": {
+       "dPDS": 0.00017777716120084128,
+       "ci95": [
+        -0.0012669458438952764,
+        0.0013555535785853864
+       ],
+       "dcomposite_sum": -0.00013725052914803637
+      },
+      "CD4": {
+       "dPDS": 0.0003444438179334005,
+       "ci95": [
+        -0.0016222237547238668,
+        0.0022336109528938914
+       ],
+       "dcomposite_sum": -0.0005439906102905345
+      },
+      "HEK293T": {
+       "dPDS": -0.0007777782281239827,
+       "ci95": [
+        -0.002944999103744825,
+        0.0011333318923910458
+       ],
+       "dcomposite_sum": 0.001547250204914974
+      },
+      "HCT116": {
+       "dPDS": -0.00210000142455101,
+       "ci95": [
+        -0.005289168213804563,
+        0.0006777762522300084
+       ],
+       "dcomposite_sum": 0.00014354628565682592
+      },
+      "K562": {
+       "dPDS": 0.021188887705405553,
+       "ci95": [
+        0.014643330752849579,
+        0.028401108617583905
+       ],
+       "dcomposite_sum": 0.024071216625724368
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0016624999999999002
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.7676472222222223,
+      "pds_sd": 0.10029695340554404,
+      "mse": 0.7743044773913381,
+      "n": 8,
+      "composite_sum": 0.1391794109667017
+     },
+     "2": {
+      "pds": 0.8406766666666666,
+      "pds_sd": 0.05789262785514237,
+      "mse": 0.5927365449831499,
+      "n": 20,
+      "composite_sum": 0.195325476409681
+     },
+     "3": {
+      "pds": 0.8679366666666667,
+      "pds_sd": 0.03746232694615915,
+      "mse": 0.4980906166313722,
+      "n": 20,
+      "composite_sum": 0.22188269586059958
+     },
+     "4": {
+      "pds": 0.8853066666666667,
+      "pds_sd": 0.040046191230862005,
+      "mse": 0.4290909158714721,
+      "n": 20,
+      "composite_sum": 0.24051564443838905
+     },
+     "5": {
+      "pds": 0.8964466666666666,
+      "pds_sd": 0.029568688679537717,
+      "mse": 0.36464105683108033,
+      "n": 20,
+      "composite_sum": 0.25604299917898754
+     },
+     "6": {
+      "pds": 0.9046994444444445,
+      "pds_sd": 0.0210808430214526,
+      "mse": 0.3228163793984769,
+      "n": 20,
+      "composite_sum": 0.26649727104158644
+     },
+     "7": {
+      "pds": 0.9130388888888888,
+      "pds_sd": 0.014757238381759808,
+      "mse": 0.2820045334216195,
+      "n": 8,
+      "composite_sum": 0.27680414582343627
+     },
+     "8": {
+      "pds": 0.9184111111111111,
+      "pds_sd": null,
+      "mse": 0.24069119666396904,
+      "n": 1,
+      "composite_sum": 0.2861045227922407
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7863964974644128,
+      "b": 0.06873089826289212,
+      "rss": 0.22349473367460315,
+      "aic": -726.4833394687826
+     },
+     "saturating": {
+      "a": 0.9102719943986484,
+      "c": 0.25676960984982117,
+      "tau": 1.6208858799230672,
+      "rss": 0.21926587188394486,
+      "aic": -726.7183706314022,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -0.23503116261963442,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7814563996733122,
+      "b": 0.07001791040705667,
+      "rss": 0.0005489700521394155,
+      "aic": -70.69526567567685
+     },
+     "saturating": {
+      "a": 0.9160622274719165,
+      "c": 0.2557749610553658,
+      "tau": 1.7750226985928443,
+      "rss": 0.00013645970580212507,
+      "aic": -79.83138179349373,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -9.136116117816883,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.2506997321069289,
+    "lofo": {
+     "mean_dPDS": 0.00537222351723661,
+     "ci95": [
+      -0.0017614570772275329,
+      0.017851425567176185
+     ],
+     "mean_dcomposite_sum": 0.009300377446845948,
+     "ci95_composite_sum": [
+      0.002555392798828671,
+      0.01995720118964705
+     ],
+     "mean_dcomposite_pds_only": 0.001983102073546183,
+     "per_family": {
+      "RPE1": {
+       "dPDS": 0.004033335496981939,
+       "ci95": [
+        -0.0018672205818196137,
+        0.01018972360839446
+       ],
+       "dcomposite_sum": 0.014533022916744465
+      },
+      "HEPG2": {
+       "dPDS": -0.000588887333869934,
+       "ci95": [
+        -0.004256386316070954,
+        0.0028555565314988293
+       ],
+       "dcomposite_sum": 0.00960195172070466
+      },
+      "H1": {
+       "dPDS": 0.0020666668315728505,
+       "ci95": [
+        1.1111443241437276e-05,
+        0.0060449995199839245
+       ],
+       "dcomposite_sum": 0.0013929722074549344
+      },
+      "FENG": {
+       "dPDS": 0.000655556172132492,
+       "ci95": [
+        -0.0011338868824144204,
+        0.0022666659193734326
+       ],
+       "dcomposite_sum": 0.0005381509119928296
+      },
+      "CD4": {
+       "dPDS": -0.0008555542429288228,
+       "ci95": [
+        -0.0047230544835329055,
+        0.0032222229863206543
+       ],
+       "dcomposite_sum": 0.0007107195662613974
+      },
+      "HEK293T": {
+       "dPDS": 0.0014222230513890584,
+       "ci95": [
+        -0.0014005551189184189,
+        0.004133890072504677
+       ],
+       "dcomposite_sum": 0.0046216971876307245
+      },
+      "HCT116": {
+       "dPDS": -0.005055554211139679,
+       "ci95": [
+        -0.009044719723363718,
+        -0.0015552762622634585
+       ],
+       "dcomposite_sum": 0.008297520661857849
+      },
+      "K562": {
+       "dPDS": 0.04130000237375498,
+       "ci95": [
+        0.02559972415616115,
+        0.05781250332637379
+       ],
+       "dcomposite_sum": 0.03470698440212072
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.005372222222222223
+   },
+   "budget": {
+    "max_abs_bt_rel": 7.151501613122946e-12,
+    "median_abs_bt_rel": 3.3414382372143336e-12,
+    "budget_changes": false,
+    "own_minus_fixBt_pds_maxabs": 0.0
+   }
+  },
+  "RN_RPE1": {
+   "K": 8,
+   "families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT"
+   ],
+   "parity": {
+    "fused_maxabs": 1.0187259391614134e-07,
+    "knn_maxabs": 5.423905902190995e-08,
+    "knn_has_equal": true,
+    "base_total_maxabs": 1.1247803091696262e-08,
+    "V3_absdot_min": 0.9999999999999991,
+    "Od_equal": true,
+    "Bt_rel": 2.364175313277152e-12,
+    "m2_rank_equal_task14": true,
+    "agree_equal_verbatim": true,
+    "prem3_lfc_maxrel_task14": 3.702952267429626e-08,
+    "prem3_pds_task14": 0.9147444444444442,
+    "prem3_pds_here": 0.9147444444444442,
+    "prem3_mse_task14": 0.6637726666721258,
+    "prem3_mse_here": 0.6637726666721258,
+    "pass": true
+   },
+   "n_subsets_done": 117,
+   "complete": true,
+   "own": {
+    "curve": {
+     "1": {
+      "pds": 0.8975027777777778,
+      "pds_sd": 0.0137814789575537,
+      "mse": 0.7328410133737253,
+      "n": 8,
+      "composite_sum": 0.1912185486135489
+     },
+     "2": {
+      "pds": 0.9028533333333334,
+      "pds_sd": 0.011250422329810094,
+      "mse": 0.7086792777220856,
+      "n": 20,
+      "composite_sum": 0.19747309526168919
+     },
+     "3": {
+      "pds": 0.9088455555555555,
+      "pds_sd": 0.007260801950491627,
+      "mse": 0.6950288236143679,
+      "n": 20,
+      "composite_sum": 0.20210278483532895
+     },
+     "4": {
+      "pds": 0.9103961111111112,
+      "pds_sd": 0.007782419897062258,
+      "mse": 0.6788387032311434,
+      "n": 20,
+      "composite_sum": 0.2055426949122221
+     },
+     "5": {
+      "pds": 0.9140900000000001,
+      "pds_sd": 0.0038367700502445813,
+      "mse": 0.6859642681332274,
+      "n": 20,
+      "composite_sum": 0.20564420128200517
+     },
+     "6": {
+      "pds": 0.9135933333333334,
+      "pds_sd": 0.003983713432157448,
+      "mse": 0.6678140466888947,
+      "n": 20,
+      "composite_sum": 0.20867556626752903
+     },
+     "7": {
+      "pds": 0.9142250000000001,
+      "pds_sd": 0.002428539526712337,
+      "mse": 0.664715192029034,
+      "n": 8,
+      "composite_sum": 0.2094575980638754
+     },
+     "8": {
+      "pds": 0.9147444444444442,
+      "pds_sd": null,
+      "mse": 0.6637726666721258,
+      "n": 1,
+      "composite_sum": 0.20981628256885174
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8973934052967079,
+      "b": 0.009442393741198946,
+      "rss": 0.006635920104280877,
+      "aic": -1137.9595301079873
+     },
+     "saturating": {
+      "a": 0.9161972881645054,
+      "c": 0.030160655576824513,
+      "tau": 2.2694071348120146,
+      "rss": 0.006582522594805514,
+      "aic": -1136.9048067543501,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.0547233536372005,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8978937760238701,
+      "b": 0.008779239375430903,
+      "rss": 1.005046840451135e-05,
+      "aic": -102.69866287048842
+     },
+     "saturating": {
+      "a": 0.9157799164629994,
+      "c": 0.029301253265147546,
+      "tau": 2.215977269289081,
+      "rss": 4.065963894802389e-06,
+      "aic": -107.93841011408291,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -5.239747243594493,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.03418207614473605,
+    "lofo": {
+     "mean_dPDS": 0.0005194440546135107,
+     "ci95": [
+      -0.0014626743076369166,
+      0.003604514079168437
+     ],
+     "mean_dcomposite_sum": 0.00035868436107431775,
+     "ci95_composite_sum": [
+      -0.0018571307702287972,
+      0.002412148324545726
+     ],
+     "mean_dcomposite_pds_only": 0.00019174752846567395,
+     "per_family": {
+      "RNJURKAT": {
+       "dPDS": 0.0008777773380279541,
+       "ci95": [
+        -0.0010225012252728144,
+        0.0027333325321475662
+       ],
+       "dcomposite_sum": -9.439978286795991e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0022666666905085246,
+       "ci95": [
+        -0.005500278455515702,
+        0.0009672216276327739
+       ],
+       "dcomposite_sum": 0.005070474884955767
+      },
+      "H1": {
+       "dPDS": 0.000366666316986084,
+       "ci95": [
+        -0.00013333400587240855,
+        0.0009555550465981165
+       ],
+       "dcomposite_sum": 0.0001889605295418706
+      },
+      "FENG": {
+       "dPDS": -0.0006444453199704488,
+       "ci95": [
+        -0.0017444462602337202,
+        0.00043333245068788526
+       ],
+       "dcomposite_sum": -0.0004388968685873351
+      },
+      "CD4": {
+       "dPDS": 0.0003222223122914632,
+       "ci95": [
+        -0.0025444424351056417,
+        0.0033333335667848586
+       ],
+       "dcomposite_sum": -0.00040918326979291764
+      },
+      "HEK293T": {
+       "dPDS": -0.0006777783234914144,
+       "ci95": [
+        -0.002211389956374963,
+        0.0007891665846109376
+       ],
+       "dcomposite_sum": -0.0006708212327722896
+      },
+      "HCT116": {
+       "dPDS": 0.00014444500207901002,
+       "ci95": [
+        -0.002811666155854861,
+        0.003178056416412193
+       ],
+       "dcomposite_sum": 0.0035560054650826955
+      },
+      "K562": {
+       "dPDS": 0.006033331801493963,
+       "ci95": [
+        -0.0016788900171717006,
+        0.01506721979876359
+       ],
+       "dcomposite_sum": -0.004332664836965289
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0005194444444441837
+   },
+   "fixBt": {
+    "curve": {
+     "1": {
+      "pds": 0.8975027777777778,
+      "pds_sd": 0.0137814789575537,
+      "mse": 0.7328410133737253,
+      "n": 8,
+      "composite_sum": 0.1912185486135489
+     },
+     "2": {
+      "pds": 0.9028533333333334,
+      "pds_sd": 0.011250422329810094,
+      "mse": 0.7086792777220856,
+      "n": 20,
+      "composite_sum": 0.19747309526168919
+     },
+     "3": {
+      "pds": 0.9088455555555555,
+      "pds_sd": 0.007260801950491627,
+      "mse": 0.6950288236143679,
+      "n": 20,
+      "composite_sum": 0.20210278483532895
+     },
+     "4": {
+      "pds": 0.9103961111111112,
+      "pds_sd": 0.007782419897062258,
+      "mse": 0.6788387032311434,
+      "n": 20,
+      "composite_sum": 0.2055426949122221
+     },
+     "5": {
+      "pds": 0.9140900000000001,
+      "pds_sd": 0.0038367700502445813,
+      "mse": 0.6859642681332274,
+      "n": 20,
+      "composite_sum": 0.20564420128200517
+     },
+     "6": {
+      "pds": 0.9135933333333334,
+      "pds_sd": 0.003983713432157448,
+      "mse": 0.6678140466888947,
+      "n": 20,
+      "composite_sum": 0.20867556626752903
+     },
+     "7": {
+      "pds": 0.9142250000000001,
+      "pds_sd": 0.002428539526712337,
+      "mse": 0.664715192029034,
+      "n": 8,
+      "composite_sum": 0.2094575980638754
+     },
+     "8": {
+      "pds": 0.9147444444444442,
+      "pds_sd": null,
+      "mse": 0.6637726666721258,
+      "n": 1,
+      "composite_sum": 0.20981628256885174
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.8973934052967079,
+      "b": 0.009442393741198946,
+      "rss": 0.006635920104280877,
+      "aic": -1137.9595301079873
+     },
+     "saturating": {
+      "a": 0.9161972881645054,
+      "c": 0.030160655576824513,
+      "tau": 2.2694071348120146,
+      "rss": 0.006582522594805514,
+      "aic": -1136.9048067543501,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": 1.0547233536372005,
+     "verdict": "indistinguishable",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.8978937760238701,
+      "b": 0.008779239375430903,
+      "rss": 1.005046840451135e-05,
+      "aic": -102.69866287048842
+     },
+     "saturating": {
+      "a": 0.9157799164629994,
+      "c": 0.029301253265147546,
+      "tau": 2.215977269289081,
+      "rss": 4.065963894802389e-06,
+      "aic": -107.93841011408291,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -5.239747243594493,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.03418207614473605,
+    "lofo": {
+     "mean_dPDS": 0.0005194440546135107,
+     "ci95": [
+      -0.0013542358204722406,
+      0.0032540620767200915
+     ],
+     "mean_dcomposite_sum": 0.00035868436107431775,
+     "ci95_composite_sum": [
+      -0.0017217519744147868,
+      0.0023697648347765243
+     ],
+     "mean_dcomposite_pds_only": 0.00019174752846567395,
+     "per_family": {
+      "RNJURKAT": {
+       "dPDS": 0.0008777773380279541,
+       "ci95": [
+        -0.0009669449776411056,
+        0.0026891663769880916
+       ],
+       "dcomposite_sum": -9.439978286795991e-05
+      },
+      "HEPG2": {
+       "dPDS": -0.0022666666905085246,
+       "ci95": [
+        -0.005633610879381498,
+        0.0008783338988820681
+       ],
+       "dcomposite_sum": 0.005070474884955767
+      },
+      "H1": {
+       "dPDS": 0.000366666316986084,
+       "ci95": [
+        -0.00013333400587240855,
+        0.0009444443434476852
+       ],
+       "dcomposite_sum": 0.0001889605295418706
+      },
+      "FENG": {
+       "dPDS": -0.0006444453199704488,
+       "ci95": [
+        -0.0017002800156672795,
+        0.00042250045388936844
+       ],
+       "dcomposite_sum": -0.0004388968685873351
+      },
+      "CD4": {
+       "dPDS": 0.0003222223122914632,
+       "ci95": [
+        -0.0025119443262616795,
+        0.003323056054611996
+       ],
+       "dcomposite_sum": -0.00040918326979291764
+      },
+      "HEK293T": {
+       "dPDS": -0.0006777783234914144,
+       "ci95": [
+        -0.0020333335151275,
+        0.0008002754524350152
+       ],
+       "dcomposite_sum": -0.0006708212327722896
+      },
+      "HCT116": {
+       "dPDS": 0.00014444500207901002,
+       "ci95": [
+        -0.002711387984454632,
+        0.0031111100614070893
+       ],
+       "dcomposite_sum": 0.0035560054650826955
+      },
+      "K562": {
+       "dPDS": 0.006033331801493963,
+       "ci95": [
+        -0.0023447241634130477,
+        0.014689443744719026
+       ],
+       "dcomposite_sum": -0.004332664836965289
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0005194444444441837
+   },
+   "noS4": {
+    "curve": {
+     "1": {
+      "pds": 0.7542097222222222,
+      "pds_sd": 0.1145197737040376,
+      "mse": 0.8751654979419883,
+      "n": 8,
+      "composite_sum": 0.11398763550526869
+     },
+     "2": {
+      "pds": 0.8437788888888889,
+      "pds_sd": 0.037563973052314154,
+      "mse": 0.8020838724029533,
+      "n": 20,
+      "composite_sum": 0.15912286162844086
+     },
+     "3": {
+      "pds": 0.8605255555555555,
+      "pds_sd": 0.026011305109553334,
+      "mse": 0.7602897635779801,
+      "n": 20,
+      "composite_sum": 0.1727071526141734
+     },
+     "4": {
+      "pds": 0.8750383333333334,
+      "pds_sd": 0.019274765585320913,
+      "mse": 0.7362508152902267,
+      "n": 20,
+      "composite_sum": 0.18232209342069094
+     },
+     "5": {
+      "pds": 0.8867605555555557,
+      "pds_sd": 0.012850155792776811,
+      "mse": 0.7548862159145505,
+      "n": 20,
+      "composite_sum": 0.1833485956766139
+     },
+     "6": {
+      "pds": 0.8937383333333333,
+      "pds_sd": 0.007212713916431591,
+      "mse": 0.7195663510984016,
+      "n": 20,
+      "composite_sum": 0.19218010424014192
+     },
+     "7": {
+      "pds": 0.8967333333333333,
+      "pds_sd": 0.0040333355196985965,
+      "mse": 0.7128995766146695,
+      "n": 8,
+      "composite_sum": 0.19446647430011244
+     },
+     "8": {
+      "pds": 0.8990555555555556,
+      "pds_sd": null,
+      "mse": 0.7107014019432674,
+      "n": 1,
+      "composite_sum": 0.1957130322863618
+     }
+    },
+    "fit_subsets": {
+     "loglin": {
+      "a": 0.7851067220904093,
+      "b": 0.06329716726013147,
+      "rss": 0.15740719228539263,
+      "aic": -767.4979025893313
+     },
+     "saturating": {
+      "a": 0.8913992204831345,
+      "c": 0.31170476081705295,
+      "tau": 1.1670951382107846,
+      "rss": 0.1468967601623102,
+      "aic": -773.5833047103625,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -6.085402121031279,
+     "verdict": "saturating",
+     "n": 117
+    },
+    "fit_kmeans": {
+     "loglin": {
+      "a": 0.7769085485845785,
+      "b": 0.06549720866222539,
+      "rss": 0.0014415375434088558,
+      "aic": -62.971892305783854
+     },
+     "saturating": {
+      "a": 0.8948991232381959,
+      "c": 0.3083862445667982,
+      "tau": 1.2435747462929576,
+      "rss": 0.0002607107660117983,
+      "aic": -74.65232386402144,
+      "tau_at_bound": false,
+      "degenerate_step": false
+     },
+     "dAIC_sat_minus_loglin": -11.680431558237586,
+     "verdict": "saturating",
+     "n": 8
+    },
+    "mse_loglin_slope": -0.07584525955607696,
+    "lofo": {
+     "mean_dPDS": 0.00232222198198239,
+     "ci95": [
+      -0.0013408354402830202,
+      0.006919374299701297
+     ],
+     "mean_dcomposite_sum": 0.0012465578975671722,
+     "ci95_composite_sum": [
+      -0.005549178851696311,
+      0.007106693543812244
+     ],
+     "mean_dcomposite_pds_only": 0.0008572247995505315,
+     "per_family": {
+      "RNJURKAT": {
+       "dPDS": 9.934107462565105e-11,
+       "ci95": [
+        -0.0039002776270111402,
+        0.003811389992634454
+       ],
+       "dcomposite_sum": 0.0027573186704068497
+      },
+      "HEPG2": {
+       "dPDS": 0.011088888496160507,
+       "ci95": [
+        0.00485472176844875,
+        0.01761222235982616
+       ],
+       "dcomposite_sum": 0.0145493453998993
+      },
+      "H1": {
+       "dPDS": 0.0015444446603457133,
+       "ci95": [
+        -2.222230037053426e-05,
+        0.003811389431357382
+       ],
+       "dcomposite_sum": 0.0006559543293555292
+      },
+      "FENG": {
+       "dPDS": -0.0007222229242324829,
+       "ci95": [
+        -0.0021336127171913783,
+        0.00069999893506368
+       ],
+       "dcomposite_sum": -0.0003588530719355887
+      },
+      "CD4": {
+       "dPDS": -0.0006666672229766846,
+       "ci95": [
+        -0.005077777124941349,
+        0.003588888354599476
+       ],
+       "dcomposite_sum": -0.00041964551967374475
+      },
+      "HEK293T": {
+       "dPDS": -0.0004555557171503703,
+       "ci95": [
+        -0.002855833667020003,
+        0.0019111097032825152
+       ],
+       "dcomposite_sum": -0.00026398602957461437
+      },
+      "HCT116": {
+       "dPDS": 0.00417777677377065,
+       "ci95": [
+        -0.0013894447286923726,
+        0.010423333014051114
+       ],
+       "dcomposite_sum": 0.009895021911231205
+      },
+      "K562": {
+       "dPDS": 0.003611111690600713,
+       "ci95": [
+        -0.01302222179248929,
+        0.02000111276904741
+       ],
+       "dcomposite_sum": -0.01684269250917156
+      }
+     },
+     "n_families": 8,
+     "n_targets": 300
+    },
+    "last_family_marginal_kmeans": 0.0023222222222223365
+   },
+   "budget": {
+    "max_abs_bt_rel": 6.374567540490261e-12,
+    "median_abs_bt_rel": 3.2075453404445398e-12,
+    "budget_changes": false,
+    "own_minus_fixBt_pds_maxabs": 0.0
+   }
+  }
+ },
+ "spot_check": {
+  "panel": "H1",
+  "threshold": 0.002,
+  "runs": {
+   "k1": {
+    "k": 1,
+    "subset": "RNJURKAT",
+    "pds_offline": 0.8729333333333333,
+    "pds_real": 0.8725083612040134,
+    "dPDS": -0.0004249721293199116,
+    "mse_offline": 0.8126076457307654,
+    "mse_real": 0.812607645730767,
+    "composite_real": 0.2848207559342429
+   },
+   "k5": {
+    "k": 5,
+    "subset": "HCT116+CD4+KOLF+FENG+RPE1",
+    "pds_offline": 0.8969000000000001,
+    "pds_real": 0.8965551839464884,
+    "dPDS": -0.00034481605351177613,
+    "mse_offline": 0.7237980793689884,
+    "mse_real": 0.7237980793689895,
+    "composite_real": 0.309671368297958
+   },
+   "k9": {
+    "k": 9,
+    "subset": "K562+HCT116+HEK293T+CD4+KOLF+FENG+HEPG2+RNJURKAT+RPE1",
+    "pds_offline": 0.9092444444444444,
+    "pds_real": 0.9089409141583056,
+    "dPDS": -0.00030353028613883115,
+    "mse_offline": 0.7202368460628635,
+    "mse_real": 0.720236846062865,
+    "composite_real": 0.31503939364677275
+   }
+  },
+  "max_abs_dPDS": 0.0004249721293199116,
+  "n_runs": 3,
+  "complete": true,
+  "curves_reported_as": "absolute",
+  "k_eq_K_proxy_task18_noM3": {
+   "pds_offline": 0.9092444444444444,
+   "pds_real": 0.9089409141583056,
+   "dPDS": -0.00030353028613883115,
+   "mse_offline": 0.7202368460628635,
+   "mse_real": 0.720236846062865,
+   "sums_identity_maxrel": 4.5516491126237605e-08
+  }
+ },
+ "per_context_value_H1": {
+  "source": "Task 11 LOFO, primary arm (own budget), H1",
+  "dPDS": 0.002139505963358614,
+  "dPDS_ci95": [
+   -0.0003236422146911974,
+   0.005878333955175344
+  ],
+  "dcomposite_sum": 0.0008561439862369723,
+  "dcomposite_sum_ci95": [
+   -0.00044639033660004326,
+   0.002549393170042313
+  ],
+  "dcomposite_pds_only": 0.0007897770259721721,
+  "note": "sum-side composite (PDS + MSE legs, vcc2026 preset constants); DE side not rebuilt; rq4_sameline.py (Task 18) hard-codes per_context_value=None and rewrites rq4_h4.json on every verdict call, so the value is kept HERE and not written into rq4_h4.json"
+ }
+}

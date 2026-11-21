@@ -1,0 +1,342 @@
+{
+ "hypothesis": "H2c: C*_min = d + 1 + d sig2_eps / Var(i) on public genetic screens exceeds C_public",
+ "rule": "rejected if point C*_min <= C_public; confirmed if the 95 % lower bound > C_public; else inconclusive; A2: confirmed only if it holds under both counts; Count 1 only -> \"holds for distinct cell types, not for donor lines\"",
+ "C_public_count1": 11,
+ "C_public_count2": 25,
+ "C_min": 16.447510040473276,
+ "C_min_ci95": [
+  16.092882132095188,
+  16.816481968116754
+ ],
+ "d": 5.07978883203285,
+ "d_cap": 10,
+ "var_i": 0.0011451788684191137,
+ "sig2_eps": 0.002337281259940742,
+ "ratio": 2.0409748419190543,
+ "verdict_count1": "confirmed",
+ "verdict_count2": "rejected",
+ "verdict": "holds for distinct cell types, not for donor lines",
+ "secondary_count2_contexts": {
+  "C": 25,
+  "d": 5.1100110241292285,
+  "C_min": {
+   "estimate": 17.789273648905187,
+   "ci95": [
+    17.399668005437313,
+    18.209721978554434
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "verdict_vs_count2_descriptive": "rejected"
+ },
+ "sensitivities": {
+  "ctrlPC_top8": {
+   "C": 11,
+   "d": 4.31375172989167,
+   "C_min": 14.118010484885367,
+   "ci95": [
+    13.816860810397493,
+    14.431341086566416
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "ctrlPC_top24": {
+   "C": 11,
+   "d": 5.046592865015467,
+   "C_min": 16.34656193992024,
+   "ci95": [
+    15.994251493298773,
+    16.71312266892035
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "ctrlPC_top50": {
+   "C": 11,
+   "d": 5.049657005148457,
+   "C_min": 16.355879912976775,
+   "ci95": [
+    16.00335555399748,
+    16.722663206679634
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "no_KOLF": {
+   "C": 10,
+   "d": 4.459863691697054,
+   "C_min": 14.132208520618851,
+   "ci95": [
+    13.804882502518323,
+    14.474841910467408
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "H1GW_VCCH1_one_line": {
+   "C": 11,
+   "d": 5.160343885804382,
+   "C_min": 16.666832248438787,
+   "ci95": [
+    16.30714143308473,
+    17.037217959585014
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "VCCH1_separate_context": {
+   "C": 12,
+   "d": 4.116092519902365,
+   "C_min": 13.477572637672335,
+   "ci95": [
+    13.195027443307131,
+    13.768247163445201
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "FENG_pooled_pseudobulk": {
+   "C": 11,
+   "d": 5.0856011012176525,
+   "C_min": 16.46379195486767,
+   "ci95": [
+    16.109765999472412,
+    16.833508144670592
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  },
+  "no_CD4": {
+   "C": 10,
+   "d": 6.629459906243183,
+   "C_min": 18.17611808916331,
+   "ci95": [
+    17.894801698159863,
+    18.480546298131213
+   ],
+   "verdict_count1": "confirmed",
+   "verdict_count2": "rejected"
+  }
+ },
+ "S1_S2_S3": {
+  "point": {
+   "d": 5.079788832032844,
+   "k": 6,
+   "n_drugs": 2366,
+   "n_lines_eff": 11.0,
+   "var_i": 0.0011451788684191005,
+   "sig2_eps": 0.0023372812599407196,
+   "R2_adj_i": 0.336988197987554,
+   "var_b": 0.0003715860399817435,
+   "R2_adj_b": 0.7011443716670374,
+   "nbar_drugs_per_line": 1770.090909090909,
+   "noise_b_model": 1.3204300682732227e-06,
+   "noise_b_empirical": 9.934066059545124e-06,
+   "C_theory": 46.83991407629,
+   "C_min": 16.447510040473276,
+   "S1_C_theory": 31.295509780250043,
+   "S1_C_min": 13.911986611453862,
+   "S2_C_b_theory": 8.270742025475174,
+   "S2_C_b_min": 6.097839849004914,
+   "S1emp_C_theory": 31.363195819114605,
+   "S1emp_C_min": 13.940834491352266,
+   "S2emp_C_b_theory": 8.438686349920621,
+   "S2emp_C_b_min": 6.215593066843262
+  },
+  "line_bootstrap": {
+   "d": {
+    "ci95": [
+     1.9693941539602393,
+     5.233308962454866
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 3.8402357308606327
+   },
+   "n_lines_eff": {
+    "ci95": [
+     11.0,
+     11.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 11.0
+   },
+   "var_i": {
+    "ci95": [
+     0.0005393849189285749,
+     0.0018133279867385127
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.0011340993127338685
+   },
+   "sig2_eps": {
+    "ci95": [
+     0.001769231146998795,
+     0.0029263773138950527
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00232240886705525
+   },
+   "R2_adj_i": {
+    "ci95": [
+     0.1608074716031117,
+     0.9999999999999974
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8801839539808908
+   },
+   "var_b": {
+    "ci95": [
+     8.339478941816347e-05,
+     0.0007037767464981173
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00035101850053102633
+   },
+   "R2_adj_b": {
+    "ci95": [
+     0.11949001562975581,
+     0.999999999999992
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8121209891739863
+   },
+   "nbar_drugs_per_line": {
+    "ci95": [
+     1389.6363636363637,
+     2102.2727272727275
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 1794.0
+   },
+   "noise_b_model": {
+    "ci95": [
+     9.35323242201761e-07,
+     1.840176939782048e-06
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 1.306392212254428e-06
+   },
+   "noise_b_empirical": {
+    "ci95": [
+     5.955760428754209e-06,
+     1.4194839015157136e-05
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 9.879725132068675e-06
+   },
+   "C_theory": {
+    "ci95": [
+     8.647996600451977,
+     73.88744236708452
+    ],
+    "boot_frac_infinite": 0.009,
+    "boot_median": 15.105439340605603
+   },
+   "C_min": {
+    "ci95": [
+     7.952019072676773,
+     17.066701636550853
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 12.514212740140817
+   },
+   "S1_C_theory": {
+    "ci95": [
+     7.346000412257778,
+     46.946351921173985
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 13.405248244705724
+   },
+   "S1_C_min": {
+    "ci95": [
+     6.489693465573849,
+     15.473587146540268
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 10.886734720423874
+   },
+   "S2_C_b_theory": {
+    "ci95": [
+     3.707389825937873,
+     26.023102457413263
+    ],
+    "boot_frac_infinite": 0.007,
+    "boot_median": 5.927926259993741
+   },
+   "S2_C_b_min": {
+    "ci95": [
+     2.980914662857687,
+     6.251875515503744
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.8726314206023
+   },
+   "S1emp_C_theory": {
+    "ci95": [
+     7.360249669193826,
+     47.01872735833053
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 13.43255138313772
+   },
+   "S1emp_C_min": {
+    "ci95": [
+     6.500368549709805,
+     15.511848135104053
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 10.907451021453035
+   },
+   "S2emp_C_b_theory": {
+    "ci95": [
+     3.7666514219925276,
+     26.643288125135996
+    ],
+    "boot_frac_infinite": 0.007,
+    "boot_median": 6.093794098764751
+   },
+   "S2emp_C_b_min": {
+    "ci95": [
+     3.041005616526823,
+     6.40809873820367
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.985992736410906
+   },
+   "k": {
+    "ci95": [
+     2.0,
+     6.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.0
+   },
+   "bootstrap": {
+    "B": 1000,
+    "seed": 20261110,
+    "resampled": [
+     "contexts (lines)"
+    ],
+    "recomputed": [
+     "descriptor centring + PCs",
+     "d",
+     "k = ceil(d)",
+     "Var(i)",
+     "sig2_eps",
+     "R2 (i and b)",
+     "Var(b)",
+     "nbar"
+    ],
+    "fixed": [
+     "additive fit and half-specific b, i (as A5)",
+     "split seeds pooled"
+    ],
+    "method": "percentile (inverted_cdf)"
+   }
+  },
+  "note": "secondary (pre-specified 2026-11-05); does not change the verdict rule"
+ },
+ "computed": "2026-11-05"
+}

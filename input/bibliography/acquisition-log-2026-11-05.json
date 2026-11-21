@@ -1,0 +1,1288 @@
+{
+ "skill": "acquire-sources",
+ "date": "2026-11-05",
+ "literaturguide": "input/bibliography/literaturguide.md",
+ "grade_scope": [
+  "A",
+  "B"
+ ],
+ "library": "/home/wonmin-kim/research-library",
+ "totals": {
+  "worklist": 70,
+  "downloaded": 50,
+  "already_present": 0,
+  "manual": 20,
+  "skipped": 0
+ },
+ "post_processing": {
+  "optimized": [
+   "yeung-2026-multiply-perturbed (30->2.5 MB)",
+   "piao-2026-adaptive-contexts (11->5.3 MB)"
+  ],
+  "bib_search_index": "50 docs, 1394 pages, 0 no-text-layer"
+ },
+ "items": [
+  {
+   "bibkey": "breiman-1983-how-many-variables",
+   "grade": "A",
+   "doi": "10.1080/01621459.1983.10477941",
+   "saved_as": "breiman-1983-how-many-variables.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Taylor & Francis (JASA) paywall; no OA copy",
+   "attempts": []
+  },
+  {
+   "bibkey": "maurer-2016-multitask-representation",
+   "grade": "A",
+   "doi": "10.48550/arXiv.1505.06279",
+   "saved_as": "maurer-2016-multitask-representation.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://jmlr.org/papers/volume17/15-242/15-242.pdf",
+   "url_source": "jmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 405835,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "rosset-2020-random-x",
+   "grade": "A",
+   "doi": "10.1080/01621459.2018.1424632",
+   "saved_as": "rosset-2020-random-x.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Taylor & Francis (JASA) paywall; only arXiv preprint (not the original)",
+   "attempts": []
+  },
+  {
+   "bibkey": "tripuraneni-2020-task-diversity",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2006.11650",
+   "saved_as": "tripuraneni-2020-task-diversity.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/59587bffec1c7846f3e34230141556ae-Paper.pdf",
+   "url_source": "neurips",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 657792,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "rosenfeld-2021-risks-irm",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2010.05761",
+   "saved_as": "rosenfeld-2021-risks-irm.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2010.05761",
+   "url_source": "arxiv",
+   "version": "preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 974478,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "blanchard-2021-marginal-transfer",
+   "grade": "A",
+   "doi": "10.48550/arXiv.1711.07910",
+   "saved_as": "blanchard-2021-marginal-transfer.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://jmlr.org/papers/volume22/17-679/17-679.pdf",
+   "url_source": "jmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1130420,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "tripuraneni-2021-linear-representations",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2002.11684",
+   "saved_as": "tripuraneni-2021-linear-representations.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.mlr.press/v139/tripuraneni21a/tripuraneni21a.pdf",
+   "url_source": "pmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 569631,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "du-2021-few-shot-representation",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2002.09434",
+   "saved_as": "du-2021-few-shot-representation.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2002.09434",
+   "url_source": "arxiv",
+   "version": "preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 452386,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "rothenhausler-2021-anchor-regression",
+   "grade": "A",
+   "doi": "10.1111/rssb.12398",
+   "saved_as": "rothenhausler-2021-anchor-regression.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/8206e9fc-0bef-403d-a1b6-cd904c9ae56e/content",
+   "url_source": "ethz-repository",
+   "version": "acceptedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "magic_pdf": true,
+    "bytes": 964544,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "replogle-2022-genome-scale",
+   "grade": "A",
+   "doi": "10.1016/j.cell.2022.05.013",
+   "saved_as": "replogle-2022-genome-scale.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC9380471&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    },
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9380471/pdf/",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "hastie-2022-ridgeless-interpolation",
+   "grade": "A",
+   "doi": "10.1214/21-AOS2133",
+   "saved_as": "hastie-2022-ridgeless-interpolation.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC9481183&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    },
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9481183/pdf/",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "chen-2022-iterative-feature-matching",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2106.09913",
+   "saved_as": "chen-2022-iterative-feature-matching.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/0b5eb45a22ff33956c043dd271f244ea-Paper-Conference.pdf",
+   "url_source": "neurips",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 514443,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "wang-2022-subspace-recovery",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2201.12919",
+   "saved_as": "wang-2022-subspace-recovery.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.mlr.press/v162/wang22x/wang22x.pdf",
+   "url_source": "pmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 672789,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "ji-2024-universal-prediction",
+   "grade": "A",
+   "doi": "10.1101/2024.08.12.607533",
+   "saved_as": "ji-2024-universal-prediction.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2025/09/23/2024.08.12.607533.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3727898,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "ahlmanneltze-2025-linear-baselines",
+   "grade": "A",
+   "doi": "10.1038/s41592-025-02772-6",
+   "saved_as": "ahlmanneltze-2025-linear-baselines.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.nature.com/articles/s41592-025-02772-6.pdf",
+   "url_source": "nature",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 10921079,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "nadig-2025-transcriptome-wide",
+   "grade": "A",
+   "doi": "10.1038/s41588-025-02169-3",
+   "saved_as": "nadig-2025-transcriptome-wide.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13063516/pdf/nihms-2143256.pdf",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    },
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC13063516&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    }
+   ]
+  },
+  {
+   "bibkey": "huang-2025-x-atlas-orion",
+   "grade": "A",
+   "doi": "10.1101/2025.06.11.659105",
+   "saved_as": "huang-2025-x-atlas-orion.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2025/06/16/2025.06.11.659105.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 5193291,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "molina-2026-response-decomposition",
+   "grade": "A",
+   "doi": "10.64898/2026.07.24.740459",
+   "saved_as": "molina-2026-response-decomposition.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/27/2026.07.24.740459.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 5198049,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "huuloc-2026-cell-quota",
+   "grade": "A",
+   "doi": "10.64898/2026.10.02.754788",
+   "saved_as": "huuloc-2026-cell-quota.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/10/05/2026.10.02.754788.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 869866,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "li-2026-systematic-comparison",
+   "grade": "A",
+   "doi": "10.1126/sciadv.aed3414",
+   "saved_as": "li-2026-systematic-comparison.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13557097/pdf/sciadv.aed3414.pdf",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    },
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC13557097&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    }
+   ]
+  },
+  {
+   "bibkey": "dibaeinia-2026-context-scale",
+   "grade": "A",
+   "doi": "10.64898/2026.02.04.703804",
+   "saved_as": "dibaeinia-2026-context-scale.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/02/09/2026.02.04.703804.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 8850735,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "piao-2026-adaptive-contexts",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2602.18885",
+   "saved_as": "piao-2026-adaptive-contexts.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2602.18885",
+   "url_source": "arxiv",
+   "version": "preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 5296431,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "adduri-2026-state",
+   "grade": "A",
+   "doi": "10.1016/j.cell.2026.07.052",
+   "saved_as": "adduri-2026-state.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page",
+   "note": "bot-blocked/paywalled host: cell-landing",
+   "attempts": [
+    {
+     "url": "https://doi.org/10.1016/j.cell.2026.07.052",
+     "src": "cell-landing",
+     "http": "200",
+     "content_type": "text/html;charset=UTF-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "zhang-2026-tahoe",
+   "grade": "A",
+   "doi": "10.1016/j.cell.2026.08.035",
+   "saved_as": "zhang-2026-tahoe.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page",
+   "note": "bot-blocked/paywalled host: cell-landing",
+   "attempts": [
+    {
+     "url": "https://doi.org/10.1016/j.cell.2026.08.035",
+     "src": "cell-landing",
+     "http": "200",
+     "content_type": "text/html;charset=UTF-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "vinastorne-2026-systema",
+   "grade": "A",
+   "doi": "10.1038/s41587-025-02777-8",
+   "saved_as": "vinastorne-2026-systema.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.nature.com/articles/s41587-025-02777-8.pdf",
+   "url_source": "nature",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3370205,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "adduri-2026-virtual-cell-challenge",
+   "grade": "A",
+   "doi": "10.1016/j.cell.2026.08.004",
+   "saved_as": "adduri-2026-virtual-cell-challenge.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page",
+   "note": "bot-blocked/paywalled host: cell-landing",
+   "attempts": [
+    {
+     "url": "https://doi.org/10.1016/j.cell.2026.08.004",
+     "src": "cell-landing",
+     "http": "200",
+     "content_type": "text/html;charset=UTF-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "pan-2026-global-cell-state",
+   "grade": "A",
+   "doi": "10.64898/2026.05.16.725005",
+   "saved_as": "pan-2026-global-cell-state.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/05/18/2026.05.16.725005.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 15119034,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "shen-2026-basal-expression",
+   "grade": "A",
+   "doi": "10.21203/rs.3.rs-10846736/v1",
+   "saved_as": "shen-2026-basal-expression.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.researchsquare.com/article/rs-10846736/latest.pdf",
+   "url_source": "researchsquare",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 567895,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "wang-2026-reliable-perturbations",
+   "grade": "A",
+   "doi": "10.64898/2026.08.11.744177",
+   "saved_as": "wang-2026-reliable-perturbations.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/12/2026.08.11.744177.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2161048,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "huang-2026-shared-clones",
+   "grade": "A",
+   "doi": "10.48550/arXiv.2610.32962",
+   "saved_as": "huang-2026-shared-clones.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2610.32962",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1179275,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "verma-2026-pie",
+   "grade": "A",
+   "doi": "10.64898/2026.10.02.756297",
+   "saved_as": "verma-2026-pie.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/10/05/2026.10.02.756297.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2571932,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "wei-2026-benchmarking-algorithms",
+   "grade": "A",
+   "doi": "10.1038/s41592-025-02980-0",
+   "saved_as": "wei-2026-benchmarking-algorithms.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Nature Methods, closed",
+   "attempts": []
+  },
+  {
+   "bibkey": "wenkel-2026-txpert",
+   "grade": "A",
+   "doi": "10.1038/s41587-026-03113-4",
+   "saved_as": "wenkel-2026-txpert.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.nature.com/articles/s41587-026-03113-4.pdf",
+   "url_source": "nature",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3881073,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "copas-1983-regression-shrinkage",
+   "grade": "B",
+   "doi": "10.1111/j.2517-6161.1983.tb01258.x",
+   "saved_as": "copas-1983-regression-shrinkage.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "JRSS-B 1983, closed",
+   "attempts": []
+  },
+  {
+   "bibkey": "baxter-2000-inductive-bias",
+   "grade": "B",
+   "doi": "10.1613/jair.731",
+   "saved_as": "baxter-2000-inductive-bias.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://jair.org/index.php/jair/article/download/10253/24418",
+   "url_source": "jair",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 398976,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "maas-2005-sample-sizes",
+   "grade": "B",
+   "doi": "10.1027/1614-2241.1.3.86",
+   "saved_as": "maas-2005-sample-sizes.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Hogrefe (Methodology), closed",
+   "attempts": []
+  },
+  {
+   "bibkey": "dicker-2013-equivariant-prediction",
+   "grade": "B",
+   "doi": "10.1214/13-EJS826",
+   "saved_as": "dicker-2013-equivariant-prediction.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "bot_block",
+   "note": "Diamond OA (EJS) but Project Euclid serves an Incapsula bot challenge — a normal browser download works",
+   "attempts": []
+  },
+  {
+   "bibkey": "mcneish-2016-small-sample",
+   "grade": "B",
+   "doi": "10.1007/s10648-014-9287-x",
+   "saved_as": "mcneish-2016-small-sample.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Springer, closed",
+   "attempts": []
+  },
+  {
+   "bibkey": "arjovsky-2019-irm",
+   "grade": "B",
+   "doi": "10.48550/arXiv.1907.02893",
+   "saved_as": "arjovsky-2019-irm.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/1907.02893",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 945276,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "kong-2020-mixed-linear-regression",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2002.08936",
+   "saved_as": "kong-2020-mixed-linear-regression.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.mlr.press/v119/kong20a/kong20a.pdf",
+   "url_source": "pmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 631660,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "partin-2021-learning-curves",
+   "grade": "B",
+   "doi": "10.1186/s12859-021-04163-y",
+   "saved_as": "partin-2021-learning-curves.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://link.springer.com/content/pdf/10.1186/s12859-021-04163-y.pdf",
+   "url_source": "springer",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2965800,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "kamath-2021-irm-invariance",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2101.01134",
+   "saved_as": "kamath-2021-irm-invariance.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.mlr.press/v130/kamath21a/kamath21a.pdf",
+   "url_source": "pmlr",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3115490,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "lucas-2021-meta-learning-bounds",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2010.07140",
+   "saved_as": "lucas-2021-meta-learning-bounds.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2010.07140",
+   "url_source": "arxiv",
+   "version": "preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 566442,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "christiansen-2022-causal-framework",
+   "grade": "B",
+   "doi": "10.1109/TPAMI.2021.3094760",
+   "saved_as": "christiansen-2022-causal-framework.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "IEEE TPAMI paywall; only arXiv preprint",
+   "attempts": []
+  },
+  {
+   "bibkey": "lotfollahi-2023-cpa",
+   "grade": "B",
+   "doi": "10.15252/msb.202211517",
+   "saved_as": "lotfollahi-2023-cpa.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://link.springer.com/content/pdf/10.15252/msb.202211517.pdf",
+   "url_source": "springer",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 5104353,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "muller-2023-context-aware-dg",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2312.10107",
+   "saved_as": "muller-2023-context-aware-dg.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2312.10107",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3255268,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "roohani-2024-gears",
+   "grade": "B",
+   "doi": "10.1038/s41587-023-01905-6",
+   "saved_as": "roohani-2024-gears.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.nature.com/articles/s41587-023-01905-6.pdf",
+   "url_source": "nature",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 7677465,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "cui-2024-scgpt",
+   "grade": "B",
+   "doi": "10.1038/s41592-024-02201-0",
+   "saved_as": "cui-2024-scgpt.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Nature Methods, closed; only bioRxiv preprint",
+   "attempts": []
+  },
+  {
+   "bibkey": "wenteler-2024-perteval",
+   "grade": "B",
+   "doi": "10.1101/2024.10.02.616248",
+   "saved_as": "wenteler-2024-perteval.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/10.1101/2024.10.02.616248.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2830116,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "roohani-2025-virtual-cell-challenge",
+   "grade": "B",
+   "doi": "10.1016/j.cell.2025.06.008",
+   "saved_as": "roohani-2025-virtual-cell-challenge.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "http_403",
+   "note": "bot-blocked/paywalled host: cell",
+   "attempts": [
+    {
+     "url": "https://www.cell.com/action/showPdf?pii=S0092867425006750",
+     "src": "cell",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    }
+   ]
+  },
+  {
+   "bibkey": "mejia-2025-diversity-design",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2506.22641",
+   "saved_as": "mejia-2025-diversity-design.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2506.22641",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 7971107,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "yu-2025-perturbnet",
+   "grade": "B",
+   "doi": "10.1038/s44320-025-00131-3",
+   "saved_as": "yu-2025-perturbnet.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://link.springer.com/content/pdf/10.1038/s44320-025-00131-3.pdf",
+   "url_source": "springer",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 7943253,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "csendes-2025-foundation-models",
+   "grade": "B",
+   "doi": "10.1186/s12864-025-11600-2",
+   "saved_as": "csendes-2025-foundation-models.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://link.springer.com/content/pdf/10.1186/s12864-025-11600-2.pdf",
+   "url_source": "springer",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 4331340,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "wu-2025-perturbench",
+   "grade": "B",
+   "doi": "10.52202/085713-3225",
+   "saved_as": "wu-2025-perturbench.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/8aee537279a66ced96319dfca3c00002-Paper-Datasets_and_Benchmarks_Track.pdf",
+   "url_source": "neurips",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1293582,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "dwork-2025-how-many-domains",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2506.16704",
+   "saved_as": "dwork-2025-how-many-domains.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2506.16704",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 523105,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "chen-2026-signature-recontextualization",
+   "grade": "B",
+   "doi": "10.64898/2026.08.14.744937",
+   "saved_as": "chen-2026-signature-recontextualization.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/19/2026.08.14.744937.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2991365,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "huang-2026-recoverable-resolution",
+   "grade": "B",
+   "doi": "10.64898/2026.09.30.755756",
+   "saved_as": "huang-2026-recoverable-resolution.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/10/01/2026.09.30.755756.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2294582,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "miller-2026-calibrated-metrics",
+   "grade": "B",
+   "doi": "10.1038/s41587-026-03307-w",
+   "saved_as": "miller-2026-calibrated-metrics.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.nature.com/articles/s41587-026-03307-w.pdf",
+   "url_source": "nature",
+   "version": "publishedVersion",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 8808210,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "nicol-2026-spurious-correlation",
+   "grade": "B",
+   "doi": "10.64898/2026.05.07.723486",
+   "saved_as": "nicol-2026-spurious-correlation.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/10.64898/2026.05.07.723486.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3611033,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "cheng-2026-reliability-weighted",
+   "grade": "B",
+   "doi": "10.64898/2026.07.13.738312",
+   "saved_as": "cheng-2026-reliability-weighted.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/15/2026.07.13.738312.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 604017,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "bianco-2026-projection-basis",
+   "grade": "B",
+   "doi": "10.64898/2026.07.07.737004",
+   "saved_as": "bianco-2026-projection-basis.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/09/2026.07.07.737004.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 891868,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "feng-2026-crispri-map",
+   "grade": "B",
+   "doi": "10.1016/j.xgen.2025.101076",
+   "saved_as": "feng-2026-crispri-map.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC12903452&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    },
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12903452/pdf/",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    }
+   ]
+  },
+  {
+   "bibkey": "nourreddine-2026-crispri-atlas",
+   "grade": "B",
+   "doi": "10.1038/s41587-026-03199-w",
+   "saved_as": "nourreddine-2026-crispri-atlas.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "none",
+   "reason": "no_oa_url",
+   "note": "Nature Biotechnology, closed; only preprint",
+   "attempts": []
+  },
+  {
+   "bibkey": "zhu-2026-cd4-perturb-seq",
+   "grade": "B",
+   "doi": "10.1016/j.cell.2026.08.002",
+   "saved_as": "zhu-2026-cd4-perturb-seq.pdf",
+   "outcome": "manual",
+   "resolved_url": null,
+   "url_source": "openalex",
+   "reason": "html_login_page|http_403",
+   "note": "bot-blocked/paywalled host: europepmc, pmc",
+   "attempts": [
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13614707/pdf/nihms-2204627.pdf",
+     "src": "pmc",
+     "http": "200",
+     "content_type": "text/html; charset=utf-8",
+     "reason": "html_login_page"
+    },
+    {
+     "url": "https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC13614707&blobtype=pdf",
+     "src": "europepmc",
+     "http": "403",
+     "content_type": "text/html; charset=UTF-8",
+     "reason": "http_403"
+    }
+   ]
+  },
+  {
+   "bibkey": "luan-2026-centered-transfer",
+   "grade": "B",
+   "doi": "10.64898/2026.10.20.760514",
+   "saved_as": "luan-2026-centered-transfer.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/10/25/2026.10.20.760514.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 861005,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "dhaka-2026-hypermap",
+   "grade": "B",
+   "doi": "10.64898/2026.04.23.720505",
+   "saved_as": "dhaka-2026-hypermap.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/04/27/2026.04.23.720505.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2493438,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "scholkemper-2026-c3tl",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2603.13051",
+   "saved_as": "scholkemper-2026-c3tl.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2603.13051",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 3666223,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "chen-2026-scale",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2603.17380",
+   "saved_as": "chen-2026-scale.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2603.17380",
+   "url_source": "arxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 9257279,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "fu-2026-strand",
+   "grade": "B",
+   "doi": "10.48550/arXiv.2602.10156",
+   "saved_as": "fu-2026-strand.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://arxiv.org/pdf/2602.10156",
+   "url_source": "arxiv",
+   "version": "preprint-of-NeurIPS-2026",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1599897,
+    "title_page1_score": 1.0
+   }
+  },
+  {
+   "bibkey": "yeung-2026-multiply-perturbed",
+   "grade": "B",
+   "doi": "10.64898/2026.07.10.737863",
+   "saved_as": "yeung-2026-multiply-perturbed.pdf",
+   "outcome": "downloaded",
+   "resolved_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/11/2026.07.10.737863.full.pdf",
+   "url_source": "biorxiv",
+   "version": "original-preprint",
+   "reason": null,
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2518352,
+    "title_page1_score": 1.0
+   }
+  }
+ ]
+}

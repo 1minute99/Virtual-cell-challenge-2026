@@ -1,0 +1,75 @@
+{
+ "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md",
+ "task": 18,
+ "hypothesis": "H4",
+ "rule": "Rejected if composite(base + H1GW, w = 1) - composite(base) <= the largest single modelling gain (M2, M3, best architecture), real scorer, H1 panel",
+ "composites": {
+  "w0": 0.31508657373835863,
+  "w0.25": 0.3579716355129161,
+  "w0.5": 0.3887482530142574,
+  "w0.75": 0.3956328495501478,
+  "w1": 0.38411171635154306,
+  "noM2": 0.30856406199648667,
+  "noM3": 0.31503939364677275
+ },
+ "gains": {
+  "M2": 0.006522511741871961,
+  "M3": 4.718009158588554e-05,
+  "H1GW_w0.25": 0.042885061774557476,
+  "H1GW_w0.5": 0.07366167927589878,
+  "H1GW_w0.75": 0.08054627581178919,
+  "H1GW_w1": 0.06902514261318443
+ },
+ "best_architecture": {
+  "n_architectures": 17,
+  "primary": {
+   "statistic": "line-mean (K562, HepG2) official composite delta vs refit_v2, alpha 1, correct context, seed 0",
+   "arch": "additive",
+   "gain": 0.003555535535636506
+  },
+  "sensitivity": {
+   "statistic": "largest single-line value (max over 34 line x architecture cells)",
+   "arch": "lora_hyper",
+   "line": "HepG2",
+   "gain": 0.016937102583509278
+  },
+  "setup_differences": [
+   "panels K562 / HepG2 (not H1)",
+   "base = refit_v2 extended transfer (not the fusion pipeline)",
+   "emission / budget = dcp preset path (not the F2 dual emission)",
+   "single seed 0; Task 10 re-checks with seeds",
+   "same scorer preset (cell-eval2 vcc2026)"
+  ]
+ },
+ "per_context_value": null,
+ "per_context_value_note": "Task 11 (LOFO per-context value, converted to composite on H1) not yet run; fill from Task 11",
+ "H1GW_per_context_ratio": null,
+ "reference_emission_seed_spread": {
+  "arm": "em_mult_share_k3000_du0.5_ag_cpc_ct0.5_pr3x0.75g_gk_mg0.8_bm_s4Yorig_ensP1_bmb_ci5_lsb_brsYorig_slH1GWx1",
+  "composites": {
+   "@s0": 0.3772471936305907,
+   "@s1": 0.3768512479989625,
+   "@s2": 0.37675247401381723
+  },
+  "range": 0.000494719616773498,
+  "note": "earlier harness same-line w1 arm (different sum side); context for single-run noise only"
+ },
+ "related_line_cases": {
+  "status": "skipped",
+  "reason": "lowest priority (cut first); the scorer queue is occupied by Task 17 and then the 7 H1 runs (~28 min each); not started in this dispatch"
+ },
+ "status": "final",
+ "largest_modelling_gain": {
+  "source": "M2",
+  "value": 0.006522511741871961
+ },
+ "verdict": "confirmed",
+ "sensitivity": {
+  "largest_modelling_gain": {
+   "source": "arch_primary",
+   "value": 0.016937102583509278
+  },
+  "verdict": "confirmed"
+ },
+ "margin": 0.06250263087131247
+}

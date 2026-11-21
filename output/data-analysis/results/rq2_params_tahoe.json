@@ -1,0 +1,879 @@
+{
+  "task": "Task 8 (RQ2, H2b) -- Proposition-2 parameters on Tahoe, estimated without the gain curve",
+  "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md",
+  "created": "2026-11-05",
+  "script": "output/data-analysis/rq2_params.py",
+  "d": {
+    "primary": {
+      "value": 20.563261742442343,
+      "matrix": "contexts.npz profile_adj, 48 Tahoe contexts x 5,955 genes, centred across contexts",
+      "n_contexts": 48,
+      "n_features": 5955,
+      "top_eig_frac": [
+        0.1434241056027685,
+        0.10062105416043056,
+        0.052647601144659065,
+        0.0440614332888024,
+        0.0382140931513363,
+        0.03446915175469734,
+        0.03269896710981402,
+        0.029706946139091576,
+        0.028821279093928787,
+        0.02611672795825183
+      ],
+      "context_jackknife": {
+        "loo_min": 19.94125397922939,
+        "loo_max": 21.380081405048177,
+        "jackknife_se": 1.8103030211678826
+      }
+    },
+    "k_used": {
+      "primary": 21,
+      "sensitivity": [
+        20,
+        42
+      ]
+    },
+    "secondary_model_input": {
+      "all48": {
+        "d": 20.563262095537063,
+        "z_dim": 47,
+        "var_kept": 1.000000124350437,
+        "note": "PCA fitted on all 48 Tahoe contexts, k = min(64, 47); rank-preserving -> equals primary d"
+      },
+      "C40_folds": {
+        "per_fold": [
+          {
+            "fold": 0,
+            "z_dim": 39,
+            "d_train40": 18.010711063699045,
+            "d_all48_projected": 17.300019362280082
+          },
+          {
+            "fold": 1,
+            "z_dim": 39,
+            "d_train40": 18.903424148283342,
+            "d_all48_projected": 17.59567178702771
+          },
+          {
+            "fold": 2,
+            "z_dim": 39,
+            "d_train40": 19.421082628571863,
+            "d_all48_projected": 17.653773234109018
+          },
+          {
+            "fold": 3,
+            "z_dim": 39,
+            "d_train40": 18.483213149413068,
+            "d_all48_projected": 17.379578466846407
+          },
+          {
+            "fold": 4,
+            "z_dim": 39,
+            "d_train40": 19.18974079260083,
+            "d_all48_projected": 17.599263524738827
+          },
+          {
+            "fold": 5,
+            "z_dim": 39,
+            "d_train40": 19.24210834452091,
+            "d_all48_projected": 17.62086073004828
+          }
+        ],
+        "mean_d_train40": 18.875046687848176,
+        "mean_d_all48_projected": 17.524861184175055,
+        "note": "training pool of each of the 6 drug folds (= the C = 40 draw); held-out contexts projected on the training PCs (out-of-span part dropped)"
+      },
+      "train_subset_d_vs_C": {
+        "values": {
+          "6": {
+            "mean": 4.574265755554942,
+            "min": 4.168445005600859,
+            "max": 4.772835317282262
+          },
+          "8": {
+            "mean": 5.662244742914241,
+            "min": 5.603235341303033,
+            "max": 5.957291750970281
+          },
+          "12": {
+            "mean": 8.567934059110051,
+            "min": 6.803330234824283,
+            "max": 9.46981303794729
+          },
+          "16": {
+            "mean": 10.715079237722556,
+            "min": 10.35675033427447,
+            "max": 11.17405912318108
+          },
+          "24": {
+            "mean": 14.435510161358446,
+            "min": 13.516812571595125,
+            "max": 15.07131436722151
+          },
+          "32": {
+            "mean": 17.09513399438984,
+            "min": 16.328579748626904,
+            "max": 17.569950516216416
+          },
+          "40": {
+            "mean": 18.875046687848176,
+            "min": 18.010711063699045,
+            "max": 19.421082628571863
+          }
+        },
+        "note": "DESCRIPTIVE: d of the C training descriptors (seed-0 evenly spaced draw, 6 folds); bounded by C - 1, so it is a finite-sample quantity, not the population d. Uses no response data."
+      }
+    }
+  },
+  "row_table_check": {
+    "rows": 13011,
+    "rows_model": 13011,
+    "ctx_names_equal": true,
+    "pert_names_equal": true,
+    "ctx_equal": true,
+    "pert_equal": true,
+    "is_repeat_equal": true,
+    "weight_max_rel_diff": 5.924467863738996e-08,
+    "cells_total": 4431233
+  },
+  "cell_level_source": {
+    "shard_root": "/home/wonmin-kim/AIVC/vcc2026_data/reports/context_signal_2026-09-15/tahoe/raw",
+    "shards_expected": 157,
+    "shards_present": 157,
+    "bytes_expected": 16281516887,
+    "source_revision": "2dc57900b7981cfcf5e211527169a0b006546a95",
+    "complete": true
+  },
+  "units": "Var(i), sig2_eps: per (line, drug, gene) element, (log1p CP10K)^2, denominator = residual d.o.f. of the additive fit; R2 dimensionless; C* in contexts",
+  "full_depth_check": {
+    "note": "YF vs the model-target (ctx, drug) means rebuilt from tahoe.npz",
+    "n_checked": 204,
+    "max_abs_diff": 3.762543201446533e-07
+  },
+  "status": "complete",
+  "split_half": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "split_base": 20261108,
+    "depth_scale": 0.5,
+    "n_drugs": 185,
+    "n_lines": 48,
+    "n_genes": 18150,
+    "n_obs": 8568,
+    "additive_rank": 232,
+    "estimates": {
+      "var_i": {
+        "estimate": 0.0014974443413182212,
+        "ci95": [
+          0.0011428461586608513,
+          0.001893815144412888
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "sig2_eps": {
+        "estimate": 0.004301918257475461,
+        "ci95": [
+          0.0039233768119134585,
+          0.004689058765476915
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "ratio": {
+        "estimate": 2.8728401709331126,
+        "ci95": [
+          2.283151538896809,
+          3.6985246837847123
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_raw_k20": {
+        "estimate": 0.6299410719508215,
+        "ci95": [
+          0.6177657009981605,
+          0.6428060104149967
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_adj_k20": {
+        "estimate": 0.33756053943278597,
+        "ci95": [
+          0.3176340366903845,
+          0.3583470836534425
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "n_drugs_k20": {
+        "estimate": 185.0,
+        "ci95": [
+          185.0,
+          185.0
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_raw_k21": {
+        "estimate": 0.6497916221215323,
+        "ci95": [
+          0.6378234284002137,
+          0.66288315013196
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_adj_k21": {
+        "estimate": 0.3473106198854613,
+        "ci95": [
+          0.32689412542373253,
+          0.36908613818961844
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "n_drugs_k21": {
+        "estimate": 185.0,
+        "ci95": [
+          185.0,
+          185.0
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_raw_k42": {
+        "estimate": 0.965812243569664,
+        "ci95": [
+          0.9615053635712234,
+          0.9696831432182346
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "R2_adj_k42": {
+        "estimate": 0.5752158053423946,
+        "ci95": [
+          0.5292656570789757,
+          0.6178823452454867
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "n_drugs_k42": {
+        "estimate": 176.0,
+        "ci95": [
+          176.0,
+          176.0
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "C_theory": {
+        "estimate": 230.29971490018482,
+        "ci95": [
+          192.23672768790877,
+          287.02078036498494
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "C_min": {
+        "estimate": 80.63822612154274,
+        "ci95": [
+          68.51230443443745,
+          97.61699287599117
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "C_theory_k20": {
+        "estimate": 236.9227955239124,
+        "ci95": [
+          197.56202123434795,
+          295.83770115659803
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "C_theory_k21": {
+        "estimate": 230.29971490018482,
+        "ci95": [
+          192.23672768790877,
+          287.02078036498494
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "C_theory_k42": {
+        "estimate": 139.44930090914045,
+        "ci95": [
+          115.08197522088821,
+          176.0046673869999
+        ],
+        "boot_frac_infinite": 0.0
+      },
+      "per_seed": [
+        {
+          "var_i": 0.001496975676061973,
+          "sig2_eps": 0.004302542413087489,
+          "ratio": 2.874156528986493,
+          "R2_raw_k20": 0.6290738276267115,
+          "R2_adj_k20": 0.33600809246096996,
+          "n_drugs_k20": 185.0,
+          "R2_raw_k21": 0.6489377775919997,
+          "R2_adj_k21": 0.3457192951431154,
+          "n_drugs_k21": 185.0,
+          "R2_raw_k42": 0.9655893397722765,
+          "R2_adj_k42": 0.5724462170468788,
+          "n_drugs_k42": 176.0,
+          "C_theory": 231.43346395740684,
+          "C_min": 80.66529473674117,
+          "C_theory_k20": 238.0933811541903,
+          "C_theory_k21": 231.43346395740684,
+          "C_theory_k42": 140.16642710596727
+        },
+        {
+          "var_i": 0.001495936052095525,
+          "sig2_eps": 0.004303394284028856,
+          "ratio": 2.876723425443628,
+          "R2_raw_k20": 0.6298801705549799,
+          "R2_adj_k20": 0.3374515203421732,
+          "n_drugs_k20": 185.0,
+          "R2_raw_k21": 0.6497113876554664,
+          "R2_adj_k21": 0.34716108553040803,
+          "n_drugs_k21": 185.0,
+          "R2_raw_k42": 0.966155675961952,
+          "R2_adj_k42": 0.5794829660867571,
+          "n_drugs_k42": 176.0,
+          "C_theory": 230.62849761417868,
+          "C_min": 80.718078500455,
+          "C_theory_k20": 237.235647774298,
+          "C_theory_k21": 230.62849761417868,
+          "C_theory_k42": 138.5675958842939
+        },
+        {
+          "var_i": 0.0015012823012672408,
+          "sig2_eps": 0.004299318058115386,
+          "ratio": 2.8637639000248702,
+          "R2_raw_k20": 0.6283376934809426,
+          "R2_adj_k20": 0.33469034474711545,
+          "n_drugs_k20": 185.0,
+          "R2_raw_k21": 0.6478209597067853,
+          "R2_adj_k21": 0.3436378624326327,
+          "n_drugs_k21": 185.0,
+          "R2_raw_k42": 0.9654860567750129,
+          "R2_adj_k42": 0.5711629218150365,
+          "n_drugs_k42": 176.0,
+          "C_theory": 232.20731756613995,
+          "C_min": 80.45158838721125,
+          "C_theory_k20": 238.3883490640971,
+          "C_theory_k21": 232.20731756613995,
+          "C_theory_k42": 140.1049477349312
+        },
+        {
+          "var_i": 0.0014960224542745492,
+          "sig2_eps": 0.0043021314117166415,
+          "ratio": 2.8757131281180066,
+          "R2_raw_k20": 0.6312802096387597,
+          "R2_adj_k20": 0.3399577188558024,
+          "n_drugs_k20": 185.0,
+          "R2_raw_k21": 0.6509541826029384,
+          "R2_adj_k21": 0.3494773038595891,
+          "n_drugs_k21": 185.0,
+          "R2_raw_k42": 0.9659885274909104,
+          "R2_adj_k42": 0.5774061398754694,
+          "n_drugs_k42": 176.0,
+          "C_theory": 229.04715102223307,
+          "C_min": 80.69730349211054,
+          "C_theory_k20": 235.43298702070425,
+          "C_theory_k21": 229.04715102223307,
+          "C_theory_k42": 139.0264219381163
+        },
+        {
+          "var_i": 0.0014970052228918374,
+          "sig2_eps": 0.004302205120428964,
+          "ratio": 2.873874489307516,
+          "R2_raw_k20": 0.6311388579659793,
+          "R2_adj_k20": 0.3397046863824056,
+          "n_drugs_k20": 185.0,
+          "R2_raw_k21": 0.6515401224624964,
+          "R2_adj_k21": 0.3505693300584942,
+          "n_drugs_k21": 185.0,
+          "R2_raw_k42": 0.9658430069448168,
+          "R2_adj_k42": 0.5755980414673605,
+          "n_drugs_k42": 176.0,
+          "C_theory": 228.22893376813377,
+          "C_min": 80.65949508100061,
+          "C_theory_k20": 235.49630892441652,
+          "C_theory_k21": 228.22893376813377,
+          "C_theory_k42": 139.39431224944107
+        }
+      ],
+      "bootstrap": {
+        "B": 2000,
+        "seed": 20261109,
+        "resampled": [
+          "drugs",
+          "split seeds"
+        ],
+        "method": "percentile (inverted_cdf)",
+        "fixed": [
+          "descriptor d",
+          "additive fit"
+        ]
+      }
+    }
+  },
+  "sensitivity": {
+    "label": "SECONDARY, pre-specified 2026-11-05 (log: clarification); does not change the H2b rule",
+    "definitions": {
+      "S1": "C* for the model target b + i: C*_S1 = d+1+d[(1-R2_b)V_b + n_b + (1-R2_i)V_i + n_i]/[R2_b V_b + R2_i V_i]; C*_S1,min = d+1+d(n_b+n_i)/(V_b+V_i); n_i = sig2_eps, n_b = sig2_eps/nbar",
+      "S2": "C*_b = d+1+d[(1-R2_b)V_b + n_b]/(R2_b V_b); C*_b,min = d+1+d n_b/V_b",
+      "S3": "line (context) bootstrap, d / PCs / k recomputed per draw; CIs for primary and S1/S2",
+      "emp_variant": "FLAGGED, not pre-specified: S1emp/S2emp replace n_b = sig2_eps/nbar by the empirical split-half noise of b (noise_b_empirical = 1/2 * 1/2 ||(I-J)(bA-bB)||^2/((L-1)G)); shared DMSO control noise per plate x line does not average over drugs"
+    },
+    "point": {
+      "d": 20.563261742442375,
+      "k": 21,
+      "n_drugs": 185,
+      "n_lines_eff": 48.0,
+      "var_i": 0.0014974443413182232,
+      "sig2_eps": 0.004301918257475463,
+      "R2_adj_i": 0.3473106198854613,
+      "var_b": 0.0005615279531395925,
+      "R2_adj_b": 0.29857618189995183,
+      "nbar_drugs_per_line": 178.5,
+      "noise_b_model": 2.410038239482052e-05,
+      "noise_b_empirical": 0.0009013478152156654,
+      "C_theory": 230.29971490018502,
+      "C_min": 80.63822612154281,
+      "S1_C_theory": 191.91048269083504,
+      "S1_C_min": 64.76785164090045,
+      "S2_C_b_theory": 72.82696974950507,
+      "S2_C_b_min": 22.445822385250562,
+      "S1emp_C_theory": 218.14007840391764,
+      "S1emp_C_min": 73.5290518875171,
+      "S2emp_C_b_theory": 180.42084968455677,
+      "S2emp_C_b_min": 54.57079225206013
+    },
+    "point_route_minus_primary": {
+      "C_theory": 1.9895196601282805e-13,
+      "C_min": 7.105427357601002e-14,
+      "var_i": 1.951563910473908e-18,
+      "sig2_eps": 1.734723475976807e-18
+    },
+    "S3_line_bootstrap": {
+      "d": {
+        "ci95": [
+          11.645353889715743,
+          17.020586734296103
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 14.476945519966879
+      },
+      "n_lines_eff": {
+        "ci95": [
+          48.0,
+          48.0
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 48.0
+      },
+      "var_i": {
+        "ci95": [
+          0.0014031301455121263,
+          0.0016030099418855481
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.0014925924419846436
+      },
+      "sig2_eps": {
+        "ci95": [
+          0.0033909794942686066,
+          0.0053536696104645645
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.00430331239951074
+      },
+      "R2_adj_i": {
+        "ci95": [
+          0.5522186915475416,
+          0.718339593283756
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.633862114299256
+      },
+      "var_b": {
+        "ci95": [
+          0.0005090692755712499,
+          0.0005884981701875532
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.0005503338628290671
+      },
+      "R2_adj_b": {
+        "ci95": [
+          0.5249618707713072,
+          0.683236701077297
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.6035893419414108
+      },
+      "nbar_drugs_per_line": {
+        "ci95": [
+          171.58333333333334,
+          182.97916666666666
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 178.5625
+      },
+      "noise_b_model": {
+        "ci95": [
+          1.8736766153612495e-05,
+          3.0844378823271585e-05
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 2.4128862822948326e-05
+      },
+      "noise_b_empirical": {
+        "ci95": [
+          0.000660519430634572,
+          0.0011800859141607493
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 0.0008974252900329225
+      },
+      "C_theory": {
+        "ci95": [
+          65.57059729980524,
+          117.54915163278162
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 89.67472486699089
+      },
+      "C_min": {
+        "ci95": [
+          43.36244695943959,
+          71.53798735334983
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 57.3586960089499
+      },
+      "S1_C_theory": {
+        "ci95": [
+          53.71132253273021,
+          94.40571804722079
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 73.39861871719614
+      },
+      "S1_C_min": {
+        "ci95": [
+          35.50300251414193,
+          57.23377032121683
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 46.177589477591894
+      },
+      "S2_C_b_theory": {
+        "ci95": [
+          20.16602202557793,
+          32.96745102042831
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 26.107879961096828
+      },
+      "S2_C_b_min": {
+        "ci95": [
+          13.259845876744377,
+          18.757024216310104
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 16.12547876844413
+      },
+      "S1emp_C_theory": {
+        "ci95": [
+          60.40583054248095,
+          108.65068933167922
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 83.2511803165851
+      },
+      "S1emp_C_min": {
+        "ci95": [
+          39.646847935259444,
+          65.58651831176236
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 52.43256344733857
+      },
+      "S2emp_C_b_theory": {
+        "ci95": [
+          46.35840513328952,
+          86.55182436198945
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 64.77236360290713
+      },
+      "S2emp_C_b_min": {
+        "ci95": [
+          29.549882909244122,
+          50.25645945928034
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 39.16464848443261
+      },
+      "k": {
+        "ci95": [
+          12.0,
+          18.0
+        ],
+        "boot_frac_infinite": 0.0,
+        "boot_median": 15.0
+      },
+      "bootstrap": {
+        "B": 1000,
+        "seed": 20261110,
+        "resampled": [
+          "contexts (lines)"
+        ],
+        "recomputed": [
+          "descriptor centring + PCs",
+          "d",
+          "k = ceil(d)",
+          "Var(i)",
+          "sig2_eps",
+          "R2 (i and b)",
+          "Var(b)",
+          "nbar"
+        ],
+        "fixed": [
+          "additive fit and half-specific b, i (as A5)",
+          "split seeds pooled"
+        ],
+        "method": "percentile (inverted_cdf)"
+      }
+    },
+    "S3_validity": {
+      "point_inside_boot_ci": {
+        "d": false,
+        "R2_adj_i": false,
+        "C_theory": false,
+        "C_min": false,
+        "S1_C_theory": false,
+        "S2_C_b_theory": false
+      },
+      "note": "FLAG: resampling lines with replacement leaves ~63 % distinct lines; d (rank-capped) is biased down and duplicated rows inflate R2_adj, so the S3 percentile CIs are not valid where the point estimate falls outside them. Use S3b."
+    },
+    "S3b_line_jackknife": {
+      "d": {
+        "se": 1.810303021167899,
+        "ci95": [
+          17.015132991862053,
+          24.111390493022697
+        ],
+        "bias_jack": -9.070803726529952,
+        "loo_min": 19.9412539792294,
+        "loo_max": 21.380081405048138
+      },
+      "k": {
+        "se": 1.399404635312222,
+        "ci95": [
+          18.257217293354916,
+          23.742782706645084
+        ],
+        "bias_jack": 0.0,
+        "loo_min": 20.0,
+        "loo_max": 22.0
+      },
+      "n_lines_eff": {
+        "se": 0.0,
+        "ci95": [
+          48.0,
+          48.0
+        ],
+        "bias_jack": -47.0,
+        "loo_min": 47.0,
+        "loo_max": 47.0
+      },
+      "var_i": {
+        "se": 4.848445957729207e-05,
+        "ci95": [
+          0.0014024165459872754,
+          0.0015924721366491709
+        ],
+        "bias_jack": -7.773651090480123e-08,
+        "loo_min": 0.0014706745955529387,
+        "loo_max": 0.0015101297149860905
+      },
+      "sig2_eps": {
+        "se": 0.0005037102850047311,
+        "ci95": [
+          0.0033146642324364504,
+          0.005289172282514475
+        ],
+        "bias_jack": 4.794828076779695e-06,
+        "loo_min": 0.004076642910208729,
+        "loo_max": 0.004370647428421783
+      },
+      "R2_adj_i": {
+        "se": 0.025956361296483533,
+        "ci95": [
+          0.29643708617336023,
+          0.3981841535975624
+        ],
+        "bias_jack": 0.08595011106444778,
+        "loo_min": 0.3387940771134754,
+        "loo_max": 0.3585037236257418
+      },
+      "var_b": {
+        "se": 2.0772842167590026e-05,
+        "ci95": [
+          0.000520813930313434,
+          0.0006022419759657509
+        ],
+        "bias_jack": 5.095750210681871e-18,
+        "loo_min": 0.0005533049180337827,
+        "loo_max": 0.0005684643669870749
+      },
+      "R2_adj_b": {
+        "se": 0.034011615294174354,
+        "ci95": [
+          0.2319146403415207,
+          0.36523772345838296
+        ],
+        "bias_jack": 0.08822874218472382,
+        "loo_min": 0.29323662445177967,
+        "loo_max": 0.3125457277811903
+      },
+      "nbar_drugs_per_line": {
+        "se": 2.8790635790476338,
+        "ci95": [
+          172.85713903135547,
+          184.14286096864453
+        ],
+        "bias_jack": 0.0,
+        "loo_min": 178.36170212765958,
+        "loo_max": 180.7872340425532
+      },
+      "noise_b_model": {
+        "se": 3.057361623092193e-06,
+        "ci95": [
+          1.8108063678578253e-05,
+          3.0092701111062787e-05
+        ],
+        "bias_jack": 5.967165614756005e-08,
+        "loo_min": 2.273131056825368e-05,
+        "loo_max": 2.4504405241062127e-05
+      },
+      "noise_b_empirical": {
+        "se": 0.00013565359879587032,
+        "ci95": [
+          0.0006354716451053163,
+          0.0011672239853260146
+        ],
+        "bias_jack": 1.9186298602864903e-05,
+        "loo_min": 0.0008373233859044069,
+        "loo_max": 0.0009166049781517718
+      },
+      "C_theory": {
+        "se": 35.01723894573434,
+        "ci95": [
+          161.66718718714776,
+          298.9322426132223
+        ],
+        "bias_jack": -155.15613212382263,
+        "loo_min": 213.9975693278317,
+        "loo_max": 237.71198501708506
+      },
+      "C_min": {
+        "se": 10.04348236879134,
+        "ci95": [
+          60.95336224407707,
+          100.32308999900856
+        ],
+        "bias_jack": -34.98907990440378,
+        "loo_min": 75.79377920597923,
+        "loo_max": 83.41012042193913
+      },
+      "S1_C_theory": {
+        "se": 29.08731135718333,
+        "ci95": [
+          134.90039957396456,
+          248.92056580770551
+        ],
+        "bias_jack": -131.2637117954311,
+        "loo_min": 177.39483905084884,
+        "loo_max": 197.68238531850497
+      },
+      "S1_C_min": {
+        "se": 7.8210156780726034,
+        "ci95": [
+          49.438942468442555,
+          80.09676081335834
+        ],
+        "bias_jack": -28.013690781027776,
+        "loo_min": 61.045815265546686,
+        "loo_max": 67.16352451093383
+      },
+      "S2_C_b_theory": {
+        "se": 10.629927973352,
+        "ci95": [
+          51.992693599142186,
+          93.66124589986795
+        ],
+        "bias_jack": -51.58800209611228,
+        "loo_min": 67.6566893521957,
+        "loo_max": 74.34019720852682
+      },
+      "S2_C_b_min": {
+        "se": 1.9067616138910282,
+        "ci95": [
+          18.708638265442247,
+          26.183006505058877
+        ],
+        "bias_jack": -9.454836187500128,
+        "loo_min": 21.805362923612297,
+        "loo_max": 23.303704330208745
+      },
+      "S1emp_C_theory": {
+        "se": 34.329882326712216,
+        "ci95": [
+          150.85474491932547,
+          285.4254118885098
+        ],
+        "bias_jack": -148.70110505667932,
+        "loo_min": 200.76724245686322,
+        "loo_max": 224.85567207715056
+      },
+      "S1emp_C_min": {
+        "se": 9.358108043301154,
+        "ci95": [
+          55.18749701453639,
+          91.87060676049781
+        ],
+        "bias_jack": -31.669165640011926,
+        "loo_min": 68.9445609986423,
+        "loo_max": 76.24676494899342
+      },
+      "S2emp_C_b_theory": {
+        "se": 34.41634607432933,
+        "ci95": [
+          112.96605036732996,
+          247.8756490017836
+        ],
+        "bias_jack": -125.80650131388222,
+        "loo_min": 161.10157872790788,
+        "loo_max": 185.7829894477524
+      },
+      "S2emp_C_b_min": {
+        "se": 7.478244656718668,
+        "ci95": [
+          39.91370194169918,
+          69.22788256242107
+        ],
+        "bias_jack": -22.79973837274258,
+        "loo_min": 50.72403489786528,
+        "loo_max": 56.90834570997074
+      },
+      "method": {
+        "kind": "delete-1 jackknife over the 48 lines",
+        "recomputed": "d, PCs, k, all components",
+        "fixed": "additive fit, half-specific b and i (A5)",
+        "ci": "normal, point +- 1.96 SE"
+      }
+    }
+  }
+}

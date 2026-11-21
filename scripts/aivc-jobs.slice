@@ -1,0 +1,10 @@
+[Unit]
+Description=Shared resource budget for detached AIVC jobs
+
+[Slice]
+MemoryAccounting=yes
+MemoryHigh=40G
+MemoryMax=48G
+MemorySwapMax=2G
+CPUQuota=800%
+TasksMax=1024
