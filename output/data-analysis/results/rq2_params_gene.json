@@ -1,0 +1,2597 @@
+{
+ "count2": {
+  "task": "Task 9 step 1 (A2) -- computed before any genetic C*_min estimate",
+  "computed": "2026-11-05",
+  "rule": ">= 300 targets with >= 20 cells each (Feng targeted screen, per line); kolf_2/kolf_3 merged with KOLF2.1J",
+  "C_public_count1": 11,
+  "C_public_count2": 25,
+  "formula": "Count1 (11) - 1 (pooled HipSci family) + 15 qualifying non-kolf HipSci lines",
+  "qualifying_lines": [
+   "eipl_1",
+   "eipl_3",
+   "fiaj_1",
+   "iudw_1",
+   "iudw_4",
+   "jejf_2",
+   "jejf_3",
+   "kolf_2",
+   "kolf_3",
+   "oikd_2",
+   "oikd_5",
+   "paab_3",
+   "paab_4",
+   "pipw_4",
+   "tolg_4",
+   "tolg_6",
+   "zapk_3"
+  ],
+  "qualifying_nonkolf_lines": [
+   "eipl_1",
+   "eipl_3",
+   "fiaj_1",
+   "iudw_1",
+   "iudw_4",
+   "jejf_2",
+   "jejf_3",
+   "oikd_2",
+   "oikd_5",
+   "paab_3",
+   "paab_4",
+   "pipw_4",
+   "tolg_4",
+   "tolg_6",
+   "zapk_3"
+  ],
+  "failing_lines": {
+   "fiaj_3": 164,
+   "pipw_5": 198
+  },
+  "kolf_lines_merged_with_KOLF2_1J": [
+   "kolf_2",
+   "kolf_3"
+  ],
+  "per_line": {
+   "eipl_1": {
+    "n_targets": 445,
+    "n_targets_ge20": 442,
+    "median_cells": 83.0,
+    "n_control_cells": 496
+   },
+   "eipl_3": {
+    "n_targets": 445,
+    "n_targets_ge20": 442,
+    "median_cells": 81.0,
+    "n_control_cells": 501
+   },
+   "fiaj_1": {
+    "n_targets": 445,
+    "n_targets_ge20": 444,
+    "median_cells": 91.0,
+    "n_control_cells": 549
+   },
+   "fiaj_3": {
+    "n_targets": 444,
+    "n_targets_ge20": 164,
+    "median_cells": 14.0,
+    "n_control_cells": 86
+   },
+   "iudw_1": {
+    "n_targets": 445,
+    "n_targets_ge20": 445,
+    "median_cells": 98.0,
+    "n_control_cells": 575
+   },
+   "iudw_4": {
+    "n_targets": 445,
+    "n_targets_ge20": 443,
+    "median_cells": 75.0,
+    "n_control_cells": 433
+   },
+   "jejf_2": {
+    "n_targets": 445,
+    "n_targets_ge20": 444,
+    "median_cells": 103.0,
+    "n_control_cells": 605
+   },
+   "jejf_3": {
+    "n_targets": 445,
+    "n_targets_ge20": 443,
+    "median_cells": 76.0,
+    "n_control_cells": 484
+   },
+   "kolf_2": {
+    "n_targets": 445,
+    "n_targets_ge20": 443,
+    "median_cells": 89.0,
+    "n_control_cells": 520
+   },
+   "kolf_3": {
+    "n_targets": 445,
+    "n_targets_ge20": 443,
+    "median_cells": 78.0,
+    "n_control_cells": 455
+   },
+   "oikd_2": {
+    "n_targets": 445,
+    "n_targets_ge20": 356,
+    "median_cells": 29.0,
+    "n_control_cells": 177
+   },
+   "oikd_5": {
+    "n_targets": 445,
+    "n_targets_ge20": 444,
+    "median_cells": 99.0,
+    "n_control_cells": 668
+   },
+   "paab_3": {
+    "n_targets": 445,
+    "n_targets_ge20": 442,
+    "median_cells": 61.0,
+    "n_control_cells": 397
+   },
+   "paab_4": {
+    "n_targets": 445,
+    "n_targets_ge20": 444,
+    "median_cells": 93.0,
+    "n_control_cells": 543
+   },
+   "pipw_4": {
+    "n_targets": 445,
+    "n_targets_ge20": 442,
+    "median_cells": 81.0,
+    "n_control_cells": 488
+   },
+   "pipw_5": {
+    "n_targets": 445,
+    "n_targets_ge20": 198,
+    "median_cells": 18.0,
+    "n_control_cells": 92
+   },
+   "tolg_4": {
+    "n_targets": 445,
+    "n_targets_ge20": 380,
+    "median_cells": 34.0,
+    "n_control_cells": 182
+   },
+   "tolg_6": {
+    "n_targets": 445,
+    "n_targets_ge20": 441,
+    "median_cells": 64.0,
+    "n_control_cells": 368
+   },
+   "zapk_3": {
+    "n_targets": 445,
+    "n_targets_ge20": 444,
+    "median_cells": 100.0,
+    "n_control_cells": 622
+   }
+  },
+  "metadata_crosscheck_n_targets_ge20": {
+   "eipl_1": 441,
+   "eipl_3": 441,
+   "fiaj_1": 443,
+   "fiaj_3": 163,
+   "iudw_1": 444,
+   "iudw_4": 442,
+   "jejf_2": 443,
+   "jejf_3": 442,
+   "kolf_2": 442,
+   "kolf_3": 442,
+   "oikd_2": 355,
+   "oikd_5": 443,
+   "paab_3": 441,
+   "paab_4": 443,
+   "pipw_4": 441,
+   "pipw_5": 197,
+   "tolg_4": 379,
+   "tolg_6": 440,
+   "zapk_3": 443
+  },
+  "metadata_crosscheck_agrees_on_qualification": true,
+  "genomewide_arms_max_targets_ge20_any_line": {
+   "feng_genomewidescreen_fitnessgenes_target_line": 17,
+   "feng_genomewidescreen_nonfitnessgenes_target_line": 0
+  },
+  "sensitivity_donor_collapsed": {
+   "C_public": 19,
+   "donors": [
+    "eipl",
+    "fiaj",
+    "iudw",
+    "jejf",
+    "oikd",
+    "paab",
+    "pipw",
+    "tolg",
+    "zapk"
+   ],
+   "note": "clones of the same donor counted once (not the A2 wording; reported only)"
+  }
+ },
+ "plan": {
+  "n_universe": 2366,
+  "n_axis": 6109,
+  "universe_rule": "targets with >= 20 cells in >= 1 of the RPE1/HepG2/Jurkat essential screens"
+ },
+ "primary": {
+  "label": "primary (Count-1 contexts, H1 = H1GW)",
+  "contexts": [
+   "K562",
+   "RPE1",
+   "HEPG2",
+   "JURKAT",
+   "HCT116",
+   "HEK293T",
+   "CD4",
+   "KOLF",
+   "FENG",
+   "DLD1",
+   "H1GW"
+  ],
+  "C": 11,
+  "d": 5.07978883203285,
+  "d_cap": 10,
+  "eigen_share": [
+   0.37002830610115617,
+   0.1565551131592542,
+   0.11950137271414052,
+   0.09405590539528391,
+   0.06525685315695524,
+   0.051512168179990804,
+   0.047220479262669444,
+   0.037690503441739354,
+   0.03390167408489369,
+   0.02427762450391667
+  ],
+  "d_jackknife": {
+   "loo_min": 4.459863691697054,
+   "loo_max": 6.629459906243183,
+   "jackknife_se": 1.8482306224224152
+  },
+  "n_targets": 2366,
+  "n_rows": 19471,
+  "lines_per_target": {
+   "3": 4,
+   "4": 22,
+   "5": 52,
+   "6": 138,
+   "7": 349,
+   "8": 713,
+   "9": 780,
+   "10": 272,
+   "11": 36
+  },
+  "n_genes": 6109,
+  "additive_rank": 2376,
+  "coverage": {
+   "K562": {
+    "line": "K562",
+    "n_targets_used": 2344,
+    "cells_per_target_median": 175.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 75328.0,
+    "dropped_half_imbalance": 0
+   },
+   "RPE1": {
+    "line": "hTERT-RPE1",
+    "n_targets_used": 2204,
+    "cells_per_target_median": 77.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 11485.0,
+    "dropped_half_imbalance": 0
+   },
+   "HEPG2": {
+    "line": "HepG2",
+    "n_targets_used": 2160,
+    "cells_per_target_median": 49.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 4976.0,
+    "dropped_half_imbalance": 0
+   },
+   "JURKAT": {
+    "line": "Jurkat",
+    "n_targets_used": 2270,
+    "cells_per_target_median": 86.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 12013.0,
+    "dropped_half_imbalance": 0
+   },
+   "HCT116": {
+    "line": "HCT116",
+    "n_targets_used": 2176,
+    "cells_per_target_median": 122.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 165948.0,
+    "dropped_half_imbalance": 0
+   },
+   "HEK293T": {
+    "line": "HEK293T",
+    "n_targets_used": 2182,
+    "cells_per_target_median": 160.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 219049.0,
+    "dropped_half_imbalance": 0
+   },
+   "CD4": {
+    "line": "primary CD4+ T",
+    "n_targets_used": 1639,
+    "cells_per_target_median": 620.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 940539.0,
+    "dropped_half_imbalance": 239
+   },
+   "KOLF": {
+    "line": "KOLF2.1J iPSC",
+    "n_targets_used": 1899,
+    "cells_per_target_median": 148.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 147058.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG": {
+    "line": "HipSci iPSC pool",
+    "n_targets_used": 300,
+    "cells_per_target_median": 1332.0,
+    "cells_per_target_min": 46.0,
+    "control_cells": 8241.0,
+    "dropped_half_imbalance": 0
+   },
+   "DLD1": {
+    "line": "DLD-1",
+    "n_targets_used": 580,
+    "cells_per_target_median": 109.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 16751.0,
+    "dropped_half_imbalance": 0
+   },
+   "H1GW": {
+    "line": "H1 hESC",
+    "n_targets_used": 1717,
+    "cells_per_target_median": 216.0,
+    "cells_per_target_min": 26.0,
+    "control_cells": 81617.0,
+    "dropped_half_imbalance": 0
+   }
+  },
+  "var_i": {
+   "estimate": 0.0011451788684191137,
+   "ci95": [
+    0.0011034495667743315,
+    0.0011871256413994264
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "sig2_eps": {
+   "estimate": 0.002337281259940742,
+   "ci95": [
+    0.002296075494047761,
+    0.002377804330816752
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "ratio_noise_interaction": {
+   "estimate": 2.0409748419190543,
+   "ci95": [
+    1.9711632965764951,
+    2.1136101304800206
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "C_min": {
+   "estimate": 16.447510040473276,
+   "ci95": [
+    16.092882132095188,
+    16.816481968116754
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "per_seed": [
+   {
+    "var_i": 0.001149075272403278,
+    "sig2_eps": 0.002332265365177766,
+    "C_min": 16.39018001344632
+   },
+   {
+    "var_i": 0.0011458396410280176,
+    "sig2_eps": 0.0023381496253553524,
+    "C_min": 16.445380952624788
+   },
+   {
+    "var_i": 0.0011449347417866608,
+    "sig2_eps": 0.0023390398936574083,
+    "C_min": 16.45752329656549
+   },
+   {
+    "var_i": 0.001140178790018369,
+    "sig2_eps": 0.0023408562926946273,
+    "C_min": 16.50890377183314
+   },
+   {
+    "var_i": 0.0011458658968591183,
+    "sig2_eps": 0.002336095122818322,
+    "C_min": 16.436035534187674
+   }
+  ],
+  "k": 6,
+  "n_targets_R2_estimable": 1801,
+  "bootstrap": {
+   "B": 2000,
+   "seed": 20261109,
+   "resampled": [
+    "drugs",
+    "split seeds"
+   ],
+   "method": "percentile (inverted_cdf)",
+   "fixed": [
+    "descriptor d",
+    "additive fit"
+   ]
+  },
+  "R2_adj": {
+   "estimate": 0.33698819798757385,
+   "ci95": [
+    0.31660909837857754,
+    0.3558542272527061
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "C_theory": {
+   "estimate": 46.839914076287286,
+   "ci95": [
+    43.892219318241686,
+    50.21242204570923
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "R2_note": "estimable on 1801 targets with n_t - k - 1 >= 1 (k = 6); residual d.o.f. per target <= C - k - 1 = 4: unstable, descriptive only",
+  "S1_S2_point": {
+   "d": 5.079788832032844,
+   "k": 6,
+   "n_drugs": 2366,
+   "n_lines_eff": 11.0,
+   "var_i": 0.0011451788684191005,
+   "sig2_eps": 0.0023372812599407196,
+   "R2_adj_i": 0.336988197987554,
+   "var_b": 0.0003715860399817435,
+   "R2_adj_b": 0.7011443716670374,
+   "nbar_drugs_per_line": 1770.090909090909,
+   "noise_b_model": 1.3204300682732227e-06,
+   "noise_b_empirical": 9.934066059545124e-06,
+   "C_theory": 46.83991407629,
+   "C_min": 16.447510040473276,
+   "S1_C_theory": 31.295509780250043,
+   "S1_C_min": 13.911986611453862,
+   "S2_C_b_theory": 8.270742025475174,
+   "S2_C_b_min": 6.097839849004914,
+   "S1emp_C_theory": 31.363195819114605,
+   "S1emp_C_min": 13.940834491352266,
+   "S2emp_C_b_theory": 8.438686349920621,
+   "S2emp_C_b_min": 6.215593066843262
+  },
+  "check_extra_vs_primary": {
+   "var_i": [
+    0.0011451788684191005,
+    0.0011451788684191137
+   ],
+   "sig2": [
+    0.0023372812599407196,
+    0.002337281259940742
+   ]
+  },
+  "S3_line_bootstrap": {
+   "d": {
+    "ci95": [
+     1.9693941539602393,
+     5.233308962454866
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 3.8402357308606327
+   },
+   "n_lines_eff": {
+    "ci95": [
+     11.0,
+     11.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 11.0
+   },
+   "var_i": {
+    "ci95": [
+     0.0005393849189285749,
+     0.0018133279867385127
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.0011340993127338685
+   },
+   "sig2_eps": {
+    "ci95": [
+     0.001769231146998795,
+     0.0029263773138950527
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00232240886705525
+   },
+   "R2_adj_i": {
+    "ci95": [
+     0.1608074716031117,
+     0.9999999999999974
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8801839539808908
+   },
+   "var_b": {
+    "ci95": [
+     8.339478941816347e-05,
+     0.0007037767464981173
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00035101850053102633
+   },
+   "R2_adj_b": {
+    "ci95": [
+     0.11949001562975581,
+     0.999999999999992
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8121209891739863
+   },
+   "nbar_drugs_per_line": {
+    "ci95": [
+     1389.6363636363637,
+     2102.2727272727275
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 1794.0
+   },
+   "noise_b_model": {
+    "ci95": [
+     9.35323242201761e-07,
+     1.840176939782048e-06
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 1.306392212254428e-06
+   },
+   "noise_b_empirical": {
+    "ci95": [
+     5.955760428754209e-06,
+     1.4194839015157136e-05
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 9.879725132068675e-06
+   },
+   "C_theory": {
+    "ci95": [
+     8.647996600451977,
+     73.88744236708452
+    ],
+    "boot_frac_infinite": 0.009,
+    "boot_median": 15.105439340605603
+   },
+   "C_min": {
+    "ci95": [
+     7.952019072676773,
+     17.066701636550853
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 12.514212740140817
+   },
+   "S1_C_theory": {
+    "ci95": [
+     7.346000412257778,
+     46.946351921173985
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 13.405248244705724
+   },
+   "S1_C_min": {
+    "ci95": [
+     6.489693465573849,
+     15.473587146540268
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 10.886734720423874
+   },
+   "S2_C_b_theory": {
+    "ci95": [
+     3.707389825937873,
+     26.023102457413263
+    ],
+    "boot_frac_infinite": 0.007,
+    "boot_median": 5.927926259993741
+   },
+   "S2_C_b_min": {
+    "ci95": [
+     2.980914662857687,
+     6.251875515503744
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.8726314206023
+   },
+   "S1emp_C_theory": {
+    "ci95": [
+     7.360249669193826,
+     47.01872735833053
+    ],
+    "boot_frac_infinite": 0.001,
+    "boot_median": 13.43255138313772
+   },
+   "S1emp_C_min": {
+    "ci95": [
+     6.500368549709805,
+     15.511848135104053
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 10.907451021453035
+   },
+   "S2emp_C_b_theory": {
+    "ci95": [
+     3.7666514219925276,
+     26.643288125135996
+    ],
+    "boot_frac_infinite": 0.007,
+    "boot_median": 6.093794098764751
+   },
+   "S2emp_C_b_min": {
+    "ci95": [
+     3.041005616526823,
+     6.40809873820367
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.985992736410906
+   },
+   "k": {
+    "ci95": [
+     2.0,
+     6.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.0
+   },
+   "bootstrap": {
+    "B": 1000,
+    "seed": 20261110,
+    "resampled": [
+     "contexts (lines)"
+    ],
+    "recomputed": [
+     "descriptor centring + PCs",
+     "d",
+     "k = ceil(d)",
+     "Var(i)",
+     "sig2_eps",
+     "R2 (i and b)",
+     "Var(b)",
+     "nbar"
+    ],
+    "fixed": [
+     "additive fit and half-specific b, i (as A5)",
+     "split seeds pooled"
+    ],
+    "method": "percentile (inverted_cdf)"
+   }
+  },
+  "secs": 375.6
+ },
+ "sensitivity": {
+  "ctrlPC_top8": {
+   "label": "descriptor = projection on the top 8 pooled-control-cell PCs",
+   "C": 11,
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "d": 4.31375172989167,
+   "d_cap": 10,
+   "n_features": 8,
+   "var_i": {
+    "estimate": 0.0011451788684191137,
+    "ci95": [
+     0.0011034495667743315,
+     0.0011871256413994264
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.002337281259940742,
+    "ci95": [
+     0.002296075494047761,
+     0.002377804330816752
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.0409748419190543,
+    "ci95": [
+     1.9711632965764951,
+     2.1136101304800206
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 14.118010484885367,
+    "ci95": [
+     13.816860810397493,
+     14.431341086566416
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "note": "rows, targets, halves and Var(i), sig2_eps identical to the primary; only d recomputed"
+  },
+  "ctrlPC_top24": {
+   "label": "descriptor = projection on the top 24 pooled-control-cell PCs",
+   "C": 11,
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "d": 5.046592865015467,
+   "d_cap": 10,
+   "n_features": 24,
+   "var_i": {
+    "estimate": 0.0011451788684191137,
+    "ci95": [
+     0.0011034495667743315,
+     0.0011871256413994264
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.002337281259940742,
+    "ci95": [
+     0.002296075494047761,
+     0.002377804330816752
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.0409748419190543,
+    "ci95": [
+     1.9711632965764951,
+     2.1136101304800206
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 16.34656193992024,
+    "ci95": [
+     15.994251493298773,
+     16.71312266892035
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "note": "rows, targets, halves and Var(i), sig2_eps identical to the primary; only d recomputed"
+  },
+  "ctrlPC_top50": {
+   "label": "descriptor = projection on the top 50 pooled-control-cell PCs",
+   "C": 11,
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "d": 5.049657005148457,
+   "d_cap": 10,
+   "n_features": 50,
+   "var_i": {
+    "estimate": 0.0011451788684191137,
+    "ci95": [
+     0.0011034495667743315,
+     0.0011871256413994264
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.002337281259940742,
+    "ci95": [
+     0.002296075494047761,
+     0.002377804330816752
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.0409748419190543,
+    "ci95": [
+     1.9711632965764951,
+     2.1136101304800206
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 16.355879912976775,
+    "ci95": [
+     16.00335555399748,
+     16.722663206679634
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "note": "rows, targets, halves and Var(i), sig2_eps identical to the primary; only d recomputed"
+  },
+  "no_KOLF": {
+   "label": "KOLF excluded",
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "C": 10,
+   "d": 4.459863691697054,
+   "d_cap": 9,
+   "eigen_share": [
+    0.4113012820178503,
+    0.1361893953678264,
+    0.12035555378187403,
+    0.10324584294192284,
+    0.06595212802893155,
+    0.05430781772130741,
+    0.042130037152965955,
+    0.03935648466543139,
+    0.027161458321890083
+   ],
+   "d_jackknife": {
+    "loo_min": 3.8871034253382644,
+    "loo_max": 6.2643127565871035,
+    "jackknife_se": 2.037968302280397
+   },
+   "n_targets": 2366,
+   "n_rows": 17572,
+   "lines_per_target": {
+    "3": 9,
+    "4": 39,
+    "5": 82,
+    "6": 274,
+    "7": 746,
+    "8": 870,
+    "9": 307,
+    "10": 39
+   },
+   "n_genes": 6109,
+   "additive_rank": 2375,
+   "coverage": {
+    "K562": {
+     "line": "K562",
+     "n_targets_used": 2344,
+     "cells_per_target_median": 175.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 75328.0,
+     "dropped_half_imbalance": 0
+    },
+    "RPE1": {
+     "line": "hTERT-RPE1",
+     "n_targets_used": 2204,
+     "cells_per_target_median": 77.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 11485.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEPG2": {
+     "line": "HepG2",
+     "n_targets_used": 2160,
+     "cells_per_target_median": 49.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 4976.0,
+     "dropped_half_imbalance": 0
+    },
+    "JURKAT": {
+     "line": "Jurkat",
+     "n_targets_used": 2270,
+     "cells_per_target_median": 86.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 12013.0,
+     "dropped_half_imbalance": 0
+    },
+    "HCT116": {
+     "line": "HCT116",
+     "n_targets_used": 2176,
+     "cells_per_target_median": 122.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 165948.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEK293T": {
+     "line": "HEK293T",
+     "n_targets_used": 2182,
+     "cells_per_target_median": 160.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 219049.0,
+     "dropped_half_imbalance": 0
+    },
+    "CD4": {
+     "line": "primary CD4+ T",
+     "n_targets_used": 1639,
+     "cells_per_target_median": 620.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 940539.0,
+     "dropped_half_imbalance": 239
+    },
+    "FENG": {
+     "line": "HipSci iPSC pool",
+     "n_targets_used": 300,
+     "cells_per_target_median": 1332.0,
+     "cells_per_target_min": 46.0,
+     "control_cells": 8241.0,
+     "dropped_half_imbalance": 0
+    },
+    "DLD1": {
+     "line": "DLD-1",
+     "n_targets_used": 580,
+     "cells_per_target_median": 109.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 16751.0,
+     "dropped_half_imbalance": 0
+    },
+    "H1GW": {
+     "line": "H1 hESC",
+     "n_targets_used": 1717,
+     "cells_per_target_median": 216.0,
+     "cells_per_target_min": 26.0,
+     "control_cells": 81617.0,
+     "dropped_half_imbalance": 0
+    }
+   },
+   "var_i": {
+    "estimate": 0.001114436025710124,
+    "ci95": [
+     0.0010699633163415141,
+     0.0011597703901884068
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.0021670558054777103,
+    "ci95": [
+     0.0021294155439338944,
+     0.0022030750047823105
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 1.9445313642807374,
+    "ci95": [
+     1.8711376373132713,
+     2.0213573422778763
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 14.132208520618851,
+    "ci95": [
+     13.804882502518323,
+     14.474841910467408
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "per_seed": [
+    {
+     "var_i": 0.0011181295659868824,
+     "sig2_eps": 0.002162054153712125,
+     "C_min": 14.083610986236112
+    },
+    {
+     "var_i": 0.0011160280356983386,
+     "sig2_eps": 0.002167152146738218,
+     "C_min": 14.120222450133834
+    },
+    {
+     "var_i": 0.0011141694260191578,
+     "sig2_eps": 0.0021688764293493006,
+     "C_min": 14.141571350462206
+    },
+    {
+     "var_i": 0.0011085829580365953,
+     "sig2_eps": 0.002171455081966676,
+     "C_min": 14.19569496892163
+    },
+    {
+     "var_i": 0.0011152701428096656,
+     "sig2_eps": 0.0021657412156222463,
+     "C_min": 14.120465497849688
+    }
+   ],
+   "k": 5,
+   "n_targets_R2_estimable": 1962,
+   "bootstrap": {
+    "B": 2000,
+    "seed": 20261109,
+    "resampled": [
+     "drugs",
+     "split seeds"
+    ],
+    "method": "percentile (inverted_cdf)",
+    "fixed": [
+     "descriptor d",
+     "additive fit"
+    ]
+   },
+   "R2_adj": {
+    "estimate": 0.1708399410872381,
+    "ci95": [
+     0.1479290404124547,
+     0.19320145942702727
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_theory": {
+    "estimate": 77.86849127343697,
+    "ci95": [
+     68.22966183190296,
+     90.40800919872031
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "R2_note": "estimable on 1962 targets with n_t - k - 1 >= 1 (k = 5); residual d.o.f. per target <= C - k - 1 = 4: unstable, descriptive only",
+   "secs": 252.0
+  },
+  "H1GW_VCCH1_one_line": {
+   "label": "H1GW + VCC2025-H1 as one H1 line (responses within dataset, averaged per target)",
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "C": 11,
+   "d": 5.160343885804382,
+   "d_cap": 10,
+   "eigen_share": [
+    0.3599177231239092,
+    0.16722640441674191,
+    0.12306092059446239,
+    0.09633592154945801,
+    0.06230293148217423,
+    0.052260557284377014,
+    0.047650450987308184,
+    0.037868320546906156,
+    0.03422367087873039,
+    0.019153099135932456
+   ],
+   "d_jackknife": {
+    "loo_min": 4.568553137819989,
+    "loo_max": 6.467489652884484,
+    "jackknife_se": 1.6181398463305532
+   },
+   "n_targets": 2366,
+   "n_rows": 19485,
+   "lines_per_target": {
+    "3": 4,
+    "4": 22,
+    "5": 51,
+    "6": 138,
+    "7": 347,
+    "8": 710,
+    "9": 783,
+    "10": 275,
+    "11": 36
+   },
+   "n_genes": 6109,
+   "additive_rank": 2376,
+   "coverage": {
+    "K562": {
+     "line": "K562",
+     "n_targets_used": 2344,
+     "cells_per_target_median": 175.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 75328.0,
+     "dropped_half_imbalance": 0
+    },
+    "RPE1": {
+     "line": "hTERT-RPE1",
+     "n_targets_used": 2204,
+     "cells_per_target_median": 77.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 11485.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEPG2": {
+     "line": "HepG2",
+     "n_targets_used": 2160,
+     "cells_per_target_median": 49.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 4976.0,
+     "dropped_half_imbalance": 0
+    },
+    "JURKAT": {
+     "line": "Jurkat",
+     "n_targets_used": 2270,
+     "cells_per_target_median": 86.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 12013.0,
+     "dropped_half_imbalance": 0
+    },
+    "HCT116": {
+     "line": "HCT116",
+     "n_targets_used": 2176,
+     "cells_per_target_median": 122.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 165948.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEK293T": {
+     "line": "HEK293T",
+     "n_targets_used": 2182,
+     "cells_per_target_median": 160.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 219049.0,
+     "dropped_half_imbalance": 0
+    },
+    "CD4": {
+     "line": "primary CD4+ T",
+     "n_targets_used": 1639,
+     "cells_per_target_median": 620.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 940539.0,
+     "dropped_half_imbalance": 239
+    },
+    "KOLF": {
+     "line": "KOLF2.1J iPSC",
+     "n_targets_used": 1899,
+     "cells_per_target_median": 148.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 147058.0,
+     "dropped_half_imbalance": 0
+    },
+    "FENG": {
+     "line": "HipSci iPSC pool",
+     "n_targets_used": 300,
+     "cells_per_target_median": 1332.0,
+     "cells_per_target_min": 46.0,
+     "control_cells": 8241.0,
+     "dropped_half_imbalance": 0
+    },
+    "DLD1": {
+     "line": "DLD-1",
+     "n_targets_used": 580,
+     "cells_per_target_median": 109.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 16751.0,
+     "dropped_half_imbalance": 0
+    },
+    "H1GW": {
+     "line": "H1 hESC",
+     "n_targets_used": 1731,
+     "cells_per_target_median": 218.0,
+     "cells_per_target_min": 26.0,
+     "control_cells": 119793.0,
+     "dropped_half_imbalance": 0
+    }
+   },
+   "var_i": {
+    "estimate": 0.0011468267680642046,
+    "ci95": [
+     0.001105151978355814,
+     0.0011888751422274905
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.002334945569377689,
+    "ci95": [
+     0.0022937003342577496,
+     0.002375708685884305
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.036005466910211,
+    "ci95": [
+     1.966302589870653,
+     2.1077808600511845
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 16.666832248438787,
+    "ci95": [
+     16.30714143308473,
+     17.037217959585014
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "per_seed": [
+    {
+     "var_i": 0.0011507257446224126,
+     "sig2_eps": 0.002329923761767694,
+     "C_min": 16.608713442682106
+    },
+    {
+     "var_i": 0.0011474868812709677,
+     "sig2_eps": 0.0023358127006098987,
+     "C_min": 16.66468775649494
+    },
+    {
+     "var_i": 0.001146572479545331,
+     "sig2_eps": 0.0023367144396049594,
+     "C_min": 16.67712349320253
+    },
+    {
+     "var_i": 0.001141836171673168,
+     "sig2_eps": 0.0023385110314116113,
+     "C_min": 16.72886623796292
+    },
+    {
+     "var_i": 0.0011475125632090962,
+     "sig2_eps": 0.0023337659134941603,
+     "C_min": 16.655248297934833
+    }
+   ],
+   "k": 6,
+   "n_targets_R2_estimable": 1804,
+   "bootstrap": {
+    "B": 2000,
+    "seed": 20261109,
+    "resampled": [
+     "drugs",
+     "split seeds"
+    ],
+    "method": "percentile (inverted_cdf)",
+    "fixed": [
+     "descriptor d",
+     "additive fit"
+    ]
+   },
+   "R2_adj": {
+    "estimate": 0.27051240454528414,
+    "ci95": [
+     0.25054696311718505,
+     0.2890751352443992
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_theory": {
+    "estimate": 58.915393102855425,
+    "ci95": [
+     54.553884471279154,
+     64.11868934865781
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "R2_note": "estimable on 1804 targets with n_t - k - 1 >= 1 (k = 6); residual d.o.f. per target <= C - k - 1 = 4: unstable, descriptive only",
+   "secs": 1043.7
+  },
+  "VCCH1_separate_context": {
+   "label": "VCC2025-H1 as a 12th context (datasets-as-contexts reading)",
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW",
+    "VCC_H1"
+   ],
+   "C": 12,
+   "d": 4.116092519902365,
+   "d_cap": 11,
+   "eigen_share": [
+    0.44341044231974613,
+    0.1510975580886889,
+    0.09734704872888196,
+    0.07251674557535866,
+    0.047999719849212336,
+    0.04794173652767453,
+    0.037392303652611966,
+    0.03353212837646673,
+    0.027574546117422084,
+    0.02488933735767719,
+    0.01629843340625943
+   ],
+   "d_jackknife": {
+    "loo_min": 3.678887331495985,
+    "loo_max": 5.07978883203285,
+    "jackknife_se": 1.2716718426678164
+   },
+   "n_targets": 2366,
+   "n_rows": 19521,
+   "lines_per_target": {
+    "3": 4,
+    "4": 22,
+    "5": 51,
+    "6": 138,
+    "7": 344,
+    "8": 705,
+    "9": 773,
+    "10": 286,
+    "11": 43
+   },
+   "n_genes": 6109,
+   "additive_rank": 2377,
+   "coverage": {
+    "K562": {
+     "line": "K562",
+     "n_targets_used": 2344,
+     "cells_per_target_median": 175.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 75328.0,
+     "dropped_half_imbalance": 0
+    },
+    "RPE1": {
+     "line": "hTERT-RPE1",
+     "n_targets_used": 2204,
+     "cells_per_target_median": 77.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 11485.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEPG2": {
+     "line": "HepG2",
+     "n_targets_used": 2160,
+     "cells_per_target_median": 49.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 4976.0,
+     "dropped_half_imbalance": 0
+    },
+    "JURKAT": {
+     "line": "Jurkat",
+     "n_targets_used": 2270,
+     "cells_per_target_median": 86.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 12013.0,
+     "dropped_half_imbalance": 0
+    },
+    "HCT116": {
+     "line": "HCT116",
+     "n_targets_used": 2176,
+     "cells_per_target_median": 122.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 165948.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEK293T": {
+     "line": "HEK293T",
+     "n_targets_used": 2182,
+     "cells_per_target_median": 160.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 219049.0,
+     "dropped_half_imbalance": 0
+    },
+    "CD4": {
+     "line": "primary CD4+ T",
+     "n_targets_used": 1639,
+     "cells_per_target_median": 620.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 940539.0,
+     "dropped_half_imbalance": 239
+    },
+    "KOLF": {
+     "line": "KOLF2.1J iPSC",
+     "n_targets_used": 1899,
+     "cells_per_target_median": 148.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 147058.0,
+     "dropped_half_imbalance": 0
+    },
+    "FENG": {
+     "line": "HipSci iPSC pool",
+     "n_targets_used": 300,
+     "cells_per_target_median": 1332.0,
+     "cells_per_target_min": 46.0,
+     "control_cells": 8241.0,
+     "dropped_half_imbalance": 0
+    },
+    "DLD1": {
+     "line": "DLD-1",
+     "n_targets_used": 580,
+     "cells_per_target_median": 109.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 16751.0,
+     "dropped_half_imbalance": 0
+    },
+    "H1GW": {
+     "line": "H1 hESC",
+     "n_targets_used": 1717,
+     "cells_per_target_median": 216.0,
+     "cells_per_target_min": 26.0,
+     "control_cells": 81617.0,
+     "dropped_half_imbalance": 0
+    },
+    "VCC_H1": {
+     "line": "H1 hESC (VCC2025)",
+     "n_targets_used": 50,
+     "cells_per_target_median": 789.0,
+     "cells_per_target_min": 33.0,
+     "control_cells": 38176.0,
+     "dropped_half_imbalance": 0
+    }
+   },
+   "var_i": {
+    "estimate": 0.0011477955313834826,
+    "ci95": [
+     0.0011065130924592305,
+     0.0011896643328155336
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.0023316457218886468,
+    "ci95": [
+     0.0022904885900585288,
+     0.0023721056290484342
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.0314120922549885,
+    "ci95": [
+     1.962768058380865,
+     2.1020311379560703
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 13.477572637672335,
+    "ci95": [
+     13.195027443307131,
+     13.768247163445201
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "per_seed": [
+    {
+     "var_i": 0.0011516757920384069,
+     "sig2_eps": 0.002326643033442771,
+     "C_min": 13.43152126524962
+    },
+    {
+     "var_i": 0.0011484149366866423,
+     "sig2_eps": 0.0023325547489258785,
+     "C_min": 13.476320907402247
+    },
+    {
+     "var_i": 0.001147557659240973,
+     "sig2_eps": 0.002333392160103059,
+     "C_min": 13.485570026201858
+    },
+    {
+     "var_i": 0.0011428327473953044,
+     "sig2_eps": 0.0023351863413904267,
+     "C_min": 13.526634704909059
+    },
+    {
+     "var_i": 0.0011484965215561764,
+     "sig2_eps": 0.0023304523255812917,
+     "C_min": 13.468192160845888
+    }
+   ],
+   "k": 5,
+   "n_targets_R2_estimable": 2151,
+   "bootstrap": {
+    "B": 2000,
+    "seed": 20261109,
+    "resampled": [
+     "drugs",
+     "split seeds"
+    ],
+    "method": "percentile (inverted_cdf)",
+    "fixed": [
+     "descriptor d",
+     "additive fit"
+    ]
+   },
+   "R2_adj": {
+    "estimate": 0.11373201640033381,
+    "ci95": [
+     0.09419696918427789,
+     0.132125285677841
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_theory": {
+    "estimate": 110.71029119673388,
+    "ci95": [
+     94.2991802926893,
+     134.36955343517855
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "R2_note": "estimable on 2151 targets with n_t - k - 1 >= 1 (k = 5); residual d.o.f. per target <= C - k - 1 = 6: unstable, descriptive only",
+   "secs": 185.7
+  },
+  "FENG_pooled_pseudobulk": {
+   "label": "HipSci pool as one summed pseudobulk (registry-style; line mix of targets != of controls)",
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "C": 11,
+   "d": 5.0856011012176525,
+   "d_cap": 10,
+   "eigen_share": [
+    0.3697667787259708,
+    0.15640922927297085,
+    0.11944673012428929,
+    0.09402597389323392,
+    0.06534396488160643,
+    0.051484951763640006,
+    0.04729516046596497,
+    0.03768612756628141,
+    0.03389262163387907,
+    0.024648461672163318
+   ],
+   "d_jackknife": {
+    "loo_min": 4.464897101833149,
+    "loo_max": 6.638439232549339,
+    "jackknife_se": 1.8515055059240768
+   },
+   "n_targets": 2366,
+   "n_rows": 19471,
+   "lines_per_target": {
+    "3": 4,
+    "4": 22,
+    "5": 52,
+    "6": 138,
+    "7": 349,
+    "8": 713,
+    "9": 780,
+    "10": 272,
+    "11": 36
+   },
+   "n_genes": 6109,
+   "additive_rank": 2376,
+   "coverage": {
+    "K562": {
+     "line": "K562",
+     "n_targets_used": 2344,
+     "cells_per_target_median": 175.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 75328.0,
+     "dropped_half_imbalance": 0
+    },
+    "RPE1": {
+     "line": "hTERT-RPE1",
+     "n_targets_used": 2204,
+     "cells_per_target_median": 77.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 11485.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEPG2": {
+     "line": "HepG2",
+     "n_targets_used": 2160,
+     "cells_per_target_median": 49.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 4976.0,
+     "dropped_half_imbalance": 0
+    },
+    "JURKAT": {
+     "line": "Jurkat",
+     "n_targets_used": 2270,
+     "cells_per_target_median": 86.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 12013.0,
+     "dropped_half_imbalance": 0
+    },
+    "HCT116": {
+     "line": "HCT116",
+     "n_targets_used": 2176,
+     "cells_per_target_median": 122.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 165948.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEK293T": {
+     "line": "HEK293T",
+     "n_targets_used": 2182,
+     "cells_per_target_median": 160.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 219049.0,
+     "dropped_half_imbalance": 0
+    },
+    "CD4": {
+     "line": "primary CD4+ T",
+     "n_targets_used": 1639,
+     "cells_per_target_median": 620.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 940539.0,
+     "dropped_half_imbalance": 239
+    },
+    "KOLF": {
+     "line": "KOLF2.1J iPSC",
+     "n_targets_used": 1899,
+     "cells_per_target_median": 148.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 147058.0,
+     "dropped_half_imbalance": 0
+    },
+    "FENG": {
+     "line": "HipSci iPSC pool",
+     "n_targets_used": 300,
+     "cells_per_target_median": 1332.0,
+     "cells_per_target_min": 46.0,
+     "control_cells": 8241.0,
+     "dropped_half_imbalance": 0
+    },
+    "DLD1": {
+     "line": "DLD-1",
+     "n_targets_used": 580,
+     "cells_per_target_median": 109.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 16751.0,
+     "dropped_half_imbalance": 0
+    },
+    "H1GW": {
+     "line": "H1 hESC",
+     "n_targets_used": 1717,
+     "cells_per_target_median": 216.0,
+     "cells_per_target_min": 26.0,
+     "control_cells": 81617.0,
+     "dropped_half_imbalance": 0
+    }
+   },
+   "var_i": {
+    "estimate": 0.0011453297383359358,
+    "ci95": [
+     0.0011036742176814254,
+     0.001187255224605334
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.002337275452446592,
+    "ci95": [
+     0.00229607197373546,
+     0.0023777966700124576
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 2.0407009215027014,
+    "ci95": [
+     1.9710875270682673,
+     2.1133995430509787
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 16.46379195486767,
+    "ci95": [
+     16.109765999472412,
+     16.833508144670592
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "per_seed": [
+    {
+     "var_i": 0.0011492286635309045,
+     "sig2_eps": 0.0023322568524068426,
+     "C_min": 16.406373975504472
+    },
+    {
+     "var_i": 0.0011459902117657364,
+     "sig2_eps": 0.0023381430091532337,
+     "C_min": 16.461660634773928
+    },
+    {
+     "var_i": 0.0011450865603466847,
+     "sig2_eps": 0.002339034885154206,
+     "C_min": 16.473809992714294
+    },
+    {
+     "var_i": 0.0011403281630523309,
+     "sig2_eps": 0.002340851231957373,
+     "C_min": 16.525258726759255
+    },
+    {
+     "var_i": 0.0011460150929839044,
+     "sig2_eps": 0.00233609128356106,
+     "C_min": 16.452330542179688
+    }
+   ],
+   "k": 6,
+   "n_targets_R2_estimable": 1801,
+   "bootstrap": {
+    "B": 2000,
+    "seed": 20261109,
+    "resampled": [
+     "drugs",
+     "split seeds"
+    ],
+    "method": "percentile (inverted_cdf)",
+    "fixed": [
+     "descriptor d",
+     "additive fit"
+    ]
+   },
+   "R2_adj": {
+    "estimate": 0.3356222084457575,
+    "ci95": [
+     0.31521642986166687,
+     0.35427721020459135
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_theory": {
+    "estimate": 47.074996128770465,
+    "ci95": [
+     44.09309887919674,
+     50.48103266270429
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "R2_note": "estimable on 1801 targets with n_t - k - 1 >= 1 (k = 6); residual d.o.f. per target <= C - k - 1 = 4: unstable, descriptive only",
+   "secs": 151.0
+  },
+  "no_CD4": {
+   "label": "CD4 excluded (unit-level halves)",
+   "contexts": [
+    "K562",
+    "RPE1",
+    "HEPG2",
+    "JURKAT",
+    "HCT116",
+    "HEK293T",
+    "KOLF",
+    "FENG",
+    "DLD1",
+    "H1GW"
+   ],
+   "C": 10,
+   "d": 6.629459906243183,
+   "d_cap": 9,
+   "eigen_share": [
+    0.24408895412018064,
+    0.19256967671858724,
+    0.1540310358500329,
+    0.10182771980924869,
+    0.08194179338547561,
+    0.07383516250615142,
+    0.06031444965735745,
+    0.05293473509899686,
+    0.03845647285396918
+   ],
+   "d_jackknife": {
+    "loo_min": 5.920071000836024,
+    "loo_max": 6.2643127565871035,
+    "jackknife_se": 0.2986446641783037
+   },
+   "n_targets": 2365,
+   "n_rows": 17830,
+   "lines_per_target": {
+    "3": 5,
+    "4": 28,
+    "5": 78,
+    "6": 240,
+    "7": 698,
+    "8": 904,
+    "9": 365,
+    "10": 47
+   },
+   "n_genes": 6109,
+   "additive_rank": 2374,
+   "coverage": {
+    "K562": {
+     "line": "K562",
+     "n_targets_used": 2343,
+     "cells_per_target_median": 175.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 75328.0,
+     "dropped_half_imbalance": 0
+    },
+    "RPE1": {
+     "line": "hTERT-RPE1",
+     "n_targets_used": 2203,
+     "cells_per_target_median": 77.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 11485.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEPG2": {
+     "line": "HepG2",
+     "n_targets_used": 2160,
+     "cells_per_target_median": 49.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 4976.0,
+     "dropped_half_imbalance": 0
+    },
+    "JURKAT": {
+     "line": "Jurkat",
+     "n_targets_used": 2270,
+     "cells_per_target_median": 86.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 12013.0,
+     "dropped_half_imbalance": 0
+    },
+    "HCT116": {
+     "line": "HCT116",
+     "n_targets_used": 2176,
+     "cells_per_target_median": 122.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 165948.0,
+     "dropped_half_imbalance": 0
+    },
+    "HEK293T": {
+     "line": "HEK293T",
+     "n_targets_used": 2182,
+     "cells_per_target_median": 160.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 219049.0,
+     "dropped_half_imbalance": 0
+    },
+    "KOLF": {
+     "line": "KOLF2.1J iPSC",
+     "n_targets_used": 1899,
+     "cells_per_target_median": 148.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 147058.0,
+     "dropped_half_imbalance": 0
+    },
+    "FENG": {
+     "line": "HipSci iPSC pool",
+     "n_targets_used": 300,
+     "cells_per_target_median": 1332.0,
+     "cells_per_target_min": 46.0,
+     "control_cells": 8241.0,
+     "dropped_half_imbalance": 0
+    },
+    "DLD1": {
+     "line": "DLD-1",
+     "n_targets_used": 580,
+     "cells_per_target_median": 109.0,
+     "cells_per_target_min": 20.0,
+     "control_cells": 16751.0,
+     "dropped_half_imbalance": 0
+    },
+    "H1GW": {
+     "line": "H1 hESC",
+     "n_targets_used": 1717,
+     "cells_per_target_median": 216.0,
+     "cells_per_target_min": 26.0,
+     "control_cells": 81617.0,
+     "dropped_half_imbalance": 0
+    }
+   },
+   "var_i": {
+    "estimate": 0.0013472921756056049,
+    "ci95": [
+     0.0013063384265121231,
+     0.001387395242330312
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "sig2_eps": {
+    "estimate": 0.0021433767229293624,
+    "ci95": [
+     0.0021071031730791855,
+     0.002180626945924931
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "ratio_noise_interaction": {
+    "estimate": 1.5908774367860625,
+    "ci95": [
+     1.548443151794231,
+     1.6367979511678166
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_min": {
+    "estimate": 18.17611808916331,
+    "ci95": [
+     17.894801698159863,
+     18.480546298131213
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "per_seed": [
+    {
+     "var_i": 0.0013480103868428485,
+     "sig2_eps": 0.0021427301954140858,
+     "C_min": 18.167319301869888
+    },
+    {
+     "var_i": 0.0013486837540637175,
+     "sig2_eps": 0.0021434768722867438,
+     "C_min": 18.165728280477015
+    },
+    {
+     "var_i": 0.001344714359860358,
+     "sig2_eps": 0.002145396595688014,
+     "C_min": 18.206294019609295
+    },
+    {
+     "var_i": 0.0013469433787784402,
+     "sig2_eps": 0.0021428088867359177,
+     "C_min": 18.17605438465448
+    },
+    {
+     "var_i": 0.0013481089984827101,
+     "sig2_eps": 0.0021424710645221324,
+     "C_min": 18.16527417535756
+    }
+   ],
+   "k": 7,
+   "n_targets_R2_estimable": 412,
+   "bootstrap": {
+    "B": 2000,
+    "seed": 20261109,
+    "resampled": [
+     "drugs",
+     "split seeds"
+    ],
+    "method": "percentile (inverted_cdf)",
+    "fixed": [
+     "descriptor d",
+     "additive fit"
+    ]
+   },
+   "R2_adj": {
+    "estimate": 0.6355642593423876,
+    "ci95": [
+     0.601291596688506,
+     0.6684822000117192
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "C_theory": {
+    "estimate": 28.024990528786628,
+    "ci95": [
+     26.6469954974063,
+     29.588426173561025
+    ],
+    "boot_frac_infinite": 0.0
+   },
+   "R2_note": "estimable on 412 targets with n_t - k - 1 >= 1 (k = 7); residual d.o.f. per target <= C - k - 1 = 2: unstable, descriptive only",
+   "secs": 129.5
+  }
+ },
+ "secondary_count2_contexts": {
+  "label": "Count-2 contexts (25): 10 lines + 15 HipSci donor lines",
+  "contexts": [
+   "K562",
+   "RPE1",
+   "HEPG2",
+   "JURKAT",
+   "HCT116",
+   "HEK293T",
+   "CD4",
+   "KOLF",
+   "DLD1",
+   "H1GW",
+   "FENG:eipl_1",
+   "FENG:eipl_3",
+   "FENG:fiaj_1",
+   "FENG:iudw_1",
+   "FENG:iudw_4",
+   "FENG:jejf_2",
+   "FENG:jejf_3",
+   "FENG:oikd_2",
+   "FENG:oikd_5",
+   "FENG:paab_3",
+   "FENG:paab_4",
+   "FENG:pipw_4",
+   "FENG:tolg_4",
+   "FENG:tolg_6",
+   "FENG:zapk_3"
+  ],
+  "C": 25,
+  "d": 5.1100110241292285,
+  "d_cap": 24,
+  "eigen_share": [
+   0.3578315388256778,
+   0.2066852426934816,
+   0.10940872674021115,
+   0.06825836022426524,
+   0.05589442209079571,
+   0.039861828070435444,
+   0.03595633578212726,
+   0.027486615108893112,
+   0.02491596145998356,
+   0.02333778993731315,
+   0.013373491460198431,
+   0.009941271437764495,
+   0.006629596684411037,
+   0.00470093990530603,
+   0.0033721762493166196,
+   0.002551424032560687,
+   0.002017526947884385,
+   0.0018246100788120619,
+   0.0015148317719804487,
+   0.0012609580095079803,
+   0.0011053463718784106,
+   0.0009149826647012052,
+   0.0006709547323529336,
+   0.00048506872014112334
+  ],
+  "d_jackknife": {
+   "loo_min": 4.575878491284231,
+   "loo_max": 5.150898648715032,
+   "jackknife_se": 0.8489044343266563
+  },
+  "n_targets": 2366,
+  "n_rows": 23554,
+  "lines_per_target": {
+   "3": 4,
+   "4": 22,
+   "5": 50,
+   "6": 132,
+   "7": 338,
+   "8": 673,
+   "9": 683,
+   "10": 165,
+   "17": 1,
+   "18": 2,
+   "19": 5,
+   "20": 7,
+   "21": 23,
+   "22": 54,
+   "23": 87,
+   "24": 95,
+   "25": 25
+  },
+  "n_genes": 6109,
+  "additive_rank": 2390,
+  "coverage": {
+   "K562": {
+    "line": "K562",
+    "n_targets_used": 2344,
+    "cells_per_target_median": 175.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 75328.0,
+    "dropped_half_imbalance": 0
+   },
+   "RPE1": {
+    "line": "hTERT-RPE1",
+    "n_targets_used": 2204,
+    "cells_per_target_median": 77.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 11485.0,
+    "dropped_half_imbalance": 0
+   },
+   "HEPG2": {
+    "line": "HepG2",
+    "n_targets_used": 2160,
+    "cells_per_target_median": 49.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 4976.0,
+    "dropped_half_imbalance": 0
+   },
+   "JURKAT": {
+    "line": "Jurkat",
+    "n_targets_used": 2270,
+    "cells_per_target_median": 86.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 12013.0,
+    "dropped_half_imbalance": 0
+   },
+   "HCT116": {
+    "line": "HCT116",
+    "n_targets_used": 2176,
+    "cells_per_target_median": 122.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 165948.0,
+    "dropped_half_imbalance": 0
+   },
+   "HEK293T": {
+    "line": "HEK293T",
+    "n_targets_used": 2182,
+    "cells_per_target_median": 160.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 219049.0,
+    "dropped_half_imbalance": 0
+   },
+   "CD4": {
+    "line": "primary CD4+ T",
+    "n_targets_used": 1639,
+    "cells_per_target_median": 620.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 940539.0,
+    "dropped_half_imbalance": 239
+   },
+   "KOLF": {
+    "line": "KOLF2.1J iPSC",
+    "n_targets_used": 1899,
+    "cells_per_target_median": 148.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 147058.0,
+    "dropped_half_imbalance": 0
+   },
+   "DLD1": {
+    "line": "DLD-1",
+    "n_targets_used": 580,
+    "cells_per_target_median": 109.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 16751.0,
+    "dropped_half_imbalance": 0
+   },
+   "H1GW": {
+    "line": "H1 hESC",
+    "n_targets_used": 1717,
+    "cells_per_target_median": 216.0,
+    "cells_per_target_min": 26.0,
+    "control_cells": 81617.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:eipl_1": {
+    "line": "FENG:eipl_1",
+    "n_targets_used": 299,
+    "cells_per_target_median": 83.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 496.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:eipl_3": {
+    "line": "FENG:eipl_3",
+    "n_targets_used": 298,
+    "cells_per_target_median": 81.0,
+    "cells_per_target_min": 25.0,
+    "control_cells": 501.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:fiaj_1": {
+    "line": "FENG:fiaj_1",
+    "n_targets_used": 299,
+    "cells_per_target_median": 90.0,
+    "cells_per_target_min": 21.0,
+    "control_cells": 549.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:iudw_1": {
+    "line": "FENG:iudw_1",
+    "n_targets_used": 300,
+    "cells_per_target_median": 96.5,
+    "cells_per_target_min": 23.0,
+    "control_cells": 575.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:iudw_4": {
+    "line": "FENG:iudw_4",
+    "n_targets_used": 299,
+    "cells_per_target_median": 75.0,
+    "cells_per_target_min": 21.0,
+    "control_cells": 433.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:jejf_2": {
+    "line": "FENG:jejf_2",
+    "n_targets_used": 299,
+    "cells_per_target_median": 102.0,
+    "cells_per_target_min": 34.0,
+    "control_cells": 605.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:jejf_3": {
+    "line": "FENG:jejf_3",
+    "n_targets_used": 298,
+    "cells_per_target_median": 73.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 484.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:oikd_2": {
+    "line": "FENG:oikd_2",
+    "n_targets_used": 242,
+    "cells_per_target_median": 33.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 177.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:oikd_5": {
+    "line": "FENG:oikd_5",
+    "n_targets_used": 299,
+    "cells_per_target_median": 95.0,
+    "cells_per_target_min": 22.0,
+    "control_cells": 668.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:paab_3": {
+    "line": "FENG:paab_3",
+    "n_targets_used": 297,
+    "cells_per_target_median": 61.0,
+    "cells_per_target_min": 21.0,
+    "control_cells": 397.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:paab_4": {
+    "line": "FENG:paab_4",
+    "n_targets_used": 299,
+    "cells_per_target_median": 92.0,
+    "cells_per_target_min": 26.0,
+    "control_cells": 543.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:pipw_4": {
+    "line": "FENG:pipw_4",
+    "n_targets_used": 299,
+    "cells_per_target_median": 80.0,
+    "cells_per_target_min": 23.0,
+    "control_cells": 488.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:tolg_4": {
+    "line": "FENG:tolg_4",
+    "n_targets_used": 259,
+    "cells_per_target_median": 37.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 182.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:tolg_6": {
+    "line": "FENG:tolg_6",
+    "n_targets_used": 297,
+    "cells_per_target_median": 65.0,
+    "cells_per_target_min": 20.0,
+    "control_cells": 368.0,
+    "dropped_half_imbalance": 0
+   },
+   "FENG:zapk_3": {
+    "line": "FENG:zapk_3",
+    "n_targets_used": 299,
+    "cells_per_target_median": 100.0,
+    "cells_per_target_min": 28.0,
+    "control_cells": 622.0,
+    "dropped_half_imbalance": 0
+   }
+  },
+  "var_i": {
+   "estimate": 0.0009691567124683052,
+   "ci95": [
+    0.0009319661480267259,
+    0.0010054845348356327
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "sig2_eps": {
+   "estimate": 0.0022150707143358144,
+   "ci95": [
+    0.002178243625855915,
+    0.0022522657304179425
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "ratio_noise_interaction": {
+   "estimate": 2.2855650544836474,
+   "ci95": [
+    2.209321453123851,
+    2.367844393542586
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "C_min": {
+   "estimate": 17.789273648905187,
+   "ci95": [
+    17.399668005437313,
+    18.209721978554434
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "per_seed": [
+   {
+    "var_i": 0.0009725246936067872,
+    "sig2_eps": 0.002210788191788355,
+    "C_min": 17.72632483736069
+   },
+   {
+    "var_i": 0.0009696914214185314,
+    "sig2_eps": 0.0022158363720641925,
+    "C_min": 17.786868258104292
+   },
+   {
+    "var_i": 0.0009692023493329248,
+    "sig2_eps": 0.002216234572382848,
+    "C_min": 17.794860018487682
+   },
+   {
+    "var_i": 0.000964520331348579,
+    "sig2_eps": 0.0022185256202483087,
+    "C_min": 17.863719067723487
+   },
+   {
+    "var_i": 0.0009698447666346465,
+    "sig2_eps": 0.002213968815195254,
+    "C_min": 17.775182030808473
+   }
+  ],
+  "k": 6,
+  "n_targets_R2_estimable": 1820,
+  "bootstrap": {
+   "B": 2000,
+   "seed": 20261109,
+   "resampled": [
+    "drugs",
+    "split seeds"
+   ],
+   "method": "percentile (inverted_cdf)",
+   "fixed": [
+    "descriptor d",
+    "additive fit"
+   ]
+  },
+  "R2_adj": {
+   "estimate": 0.48186381247933197,
+   "ci95": [
+    0.4593368703030557,
+    0.5028608246920627
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "C_theory": {
+   "estimate": 35.84236253915687,
+   "ci95": [
+    34.10813865757379,
+    37.85526429032549
+   ],
+   "boot_frac_infinite": 0.0
+  },
+  "R2_note": "estimable on 1820 targets with n_t - k - 1 >= 1 (k = 6); residual d.o.f. per target <= C - k - 1 = 18: unstable, descriptive only",
+  "S1_S2_point": {
+   "d": 5.110011024129224,
+   "k": 6,
+   "n_drugs": 2366,
+   "n_lines_eff": 25.0,
+   "var_i": 0.0009691567124682933,
+   "sig2_eps": 0.0022150707143357975,
+   "R2_adj_i": 0.4818638124793385,
+   "var_b": 0.00021419746672703762,
+   "R2_adj_b": 0.6674661607172219,
+   "nbar_drugs_per_line": 942.16,
+   "noise_b_model": 2.351055780690963e-06,
+   "noise_b_empirical": 0.0001563935035863667,
+   "C_theory": 35.842362539156476,
+   "C_min": 17.789273648905226,
+   "S1_C_theory": 29.48987817945729,
+   "S1_C_min": 15.685377292024093,
+   "S2_C_b_theory": 8.739866664314505,
+   "S2_C_b_min": 6.1660990868932135,
+   "S1emp_C_theory": 30.78036324458991,
+   "S1emp_C_min": 16.350570030014094,
+   "S2emp_C_b_theory": 14.245644274124817,
+   "S2emp_C_b_min": 9.841019329876145
+  },
+  "check_extra_vs_primary": {
+   "var_i": [
+    0.0009691567124682933,
+    0.0009691567124683052
+   ],
+   "sig2": [
+    0.0022150707143357975,
+    0.0022150707143358144
+   ]
+  },
+  "S3_line_bootstrap": {
+   "d": {
+    "ci95": [
+     2.3196984628594404,
+     5.251951304616627
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 3.8672503996479475
+   },
+   "n_lines_eff": {
+    "ci95": [
+     25.0,
+     25.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 25.0
+   },
+   "var_i": {
+    "ci95": [
+     0.0003892227401402582,
+     0.0014940974412364085
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.0009240797553975741
+   },
+   "sig2_eps": {
+    "ci95": [
+     0.001722123792391369,
+     0.002681944639800365
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.002206634578856043
+   },
+   "R2_adj_i": {
+    "ci95": [
+     0.3116681025900122,
+     0.979250247888945
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8725473109986559
+   },
+   "var_b": {
+    "ci95": [
+     4.842290972828535e-05,
+     0.0004303645071127195
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00019860961348271033
+   },
+   "R2_adj_b": {
+    "ci95": [
+     0.4395972935812008,
+     0.9809533015705351
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.8428374304895409
+   },
+   "nbar_drugs_per_line": {
+    "ci95": [
+     614.44,
+     1275.36
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 941.72
+   },
+   "noise_b_model": {
+    "ci95": [
+     1.6492647215023745e-06,
+     3.6227752000917223e-06
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 2.364623470742283e-06
+   },
+   "noise_b_empirical": {
+    "ci95": [
+     0.00010426086017971115,
+     0.00021525672892225962
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 0.00015622317710020314
+   },
+   "C_theory": {
+    "ci95": [
+     9.841863677820719,
+     47.538697412689395
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 17.03369092322568
+   },
+   "C_min": {
+    "ci95": [
+     9.275746137052924,
+     20.347366686388703
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 14.353896620808317
+   },
+   "S1_C_theory": {
+    "ci95": [
+     8.746802719519401,
+     34.25755586789212
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 15.334638254585293
+   },
+   "S1_C_min": {
+    "ci95": [
+     8.164703616289865,
+     18.57470337179513
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 12.756559894058146
+   },
+   "S2_C_b_theory": {
+    "ci95": [
+     3.989014577419261,
+     9.008561715745595
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 5.713006144766388
+   },
+   "S2_C_b_min": {
+    "ci95": [
+     3.3548436384357876,
+     6.29224408450022
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.934414270080572
+   },
+   "S1emp_C_theory": {
+    "ci95": [
+     8.999890341311508,
+     35.91757513240988
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 15.9471960175506
+   },
+   "S1emp_C_min": {
+    "ci95": [
+     8.455828114004431,
+     19.57721855283762
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 13.28221822745902
+   },
+   "S2emp_C_b_theory": {
+    "ci95": [
+     5.5963264309447736,
+     21.71430219211281
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 10.30728469257908
+   },
+   "S2emp_C_b_min": {
+    "ci95": [
+     4.918886905603787,
+     17.548147584249772
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 8.231783167273926
+   },
+   "k": {
+    "ci95": [
+     3.0,
+     6.0
+    ],
+    "boot_frac_infinite": 0.0,
+    "boot_median": 4.0
+   },
+   "bootstrap": {
+    "B": 1000,
+    "seed": 20261110,
+    "resampled": [
+     "contexts (lines)"
+    ],
+    "recomputed": [
+     "descriptor centring + PCs",
+     "d",
+     "k = ceil(d)",
+     "Var(i)",
+     "sig2_eps",
+     "R2 (i and b)",
+     "Var(b)",
+     "nbar"
+    ],
+    "fixed": [
+     "additive fit and half-specific b, i (as A5)",
+     "split seeds pooled"
+    ],
+    "method": "percentile (inverted_cdf)"
+   }
+  },
+  "secs": 487.4
+ },
+ "runtime_s": 3330.8
+}

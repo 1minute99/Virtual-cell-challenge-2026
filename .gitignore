@@ -1,0 +1,35 @@
+# Whitelist repository: everything in AIVC/ is ignored unless listed here.
+# Large data, official challenge data, model checkpoints, PDFs and caches stay local.
+/*
+!/.gitignore
+!/README.md
+!/CLAUDE.md
+!/schema/
+!/scripts/
+!/input/
+/input/*
+!/input/ideas/
+!/input/notes/
+!/input/bibliography/
+!/knowledge/
+/knowledge/_meta/log.md
+/knowledge/_meta/gate-overrides.log
+!/output/
+/output/presentation/
+/output/book/
+# results: only top-level summary files (sizes checked before commit); per-task subfolders stay local
+/output/data-analysis/results/*/
+!/output/data-analysis/results/rq2_arch/
+/output/data-analysis/results/rq2_arch/*
+!/output/data-analysis/results/rq2_arch/rq2_arch_seeds_summary.json
+/output/data-analysis/results/.celleval.lock
+*.lock
+__pycache__/
+.pytest_cache/
+*.pyc
+.research-library
+# The pipeline import closure (vcc2026_data/scripts, a few vcc2026_data/reports tools, external/era-aivc,
+# Apache-2.0) is tracked explicitly: `git add -f $(cat output/code/closure_files.txt)`.
+
+# pre-change script copies (history now lives in git)
+*.pre_*_2026-*

@@ -1,0 +1,259 @@
+{
+ "skill": "acquire-sources",
+ "mode": "preprint-substitution (user option b, 2026-11-06)",
+ "date": "2026-11-06",
+ "worklist": "input/bibliography/acquisition-todo.md",
+ "totals": {
+  "worklist": 20,
+  "preprints_downloaded": 12,
+  "originals_downloaded": 1,
+  "no_preprint": 7
+ },
+ "optimize_pdf": "cui-2023-scgpt 38 -> 4.7 MB (text 100%, 57 pages preserved)",
+ "bib_search_index": "13 new docs, 620 pages with text, 63 total",
+ "items": [
+  {
+   "bibkey": "adduri-2025-state",
+   "preprint_of": "adduri-2026-state",
+   "doi": "10.1101/2025.06.26.661135",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "adduri-2025-state.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 13777514,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "li-2024-systematic-comparison",
+   "preprint_of": "li-2026-systematic-comparison",
+   "doi": "10.1101/2024.12.23.630036",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "li-2024-systematic-comparison.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 4384201,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "nadig-2024-transcriptome-wide",
+   "preprint_of": "nadig-2025-transcriptome-wide",
+   "doi": "10.1101/2024.07.03.601903",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "nadig-2024-transcriptome-wide.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1543822,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "replogle-2021-genome-scale",
+   "preprint_of": "replogle-2022-genome-scale",
+   "doi": "10.1101/2021.12.16.473013",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "replogle-2021-genome-scale.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 11729797,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "zhang-2025-tahoe",
+   "preprint_of": "zhang-2026-tahoe",
+   "doi": "10.1101/2025.02.20.639398",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "zhang-2025-tahoe.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2594322,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "cui-2023-scgpt",
+   "preprint_of": "cui-2024-scgpt",
+   "doi": "10.1101/2023.04.30.538439",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "cui-2023-scgpt.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 4748825,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "nourreddine-2024-perturbation-atlas",
+   "preprint_of": "nourreddine-2026-crispri-atlas",
+   "doi": "10.1101/2024.11.03.621734",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "nourreddine-2024-perturbation-atlas.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 9362096,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "feng-2024-crispri-map",
+   "preprint_of": "feng-2026-crispri-map",
+   "doi": "10.1101/2024.11.28.625833",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "feng-2024-crispri-map.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 7868743,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "zhu-2025-cd4-perturb-seq",
+   "preprint_of": "zhu-2026-cd4-perturb-seq",
+   "doi": "10.64898/2025.12.23.696273",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "biorxiv-api",
+   "saved_as": "zhu-2025-cd4-perturb-seq.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 7214585,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "hastie-2019-ridgeless-interpolation",
+   "preprint_of": "hastie-2022-ridgeless-interpolation",
+   "doi": "10.48550/arXiv.1903.08560",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "arxiv-api",
+   "saved_as": "hastie-2019-ridgeless-interpolation.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 1673553,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "rosset-2017-random-x",
+   "preprint_of": "rosset-2020-random-x",
+   "doi": "10.48550/arXiv.1704.08160",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "arxiv-api",
+   "saved_as": "rosset-2017-random-x.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 523985,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "christiansen-2020-causal-framework",
+   "preprint_of": "christiansen-2022-causal-framework",
+   "doi": "10.48550/arXiv.2006.07433",
+   "outcome": "downloaded",
+   "kind": "preprint",
+   "url_source": "arxiv-api",
+   "saved_as": "christiansen-2020-causal-framework.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/pdf",
+    "magic_pdf": true,
+    "bytes": 2855133,
+    "title_on_page1": true
+   }
+  },
+  {
+   "bibkey": "maas-2005-sample-sizes",
+   "outcome": "downloaded",
+   "kind": "original",
+   "url_source": "institutional-repository",
+   "resolved_url": "https://research-portal.uu.nl/ws/files/2102129/hox_05_sufficient%20sample%20sizes.pdf",
+   "saved_as": "maas-2005-sample-sizes.pdf",
+   "validated": {
+    "http": 200,
+    "content_type": "application/octet-stream",
+    "magic_pdf": true,
+    "bytes": 81149,
+    "title_on_page1": true,
+    "note": "p.1 repository cover sheet; article from p.2"
+   }
+  },
+  {
+   "bibkey": "adduri-2026-virtual-cell-challenge",
+   "outcome": "manual",
+   "reason": "no_preprint"
+  },
+  {
+   "bibkey": "breiman-1983-how-many-variables",
+   "outcome": "manual",
+   "reason": "no_preprint (UCB Stat Tech Rep 1 listed, not digitised)"
+  },
+  {
+   "bibkey": "wei-2026-benchmarking-algorithms",
+   "outcome": "manual",
+   "reason": "no_preprint"
+  },
+  {
+   "bibkey": "copas-1983-regression-shrinkage",
+   "outcome": "manual",
+   "reason": "no_preprint"
+  },
+  {
+   "bibkey": "dicker-2013-equivariant-prediction",
+   "outcome": "manual",
+   "reason": "no_preprint (arXiv 1203.4572 different title, identity not established)"
+  },
+  {
+   "bibkey": "mcneish-2016-small-sample",
+   "outcome": "manual",
+   "reason": "no_preprint"
+  },
+  {
+   "bibkey": "roohani-2025-virtual-cell-challenge",
+   "outcome": "manual",
+   "reason": "no_preprint (published version OA on cell.com)"
+  }
+ ]
+}

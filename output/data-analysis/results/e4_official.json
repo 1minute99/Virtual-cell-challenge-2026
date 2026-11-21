@@ -1,0 +1,590 @@
+{
+ "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md",
+ "task": 19,
+ "n_submissions": 38,
+ "n_validation": 36,
+ "n_final": 2,
+ "first_score": -0.0228389606301067,
+ "best_validation": {
+  "submission": "S18",
+  "score": 0.2544519291016382
+ },
+ "final_validation_standing": {
+  "snapshot": "2026-10-27",
+  "n_teams": 1635,
+  "our_rank": 129,
+  "our_rank_fraction": 0.07889908256880734,
+  "our_percentile": 92.11009174311927,
+  "top10_threshold": 0.31932996091161386,
+  "median": 0.0807171638423298,
+  "q90": 0.23915593541344699,
+  "q99": 0.3105535191660722
+ },
+ "gap_to_top10": 0.06487803180997564,
+ "M2": {
+  "pair": "S14fk2 -> S15",
+  "single_change": true,
+  "delta_avg": 0.010603366251910606,
+  "delta_components": {
+   "score_pds": 0.004641509656075238,
+   "score_mse": 0.05588869686186071,
+   "score_nmae": -0.0008053470687109932,
+   "score_fid": 0.0002820792579922987,
+   "score_reach": 0.0034363058607198016,
+   "score_jac": 0.00017695294352633968
+  }
+ },
+ "M3_bundle": {
+  "pair_requested": "S17 -> S18",
+  "S17_officially_scored": false,
+  "official_pair": "S16 -> S18",
+  "delta_avg": 0.007031116672097715,
+  "delta_components": {
+   "score_pds": 0.03420381482762913,
+   "score_mse": -0.005332605147820413,
+   "score_nmae": 0.01892928563410462,
+   "score_fid": 0.00011102673259569956,
+   "score_reach": -0.0054940429516049105,
+   "score_jac": -0.00023077906231793198
+  },
+  "changes": [
+   "+HEPG2/RNJURKAT/RPE1/DLD1 source families (weight 1)",
+   "LFC-pseudocount ensemble members (c 5/10/20/100)",
+   "DE magnitude calibration drc 0.8/1.1",
+   "M3 control-PC deflation of weaker half (k 8, eta 0.75)"
+  ],
+  "S17_local_harness_bundle_R21": 0.0055,
+  "verdict": "MULTI-CHANGE: the official +gain cannot be attributed to M3 alone; S17->S18 is a single change at spec level but S17 has no official score"
+ },
+ "single_change_pairs": [
+  {
+   "submission": "B2",
+   "official_parent": "B1",
+   "change": "CD4 alone -> 3-source mean",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change",
+   "delta_avg": 0.008438122006023,
+   "d_score_pds": 0.05390164683859333,
+   "d_score_mse": 0.0,
+   "d_score_nmae": 0.0295683738021471,
+   "d_score_fid": -0.06871923604840252,
+   "d_score_reach": 0.024056397411434303,
+   "d_score_jac": 0.0118215500323664
+  },
+  {
+   "submission": "B7",
+   "official_parent": "B6",
+   "change": "6-source mean -> sign-agreement weighting",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change",
+   "delta_avg": -0.09942264172339679,
+   "d_score_pds": -0.12444949924101784,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.06514963256743171,
+   "d_score_fid": -0.3210197910269306,
+   "d_score_reach": -0.07666292439144519,
+   "d_score_jac": -0.009254003113555998
+  },
+  {
+   "submission": "B8",
+   "official_parent": "B6",
+   "change": "delta x3 amplitude scale",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change",
+   "delta_avg": 0.0446517519491466,
+   "d_score_pds": 0.1018502149243144,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.0938589379049583,
+   "d_score_fid": 0.19159855770194759,
+   "d_score_reach": 0.04359437868980012,
+   "d_score_jac": 0.0247262982837756
+  },
+  {
+   "submission": "B15",
+   "official_parent": "B8",
+   "change": "effective-cell-count source weighting (scale 3 kept)",
+   "lineage_confidence": "low (parent inferred from 1-line notes)",
+   "attribution": "single_change",
+   "delta_avg": -0.014994999971811598,
+   "d_score_pds": -0.045545957683705285,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.0779511361208674,
+   "d_score_fid": 0.018602859641618005,
+   "d_score_reach": 0.011222772432726374,
+   "d_score_jac": 0.003701461899359
+  },
+  {
+   "submission": "B16",
+   "official_parent": "B8",
+   "change": "frozen rank-128 covariance denoiser (scale 3 kept)",
+   "lineage_confidence": "low (parent inferred from 1-line notes)",
+   "attribution": "single_change",
+   "delta_avg": 0.007484249494170411,
+   "d_score_pds": 0.05093326077408433,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.006176931452182604,
+   "d_score_fid": -0.005557223255685199,
+   "d_score_reach": 0.007262202674940099,
+   "d_score_jac": -0.0015558117761342001
+  },
+  {
+   "submission": "b19",
+   "official_parent": "b18",
+   "change": "context-forcing residual (rank 32, alpha 1, x3)",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change",
+   "delta_avg": 0.007276868413606918,
+   "d_score_pds": -0.011514041154327415,
+   "d_score_mse": 0.0,
+   "d_score_nmae": 0.0448933184159416,
+   "d_score_fid": 0.008088606807169201,
+   "d_score_reach": 0.0012050596376002864,
+   "d_score_jac": 0.0009882667752574006
+  },
+  {
+   "submission": "S2",
+   "official_parent": "S1",
+   "change": "refit + PCA interaction; training context profiles SCRAMBLED (CONTROLS_COMMON_BUG.md)",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change|INVALID_scrambled_context_vectors",
+   "delta_avg": -0.0019626314630338815,
+   "d_score_pds": NaN,
+   "d_score_mse": NaN,
+   "d_score_nmae": NaN,
+   "d_score_fid": NaN,
+   "d_score_reach": NaN,
+   "d_score_jac": NaN
+  },
+  {
+   "submission": "S3",
+   "official_parent": "S1",
+   "change": "refit + 0.25 x scratch FiLM residual; training context vectors SCRAMBLED",
+   "lineage_confidence": "medium (notes/FINDINGS)",
+   "attribution": "single_change|INVALID_scrambled_context_vectors",
+   "delta_avg": -0.0005005269701670867,
+   "d_score_pds": NaN,
+   "d_score_mse": NaN,
+   "d_score_nmae": NaN,
+   "d_score_fid": NaN,
+   "d_score_reach": NaN,
+   "d_score_jac": NaN
+  },
+  {
+   "submission": "S7a",
+   "official_parent": "S4mix",
+   "change": "fusion share 0.5 -> 0.75 (part weights)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": -0.0062910748448467,
+   "d_score_pds": -0.01003747991845727,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.01056939719688009,
+   "d_score_fid": -0.005371400610808902,
+   "d_score_reach": -0.010907064404300199,
+   "d_score_jac": -0.0008611069386332999
+  },
+  {
+   "submission": "S8",
+   "official_parent": "S4mix",
+   "change": "DepMap co-essentiality neighbour blend w 0.2",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.004107258966438904,
+   "d_score_pds": 0.006598265229608824,
+   "d_score_mse": 0.0,
+   "d_score_nmae": 0.004113406722648316,
+   "d_score_fid": 0.005806797710285697,
+   "d_score_reach": 0.006808918331512009,
+   "d_score_jac": 0.0013161658045786999
+  },
+  {
+   "submission": "S10c",
+   "official_parent": "S10b",
+   "change": "cpc composition pin",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.024722173567147898,
+   "d_score_pds": 0.0,
+   "d_score_mse": 5.4620368344193704e-05,
+   "d_score_nmae": 0.16251990815287878,
+   "d_score_fid": 0.0018218150282007031,
+   "d_score_reach": -0.016226767753432902,
+   "d_score_jac": 0.00016346560689649986
+  },
+  {
+   "submission": "S10e",
+   "official_parent": "S10c",
+   "change": "S4 half replaced by equal-weight fold-change part (one part swapped)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": -0.004600456954659493,
+   "d_score_pds": -0.033363711187125444,
+   "d_score_mse": 0.007721184100504486,
+   "d_score_nmae": 0.003080740455273512,
+   "d_score_fid": 0.002248577854863397,
+   "d_score_reach": -0.008012920885373587,
+   "d_score_jac": 0.0007233879339008003
+  },
+  {
+   "submission": "S12",
+   "official_parent": "S11",
+   "change": "DE side from the sum-side recipe override",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.0007960844732526062,
+   "d_score_pds": 0.0,
+   "d_score_mse": 0.0,
+   "d_score_nmae": -0.004165065168319715,
+   "d_score_fid": 0.002331982778247997,
+   "d_score_reach": 0.005283107002677895,
+   "d_score_jac": 0.0013264822269092999
+  },
+  {
+   "submission": "S14fk2",
+   "official_parent": "S14fk",
+   "change": "DE source symlink fix (intended all-family K562-denoised DE side)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.0026996283274084987,
+   "d_score_pds": 0.0,
+   "d_score_mse": 0.0,
+   "d_score_nmae": 0.002184196620751283,
+   "d_score_fid": 0.0047469463612251,
+   "d_score_reach": 0.006624851675343296,
+   "d_score_jac": 0.0026417753071317604
+  },
+  {
+   "submission": "S15",
+   "official_parent": "S14fk2",
+   "change": "M2: agreement amplitude (tamp beta 0.5)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.010603366251910606,
+   "d_score_pds": 0.004641509656075238,
+   "d_score_mse": 0.05588869686186071,
+   "d_score_nmae": -0.0008053470687109932,
+   "d_score_fid": 0.0002820792579922987,
+   "d_score_reach": 0.0034363058607198016,
+   "d_score_jac": 0.00017695294352633968
+  },
+  {
+   "submission": "S16",
+   "official_parent": "S15",
+   "change": "learned per-target amplitude (tamp file swap, beta 0.75)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": 0.0013899353989824115,
+   "d_score_pds": 0.003560935196103898,
+   "d_score_mse": 0.004198962495840397,
+   "d_score_nmae": -0.0005890808582779128,
+   "d_score_fid": 7.062852588800295e-06,
+   "d_score_reach": 0.0011124529798316185,
+   "d_score_jac": 4.9279727807599995e-05
+  },
+  {
+   "submission": "S17u",
+   "official_parent": "S16",
+   "change": "sum-budget probe UP (kink margin 1.2, floor 1; ew key removed but ew already inactive in S16 build log)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": -0.04623664352092671,
+   "d_score_pds": -0.0025699154620852926,
+   "d_score_mse": -0.2737498389170378,
+   "d_score_nmae": -0.00038964379262287907,
+   "d_score_fid": 0.00014990828769659986,
+   "d_score_reach": -0.0010284152418070236,
+   "d_score_jac": 0.0001680440002962
+  },
+  {
+   "submission": "S17d",
+   "official_parent": "S16",
+   "change": "sum-budget probe DOWN (kink margin 0.6, floor 0; same ew note)",
+   "lineage_confidence": "high (build-spec diff)",
+   "attribution": "single_change",
+   "delta_avg": -0.007255870387541302,
+   "d_score_pds": 0.0043034130557777495,
+   "d_score_mse": -0.04952539246559351,
+   "d_score_nmae": 0.0008785058889065056,
+   "d_score_fid": 6.76108215501986e-05,
+   "d_score_reach": 0.0009000323584281988,
+   "d_score_jac": -0.0001593919843169516
+  }
+ ],
+ "shrinkage": {
+  "S4": {
+   "local_delta": 0.0247,
+   "local_source": "ext_contexts_2026-09-21/FINDINGS.md via AGENTS.md: film_v2 on refit_v2 vs refit, five-line local composite, 15/15 paired seeds",
+   "official_delta": 0.001310108982723407,
+   "contrast": "S4 vs S1 refit (bundle: refit_v2 +0.0060 locally on its own, plus FiLM)",
+   "valid": true,
+   "ratio_official_over_local": 0.05304084950297194
+  },
+  "S3": {
+   "local_delta": 0.018,
+   "local_source": "drug_context_pretrain_2026-09-20/FINDINGS.md via AGENTS.md: scratch FiLM residual vs refit, five-line local composite",
+   "official_delta": -0.0005005269701670867,
+   "contrast": "S3 vs S1 refit",
+   "valid": false,
+   "why_invalid": "both the local +0.0180 and the S3 model used the scrambled gene-context vectors (CONTROLS_COMMON_BUG.md; FINDINGS caveat); the local number comes from the invalid drug-pretraining experiment",
+   "ratio_official_over_local": -0.027807053898171483
+  }
+ },
+ "final_phase": {
+  "F1": "uploaded 2026-10-27, superseded",
+  "F2": "uploaded 2026-10-28, last (counting) final entry",
+  "scores": "not yet published (rules: final leaderboard released when winners are announced, late November 2026)"
+ },
+ "leaderboard_snapshots_aggregate": [
+  {
+   "snapshot": "2026-09-18",
+   "n_teams": 1036,
+   "n_distinct_teams": 1036,
+   "our_displayed_entry": "b19",
+   "our_score": 0.13646991123621474,
+   "our_rank": 205,
+   "our_rank_fraction": 0.19787644787644787,
+   "our_percentile": 80.21235521235522,
+   "our_submission_count": 14,
+   "top1": 0.33036202922610264,
+   "top10_threshold": 0.22862637207538494,
+   "q99": 0.2280520515525486,
+   "q90": 0.16649855170979813,
+   "q75": 0.12329700728101597,
+   "median": 0.04790032037221971,
+   "q25": -0.10673623228884925
+  },
+  {
+   "snapshot": "2026-09-22",
+   "n_teams": 1104,
+   "n_distinct_teams": 1104,
+   "our_displayed_entry": "S4",
+   "our_score": 0.1389751002637733,
+   "our_rank": 266,
+   "our_rank_fraction": 0.24094202898550723,
+   "our_percentile": 75.90579710144928,
+   "our_submission_count": 18,
+   "top1": 0.3548889076896993,
+   "top10_threshold": 0.2418746080658811,
+   "q99": 0.2398762205672254,
+   "q90": 0.17592440972364118,
+   "q75": 0.135574852219797,
+   "median": 0.056440065024404504,
+   "q25": -0.08590607576337772
+  },
+  {
+   "snapshot": "2026-09-27",
+   "n_teams": 1171,
+   "n_distinct_teams": 1171,
+   "our_displayed_entry": "S10f",
+   "our_score": 0.21541549361595713,
+   "our_rank": 52,
+   "our_rank_fraction": 0.0444064901793339,
+   "our_percentile": 95.5593509820666,
+   "our_submission_count": 26,
+   "top1": 0.35731997696922924,
+   "top10_threshold": 0.2533158262638317,
+   "q99": 0.251259513687968,
+   "q90": 0.19416469182435211,
+   "q75": 0.15203485614598283,
+   "median": 0.06788781977800343,
+   "q25": -0.07047535438743616
+  },
+  {
+   "snapshot": "2026-09-28",
+   "n_teams": 1188,
+   "n_distinct_teams": 1188,
+   "our_displayed_entry": "S10k",
+   "our_score": 0.2230017266281531,
+   "our_rank": 48,
+   "our_rank_fraction": 0.04040404040404041,
+   "our_percentile": 95.95959595959596,
+   "our_submission_count": 27,
+   "top1": 0.3796628837276487,
+   "top10_threshold": 0.2555403285093421,
+   "q99": 0.25356251190691265,
+   "q90": 0.1984394559376081,
+   "q75": 0.15497150770677193,
+   "median": 0.06976159793218412,
+   "q25": -0.07253092114354938
+  },
+  {
+   "snapshot": "2026-09-29",
+   "n_teams": 1214,
+   "n_distinct_teams": 1214,
+   "our_displayed_entry": "S11",
+   "our_score": 0.22595939166308154,
+   "our_rank": 40,
+   "our_rank_fraction": 0.032948929159802305,
+   "our_percentile": 96.70510708401977,
+   "our_submission_count": 28,
+   "top1": 0.39739388825180794,
+   "top10_threshold": 0.2598792115380248,
+   "q99": 0.25640397672389115,
+   "q90": 0.20422766785639007,
+   "q75": 0.15451411184193803,
+   "median": 0.0709490559864185,
+   "q25": -0.07684749148144682
+  },
+  {
+   "snapshot": "2026-09-30",
+   "n_teams": 1231,
+   "n_distinct_teams": 1231,
+   "our_displayed_entry": "S12",
+   "our_score": 0.22675547613633418,
+   "our_rank": 38,
+   "our_rank_fraction": 0.030869212022745736,
+   "our_percentile": 96.91307879772543,
+   "our_submission_count": 29,
+   "top1": 0.4191519270393522,
+   "top10_threshold": 0.2634045082356158,
+   "q99": 0.2579685448223156,
+   "q90": 0.20724206615181773,
+   "q75": 0.1545601706087536,
+   "median": 0.07473190295018384,
+   "q25": -0.07233209078984151
+  },
+  {
+   "snapshot": "2026-09-30b",
+   "n_teams": 1244,
+   "n_distinct_teams": 1244,
+   "our_displayed_entry": "S14fk",
+   "our_score": 0.232727882451239,
+   "our_rank": 34,
+   "our_rank_fraction": 0.027331189710610933,
+   "our_percentile": 97.26688102893891,
+   "our_submission_count": 30,
+   "top1": 0.422738620438478,
+   "top10_threshold": 0.2646028679733292,
+   "q99": 0.25785811356465366,
+   "q90": 0.20621807017329324,
+   "q75": 0.1545601706087536,
+   "median": 0.07685754201011186,
+   "q25": -0.06339427022366186
+  },
+  {
+   "snapshot": "2026-10-01",
+   "n_teams": 1250,
+   "n_distinct_teams": 1250,
+   "our_displayed_entry": "S14fk2",
+   "our_score": 0.23542751077864757,
+   "our_rank": 35,
+   "our_rank_fraction": 0.028,
+   "our_percentile": 97.2,
+   "our_submission_count": 31,
+   "top1": 0.4289498706089366,
+   "top10_threshold": 0.27292337720914284,
+   "q99": 0.2720646413362021,
+   "q90": 0.2069074578578307,
+   "q75": 0.15528389915005356,
+   "median": 0.07810298442414083,
+   "q25": -0.06890363877333376
+  },
+  {
+   "snapshot": "2026-10-10",
+   "n_teams": 1434,
+   "n_distinct_teams": 1434,
+   "our_displayed_entry": "S17u",
+   "our_score": 0.20118416890861388,
+   "our_rank": 252,
+   "our_rank_fraction": 0.17573221757322174,
+   "our_percentile": 82.42677824267783,
+   "our_submission_count": 34,
+   "top1": 0.45360226288695954,
+   "top10_threshold": 0.29418085084816,
+   "q99": 0.2920577833649378,
+   "q90": 0.2314559210630906,
+   "q75": 0.17123502531230803,
+   "median": 0.08986756665240438,
+   "q25": -0.03483194286212003
+  },
+  {
+   "snapshot": "2026-10-27",
+   "n_teams": 1635,
+   "n_distinct_teams": 1635,
+   "our_displayed_entry": "S18",
+   "our_score": 0.2544519291016382,
+   "our_rank": 129,
+   "our_rank_fraction": 0.07889908256880734,
+   "our_percentile": 92.11009174311927,
+   "our_submission_count": 36,
+   "top1": 0.472034194213195,
+   "top10_threshold": 0.31932996091161386,
+   "q99": 0.3105535191660722,
+   "q90": 0.23915593541344699,
+   "q75": 0.17382043357915744,
+   "median": 0.0807171638423298,
+   "q25": -0.06285338421877158
+  }
+ ],
+ "checks": {
+  "E1_n_total": 38,
+  "E1_n_validation": 36,
+  "E1_n_final": 2,
+  "E1_no_id": [
+   "B10",
+   "B11",
+   "B14"
+  ],
+  "E2_max_abs_avg_minus_mean6": 8.326672684688674e-17,
+  "specdiff_S14fk2_S15": {
+   "n_keys": 2,
+   "blocks": [
+    "sum"
+   ]
+  },
+  "specdiff_S15_S16": {
+   "n_keys": 2,
+   "blocks": [
+    "sum"
+   ]
+  },
+  "specdiff_S16_S17": {
+   "n_keys": 14,
+   "blocks": [
+    "de",
+    "parts",
+    "sum"
+   ]
+  },
+  "specdiff_S17_S18": {
+   "n_keys": 6,
+   "blocks": [
+    "sum"
+   ]
+  },
+  "specdiff_S16_S18": {
+   "n_keys": 20,
+   "blocks": [
+    "de",
+    "parts",
+    "sum"
+   ]
+  },
+  "specdiff_S16_S17u": {
+   "n_keys": 5,
+   "blocks": [
+    "dual",
+    "sum"
+   ]
+  },
+  "specdiff_S16_S17d": {
+   "n_keys": 5,
+   "blocks": [
+    "dual",
+    "sum"
+   ]
+  },
+  "S17_officially_scored": false,
+  "S17_note": "S17 = S16 + four source families that the shipped spec omitted (HEPG2/RNJURKAT/RPE1 at weight 1, harness: removing them costs -0.0023 H1 / -0.0013 OR_X; DLD1 at weight 1, OR_X +0.0040) + the LFC-pseudocount ensemble members (cens 5/10/20/100) + the DE magnitude calibration drc 0.8/1.1. Harness bundle: 5/5 panels positive, R21 +0.0055.",
+  "E4_rows_equal_distinct_teams": true,
+  "final_rank_verified": {
+   "rank": 129,
+   "n": 1635,
+   "agents_md": "S18 0.2545 ended rank 129; top-10 >= 0.319",
+   "match": true
+  },
+  "final_submission_count_on_board": 36,
+  "S4_official_delta_matches_FINDINGS_+0.001310": true,
+  "S3_official_delta_matches_-0.000501": true
+ }
+}

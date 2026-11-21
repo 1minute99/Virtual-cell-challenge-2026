@@ -1,0 +1,434 @@
+{
+ "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md",
+ "task": 20,
+ "seed": 20261105,
+ "B": 2000,
+ "jiang_modality": "CRISPRi (dCas9-KRAB-MeCP2; sgRNAs from the Dolcetto CRISPRi library) -- GEO GSE281048 description; Jiang et al. 2025 Nat Cell Biol 27:505-517, doi:10.1038/s41556-025-01622-z (bibkey jiang-2025-pathway-signatures)",
+ "lincs_modality": "shRNA knock-down (LINCS L1000 CGS, 96 h)",
+ "results": [
+  {
+   "comparison": "jiang_IFNB",
+   "mode": "raw",
+   "n_drugs": 7,
+   "rho_matched": 0.03834610641791605,
+   "Delta_obs": 0.014606781355646272,
+   "Delta_obs_ci": [
+    -0.022885645070269894,
+    0.05136220428807586
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16569797841214268,
+    0.24894384477675985
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.09505011513906807,
+   "R_G": 0.17359957106072169,
+   "R_G_ci": [
+    0.06035224250233246,
+    0.2946978587896132
+   ],
+   "rho_star": 0.07767990856140215,
+   "rho_star_ci": [
+    -0.21447972850181082,
+    0.2178492646657005
+   ],
+   "rho_star_sq": 0.0060341681941078,
+   "bound_vs_observed_truth": 0.03236555283330355,
+   "bound_vs_observed_truth_ci": [
+    -0.05096682678081256,
+    0.114445428261323
+   ],
+   "matched_total_corrected": 0.20392733811121813,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_INS",
+   "mode": "raw",
+   "n_drugs": 10,
+   "rho_matched": 0.005944052845351708,
+   "Delta_obs": -0.00480007090402734,
+   "Delta_obs_ci": [
+    -0.010188187026277554,
+    0.0003244739969730785
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16569797841214268,
+    0.24894384477675985
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.09393387732747387,
+   "R_G": 0.1717359326268572,
+   "R_G_ci": [
+    0.16536750031182526,
+    0.17913540693506083
+   ],
+   "rho_star": -0.02566525403087205,
+   "rho_star_ci": [
+    -0.054776427929044136,
+    0.0018025622110090197
+   ],
+   "rho_star_sq": 0.000658705264469194,
+   "bound_vs_observed_truth": -0.010635946733593473,
+   "bound_vs_observed_truth_ci": [
+    -0.022715181960858092,
+    0.0007558349755467576
+   ],
+   "matched_total_corrected": 0.031781952662591435,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_TGFB",
+   "mode": "raw",
+   "n_drugs": 16,
+   "rho_matched": 0.012025422209594211,
+   "Delta_obs": 0.004584789621719529,
+   "Delta_obs_ci": [
+    -0.0032230893072968934,
+    0.013737233599619848
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16569797841214268,
+    0.24894384477675985
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.06888628804008595,
+   "R_G": 0.1288935760723362,
+   "R_G_ci": [
+    0.06767845251601193,
+    0.1955948762419921
+   ],
+   "rho_star": 0.028296471072600107,
+   "rho_star_ci": [
+    -0.021306444828916592,
+    0.08794010692992792
+   ],
+   "rho_star_sq": 0.0008006902751624946,
+   "bound_vs_observed_truth": 0.010158928727579342,
+   "bound_vs_observed_truth_ci": [
+    -0.0070529660264271885,
+    0.030260698540631858
+   ],
+   "matched_total_corrected": 0.0742186751770661,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_TNFA",
+   "mode": "raw",
+   "n_drugs": 13,
+   "rho_matched": 0.031136584812642233,
+   "Delta_obs": 0.03133326562439358,
+   "Delta_obs_ci": [
+    0.006707683432039538,
+    0.05485753614035884
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16569797841214268,
+    0.24894384477675985
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.11492625067017996,
+   "R_G": 0.20615937709081297,
+   "R_G_ci": [
+    0.14821731159152923,
+    0.26713953813211244
+   ],
+   "rho_star": 0.1529088474431473,
+   "rho_star_ci": [
+    0.03641498422485421,
+    0.25341802413393383
+   ],
+   "rho_star_sq": 0.023381115626391696,
+   "bound_vs_observed_truth": 0.0694279211357015,
+   "bound_vs_observed_truth_ci": [
+    0.015100050077265564,
+    0.12398068956582052
+   ],
+   "matched_total_corrected": 0.15194902931887025,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "lincs_full_local_CGS",
+   "mode": "raw",
+   "n_drugs": 66,
+   "rho_matched": 0.017748570302462487,
+   "Delta_obs": 0.010800490161672161,
+   "Delta_obs_ci": [
+    0.0034713184992965856,
+    0.019323511912316547
+   ],
+   "r_D": 0.29166297361111854,
+   "r_D_ci": [
+    0.24740625728425666,
+    0.3503806058372627
+   ],
+   "R_D": 0.29166297361111854,
+   "n_repeat_drugs_rD": 26,
+   "r_G_single": null,
+   "R_G": null,
+   "rho_star_drugside_only": 0.0199987483696677,
+   "rho_star_drugside_only_ci": [
+    0.006295239759531022,
+    0.03568662217790749
+   ],
+   "rho_star_vs_R_G": {
+    "1.00": 0.0199987483696677,
+    "0.50": 0.028282501174870883,
+    "0.30": 0.036512552013122215,
+    "0.20": 0.04471856081949007,
+    "0.10": 0.06324159520072896
+   },
+   "matched_total_corrected_drugside_only": 0.03286417431867278,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_4stim_equal",
+   "mode": "raw",
+   "rho_star": 0.05830499326156938,
+   "rho_star_ci": [
+    -0.019012529952343104,
+    0.10313816215423559
+   ],
+   "rho_star_sq": 0.0033994722392316503,
+   "note": "equal-weight mean of the four stimulus-specific rho*; one shared r_D draw"
+  },
+  {
+   "comparison": "jiang_IFNB",
+   "mode": "generic_removed",
+   "n_drugs": 7,
+   "rho_matched": 0.030099431110381106,
+   "Delta_obs": 0.021824318735226233,
+   "Delta_obs_ci": [
+    -0.017914978671746365,
+    0.05781735715274496
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16526242236924396,
+    0.2444539046336607
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.09505011513906807,
+   "R_G": 0.17359957106072169,
+   "R_G_ci": [
+    0.0607741194729976,
+    0.2740183324972248
+   ],
+   "rho_star": 0.1160632888580854,
+   "rho_star_ci": [
+    -0.15017876292794602,
+    0.2506525845164644
+   ],
+   "rho_star_sq": 0.01347068702055537,
+   "bound_vs_observed_truth": 0.04835809641271711,
+   "bound_vs_observed_truth_ci": [
+    -0.03980776952303975,
+    0.12912678590447693
+   ],
+   "matched_total_corrected": 0.1600709286649809,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_INS",
+   "mode": "generic_removed",
+   "n_drugs": 10,
+   "rho_matched": 0.0008237062153896825,
+   "Delta_obs": 0.0028125759320513553,
+   "Delta_obs_ci": [
+    -0.004504737122770739,
+    0.009374810138600613
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16526242236924396,
+    0.2444539046336607
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.09393387732747387,
+   "R_G": 0.1717359326268572,
+   "R_G_ci": [
+    0.16567199988360826,
+    0.17913540693506086
+   ],
+   "rho_star": 0.015038418644326677,
+   "rho_star_ci": [
+    -0.023853309057386984,
+    0.05040276770297964
+   ],
+   "rho_star_sq": 0.0002261540353220322,
+   "bound_vs_observed_truth": 0.006232076232954504,
+   "bound_vs_observed_truth_ci": [
+    -0.009934590881288952,
+    0.020720833636686916
+   ],
+   "matched_total_corrected": 0.0044042327056142165,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_TGFB",
+   "mode": "generic_removed",
+   "n_drugs": 16,
+   "rho_matched": 0.007032723017499498,
+   "Delta_obs": 0.00810082913940964,
+   "Delta_obs_ci": [
+    -0.0009050655661705525,
+    0.018350835523966543
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16526242236924396,
+    0.2444539046336607
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.06888628804008595,
+   "R_G": 0.1288935760723362,
+   "R_G_ci": [
+    0.06697172211063558,
+    0.19733476382181928
+   ],
+   "rho_star": 0.04999681475491779,
+   "rho_star_ci": [
+    -0.007073201317224262,
+    0.10898382419168541
+   ],
+   "rho_star_sq": 0.002499681485637565,
+   "bound_vs_observed_truth": 0.01794973219091683,
+   "bound_vs_observed_truth_ci": [
+    -0.0019759207774052955,
+    0.04108401707191967
+   ],
+   "matched_total_corrected": 0.04340466190281767,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_TNFA",
+   "mode": "generic_removed",
+   "n_drugs": 13,
+   "rho_matched": 0.037802937608397896,
+   "Delta_obs": 0.04413945245970536,
+   "Delta_obs_ci": [
+    0.01502694903701558,
+    0.07182283942332689
+   ],
+   "r_D": 0.2036774728843334,
+   "r_D_ci": [
+    0.16526242236924396,
+    0.2444539046336607
+   ],
+   "R_D": 0.2036774728843334,
+   "n_repeat_drugs_rD": 7,
+   "r_G_single": 0.11492625067017996,
+   "R_G": 0.20615937709081297,
+   "R_G_ci": [
+    0.14611064130751497,
+    0.26467244822375585
+   ],
+   "rho_star": 0.21540406554785227,
+   "rho_star_ci": [
+    0.08103040078440721,
+    0.3369310938343886
+   ],
+   "rho_star_sq": 0.04639891145454344,
+   "bound_vs_observed_truth": 0.09780373552763955,
+   "bound_vs_observed_truth_ci": [
+    0.03329094938573215,
+    0.16323666307673376
+   ],
+   "matched_total_corrected": 0.18448136523520134,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "lincs_full_local_CGS",
+   "mode": "generic_removed",
+   "n_drugs": 66,
+   "rho_matched": 0.01222004013755724,
+   "Delta_obs": 0.010457387167586476,
+   "Delta_obs_ci": [
+    0.0020283037773723466,
+    0.019533545231706546
+   ],
+   "r_D": 0.29166297361111854,
+   "r_D_ci": [
+    0.2464891059636942,
+    0.3480960798173109
+   ],
+   "R_D": 0.29166297361111854,
+   "n_repeat_drugs_rD": 26,
+   "r_G_single": null,
+   "R_G": null,
+   "rho_star_drugside_only": 0.019363441051121255,
+   "rho_star_drugside_only_ci": [
+    0.003729556179958679,
+    0.03619028833046342
+   ],
+   "rho_star_vs_R_G": {
+    "1.00": 0.019363441051121255,
+    "0.50": 0.027384040948707618,
+    "0.30": 0.03535264484873552,
+    "0.20": 0.04329797046861711,
+    "0.10": 0.061232577059948064
+   },
+   "matched_total_corrected_drugside_only": 0.022627260811319536,
+   "dropped_draws": 0
+  },
+  {
+   "comparison": "jiang_4stim_equal",
+   "mode": "generic_removed",
+   "rho_star": 0.09912564695129553,
+   "rho_star_ci": [
+    0.025857938425692152,
+    0.1497199376462727
+   ],
+   "rho_star_sq": 0.009825893883512885,
+   "note": "equal-weight mean of the four stimulus-specific rho*; one shared r_D draw"
+  }
+ ],
+ "headline_raw": {
+  "jiang_4stim_equal_rho_star": {
+   "comparison": "jiang_4stim_equal",
+   "mode": "raw",
+   "rho_star": 0.05830499326156938,
+   "rho_star_ci": [
+    -0.019012529952343104,
+    0.10313816215423559
+   ],
+   "rho_star_sq": 0.0033994722392316503,
+   "note": "equal-weight mean of the four stimulus-specific rho*; one shared r_D draw"
+  },
+  "max_point_rho_star_jiang": 0.1529088474431473,
+  "max_upper_ci_rho_star_jiang": 0.25341802413393383,
+  "max_upper_ci_share_of_reproducible_variance": 0.06422069495594707
+ },
+ "checks": {
+  "inputs_not_read": "reports/drug_context_pretrain_2026-09-20 (invalid gene side)",
+  "D5_max_abs_diff_vs_summary_csv": 1.474514954580286e-16,
+  "D2_n_repeat_drugs": {
+   "jiang_axis": 7,
+   "lincs_axis": 26
+  },
+  "D2_rD_spread_across_jiang_stimuli_same_drug_line": 0.0014901819422949924,
+  "D2_rG_all_pairs_present": {
+   "jiang_IFNB": true,
+   "jiang_INS": true,
+   "jiang_TGFB": true,
+   "jiang_TNFA": true
+  },
+  "D3_lincs_genetic_repeat_available": false,
+  "D1_attenuation_model_check": {
+   "expected_ratio_avg_over_single": 1.3525874658140546,
+   "observed_ratio_Delta_avg_over_single_pooled": 1.3544538288142618,
+   "observed_ratio_matched_rho_pooled": 1.265781679761751,
+   "note": "pooled over the 4 Jiang stimuli; small signals, so the ratio is noisy; consistent if near the expectation"
+  }
+ }
+}

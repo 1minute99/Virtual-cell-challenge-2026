@@ -1,0 +1,62 @@
+{
+ "table_v2_kolf_background_rows": {
+  "fengline/kolf_2|bio=KOLF": 440,
+  "fengline/kolf_3|bio=KOLF": 438,
+  "xl/kolf:ALPHA|bio=KOLF": 3609,
+  "xl/kolf:BETA|bio=KOLF": 3826,
+  "xl/kolf:GAMMA|bio=KOLF": 3831
+ },
+ "CONFLICT_GENE_labels_present_in_table_v2": {
+  "KOLF": []
+ },
+ "feng_kolf_cell_share": {
+  "GenomeWideScreen_FitnessGenes": {
+   "cells": 322746,
+   "lines": 24,
+   "kolf_2": 21065,
+   "kolf_3": 14418,
+   "kolf_frac": 0.1099
+  },
+  "GenomeWideScreen_NonFitnessGenes": {
+   "cells": 396458,
+   "lines": 34,
+   "kolf_2": 35625,
+   "kolf_3": 34098,
+   "kolf_frac": 0.1759
+  },
+  "TargetedScreen": {
+   "cells": 1161864,
+   "lines": 19,
+   "kolf_2": 64009,
+   "kolf_3": 69622,
+   "kolf_frac": 0.115
+  }
+ },
+ "S1_pack_targets_equal_truth_H1": true,
+ "S1_pack_targets_equal_truth_OR_HCT116X": true,
+ "S1_pack_targets_equal_truth_KOLF": true,
+ "S1_pack_targets_equal_truth_RN_K562": true,
+ "S1_pack_targets_equal_truth_RN_HepG2": true,
+ "S1_pack_targets_equal_truth_RN_Jurkat": true,
+ "S1_pack_targets_equal_truth_RN_RPE1": true,
+ "official_count": {
+  "rows": 38,
+  "with_entry_id": 35,
+  "validation": 36,
+  "final": 2,
+  "leaderboard_2026_10_27_submission_count": 36,
+  "leaderboard_2026_10_27_team": "Wonmin Kim"
+ },
+ "g_cap": {
+  "n": 6014,
+  "per_panel": {
+   "H1": 16898,
+   "OR_HCT116X": 16513,
+   "KOLF": 16720,
+   "RN_K562": 7678,
+   "RN_HepG2": 9022,
+   "RN_Jurkat": 8282,
+   "RN_RPE1": 8258
+  }
+ }
+}

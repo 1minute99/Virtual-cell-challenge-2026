@@ -1,0 +1,125 @@
+{
+  "hypothesis": "H2b: C*_theory lies within a factor of 2 of C*_emp (rejected if C*_theory/C*_emp outside [0.5, 2]; if C*_emp censored at > 40, rejected only if C*_theory < 20)",
+  "verdict": null,
+  "verdict_note": "The H2b verdict requires C*_emp from Task 7 (its H2a result file); it is NOT computed here. The comparison is done by the main session.",
+  "status": "complete",
+  "d": 20.563261742442343,
+  "k_primary": 21,
+  "C_star_theory": {
+    "estimate": 230.29971490018482,
+    "ci95": [
+      192.23672768790877,
+      287.02078036498494
+    ]
+  },
+  "C_star_theory_sensitivity": {
+    "k20": {
+      "estimate": 236.9227955239124,
+      "ci95": [
+        197.56202123434795,
+        295.83770115659803
+      ],
+      "boot_frac_infinite": 0.0
+    },
+    "k21": {
+      "estimate": 230.29971490018482,
+      "ci95": [
+        192.23672768790877,
+        287.02078036498494
+      ],
+      "boot_frac_infinite": 0.0
+    },
+    "k42": {
+      "estimate": 139.44930090914045,
+      "ci95": [
+        115.08197522088821,
+        176.0046673869999
+      ],
+      "boot_frac_infinite": 0.0
+    }
+  },
+  "C_star_min": {
+    "estimate": 80.63822612154274,
+    "ci95": [
+      68.51230443443745,
+      97.61699287599117
+    ],
+    "boot_frac_infinite": 0.0
+  },
+  "sensitivity_secondary": {
+    "S1_C_theory": {
+      "estimate": 191.91048269083504,
+      "ci95_line_boot": [
+        53.71132253273021,
+        94.40571804722079
+      ]
+    },
+    "S1_C_min": {
+      "estimate": 64.76785164090045,
+      "ci95_line_boot": [
+        35.50300251414193,
+        57.23377032121683
+      ]
+    },
+    "S2_C_b_theory": {
+      "estimate": 72.82696974950507,
+      "ci95_line_boot": [
+        20.16602202557793,
+        32.96745102042831
+      ]
+    },
+    "S3_C_theory_ci95_line_boot": [
+      65.57059729980524,
+      117.54915163278162
+    ],
+    "S3_C_min_ci95_line_boot": [
+      43.36244695943959,
+      71.53798735334983
+    ],
+    "S3b_C_theory_ci95_line_jackknife": [
+      161.66718718714776,
+      298.9322426132223
+    ],
+    "S3b_C_min_ci95_line_jackknife": [
+      60.95336224407707,
+      100.32308999900856
+    ],
+    "S3b_S1_C_theory_ci95_line_jackknife": [
+      134.90039957396456,
+      248.92056580770551
+    ],
+    "S3_validity_point_inside_boot_ci": {
+      "d": false,
+      "R2_adj_i": false,
+      "C_theory": false,
+      "C_min": false,
+      "S1_C_theory": false,
+      "S2_C_b_theory": false
+    },
+    "S1emp_C_theory": {
+      "estimate": 218.14007840391764,
+      "ci95_line_boot": [
+        60.40583054248095,
+        108.65068933167922
+      ]
+    },
+    "S2emp_C_b_theory": {
+      "estimate": 180.42084968455677,
+      "ci95_line_boot": [
+        46.35840513328952,
+        86.55182436198945
+      ]
+    },
+    "note": "secondary; the H2b verdict uses the primary C*_theory. *emp = flagged variant with the empirical split-half noise of b instead of the pre-specified sig2_eps/nbar"
+  },
+  "verdict_main_session": {
+    "date": "2026-11-05",
+    "C_star_theory": 230.3,
+    "C_star_emp": 37.4168,
+    "ratio": 6.15,
+    "rule": "rejected if C*_theory/C*_emp outside [0.5, 2]; censored branch untestable (A1) \u2014 not censored here (point estimate 37.4; 8.75 % of bootstrap draws censored)",
+    "verdict": "REJECTED",
+    "consequence": "Per the plan: keep Proposition 1 (identifiability) and the empirical curves; drop the quantitative form of Proposition 2. Note C*_min = 80.6 also exceeds C*_emp, so the per-gene OLS lower bound is not a valid lower bound for this learner (see sensitivity S1\u2013S3).",
+    "recomputed_independently": true
+  }
+}

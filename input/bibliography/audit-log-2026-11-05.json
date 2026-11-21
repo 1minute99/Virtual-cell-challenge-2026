@@ -1,0 +1,131 @@
+{
+ "date": "2026-11-05",
+ "skill": "research-superpowers:literature-review",
+ "plan": "input/ideas/zero-shot-limits-context-complexity-plan.md (Task 2)",
+ "library_first": {
+  "library": "/home/wonmin-kim/research-library",
+  "result": "library empty (references.bib header only, no PDFs; scripts/bib-search.py not installed) -> 0 owned sources"
+ },
+ "databases": {
+  "Crossref REST": "primary search + works/{doi} verification of every DOI-bearing entry (93 DOIs incl. 2 GEO-linked papers)",
+  "arXiv API": "search (partly rate-limited, HTTP 429) + id_list verification of all 27 arXiv-only/arXiv-linked entries",
+  "Semantic Scholar": "batch id lookup for 20 arXiv ids; most searches timed out / bot-check",
+  "Exa web search + fetch": "full text of Molina & Zhang (bioRxiv v1.full, 182k chars), Dibaeinia (bioRxiv v1.full), Prophet (bioRxiv v2.full), VCC 2026 landing page, arXiv abs pages",
+  "WebSearch": "VCC, GSE295214, KOLF2.1J, Tahoe Cell 2026",
+  "NCBI GEO / PubMed eutils": "GSE295214, GSE337988, GSE306429 -> linked publications",
+  "Europe PMC": "Molina & Zhang PPR1286577 (full text not available, HTTP 500)",
+  "OpenAlex": "single reachability probe only (shared no-key budget)"
+ },
+ "topics_and_query_families": {
+  "a_unseen_context_methods": [
+   "STATE",
+   "AdaPert",
+   "C3TL",
+   "PerturbNet",
+   "SCALE",
+   "Stable-Shift",
+   "GEARS",
+   "CPA",
+   "scGPT",
+   "PIE",
+   "chemCPA",
+   "biolord",
+   "scGen",
+   "CellOT",
+   "'unseen cell lines' AND perturbation (arXiv abs)",
+   "cross cell line transfer CRISPR"
+  ],
+  "b_noise_ceilings_decomposition": [
+   "noise ceiling upper bound perturbation prediction",
+   "technical duplicate baseline",
+   "split-half reliability perturb-seq",
+   "Molina & Zhang DOI",
+   "Science Advances aed3414"
+  ],
+  "c_context_sample_complexity": [
+   "marginal transfer learning",
+   "risks of invariant risk minimization",
+   "iterative feature matching",
+   "invariant-feature subspace recovery",
+   "importance of task diversity",
+   "provable meta-learning linear representations",
+   "few-shot learning representation provably",
+   "meta-learning mixed linear regression",
+   "how many variables regression (Breiman-Freedman)",
+   "fixed-X random-X (Rosset-Tibshirani)",
+   "ridgeless least squares",
+   "sufficient sample sizes multilevel",
+   "number of training cell lines learning curve perturbation",
+   "how many cell lines drug response",
+   "Tahoe subsampling cell lines",
+   "Prophet mean baseline"
+  ],
+  "d_baselines": [
+   "Ahlmann-Eltze",
+   "Csendes",
+   "PertEval-scFM",
+   "Diversity by design 2506.22641",
+   "Systema",
+   "Virtual cells need context",
+   "PerturBench",
+   "Bendidi one PCA",
+   "Kernfeld GGRN"
+  ],
+  "e_cell_count": [
+   "How many cells resolve a perturbation direction (10.64898/2026.10.02.754788)"
+  ],
+  "f_drug_genetic_concordance": [
+   "CMap L1000",
+   "drug CRISPR target concordance",
+   "Goncalves MoA",
+   "Engler Hart",
+   "Pabon",
+   "CPJUMP1",
+   "LPM",
+   "UniPert"
+  ],
+  "g_data": [
+   "Replogle 2022",
+   "Nadig 2025",
+   "X-Atlas/Orion",
+   "Tahoe-100M (+Cell 2026)",
+   "GSE295214",
+   "KOLF2.1J",
+   "HipSci CRISPRi",
+   "CD4 genome-scale",
+   "scPerturb",
+   "Virtual Cell Challenge (Cell, ISSN filter)",
+   "GSE337988",
+   "GSE306429"
+  ]
+ },
+ "counts": {
+  "candidates_screened_approx": 110,
+  "catalogued": 102,
+  "A": 33,
+  "B": 37,
+  "C": 32
+ },
+ "excluded_unverifiable": [
+  "PertResolve (GitHub-only manuscript, no DOI)",
+  "Stein 1960 (book chapter, no DOI)",
+  "Denevi et al. NeurIPS 2020 (arXiv id unverified)",
+  "Hodos et al. PSB 2018 (DOI unverified)",
+  "Tahoe blog drug-CRISPR concordance (grey literature)"
+ ],
+ "stop_flag": {
+  "raised": true,
+  "qualified": true,
+  "work": "ji-2024-universal-prediction (Prophet), fig. S4A: performance vs share (5-80%) of cell lines vs mean-over-seen-lines baseline; crossing 'varies per dataset'; figure image not retrieved"
+ },
+ "overlap_gate": {
+  "note": "input/notes/overlap-molina-zhang.md",
+  "verdict": "RQ3 keep as planned"
+ },
+ "bibkey_convention": "surname-year-shorttitle; year = Crossref published-print year if present else issued year; 14 provisional plan keys renamed",
+ "subagents": [
+  "literature-scout (topics a,b,d,e,f,g)",
+  "literature-scout (topic c + STOP-FLAG search)"
+ ],
+ "downloads": "none (acquisition is Task 3)"
+}

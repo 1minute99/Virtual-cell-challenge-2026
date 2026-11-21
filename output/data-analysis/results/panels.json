@@ -1,0 +1,506 @@
+{
+ "frozen": "2026-11-05",
+ "panels": {
+  "H1": {
+   "truth_path": "vcc2026_data/reports/transfer_v2_2026-09-23/h1/real_thin.h5ad",
+   "full_path": "vcc2026_data/reports/transfer_v2_2026-09-23/h1/real_thin.h5ad",
+   "plan_path_note": null,
+   "destination_line": "H1 hESC",
+   "truth_dataset": "VCC 2025 H1 training data (Arc Institute, 10x Flex), thinned",
+   "n_targets": 300,
+   "cells_per_target_median": 300.0,
+   "n_control_cells": 12000,
+   "gene_count": 18080,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 16898,
+   "harness_n_cells_param": 300,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_H1.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_H1.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_H1.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_H1.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_H1.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_H1.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_H1.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_H1.npz"
+   },
+   "pack_families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "KOLF",
+    "FENG",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "H1",
+     "H1GW"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "H1"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "H1"
+    ],
+    "S4_part_key": "Yorig",
+    "S4_excluded_biologies_intended": [
+     "H1"
+    ],
+    "S4_excluded_biologies_effective": [
+     "H1"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "H1": "same dataset (vcc2025_target_batch)",
+    "H1GW": "same line, other lab (GSE295214, Weissman)"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  },
+  "OR_HCT116X": {
+   "truth_path": "vcc2026_data/reports/sc_hybrid_2026-09-25/orion_hct116/real_panel.h5ad",
+   "full_path": "vcc2026_data/reports/sc_hybrid_2026-09-25/orion_hct116/real_thin.h5ad",
+   "plan_path_note": "plan: orion_hct116/real_thin.h5ad (300 targets); harness truth = orion_hct116/real_panel.h5ad (263 targets)",
+   "destination_line": "HCT116",
+   "truth_dataset": "Orion / X-Atlas HCT116 genome-scale CRISPRi (orion_target_cellline_all)",
+   "n_targets": 263,
+   "cells_per_target_median": 163.0,
+   "n_control_cells": 12000,
+   "gene_count": 18533,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 16513,
+   "harness_n_cells_param": 163,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_OR_HCT116X.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_OR_HCT116X.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_OR_HCT116X.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_OR_HCT116X.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_OR_HCT116X.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_OR_HCT116X.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_OR_HCT116X.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_OR_HCT116X.npz"
+   },
+   "pack_families": [
+    "K562",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "HCT116",
+     "HEK293T"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "HCT116",
+     "HEK293T"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "HCT116",
+     "HEK293T",
+     "KOLF"
+    ],
+    "S4_part_key": "YorXnoKOLFFENG",
+    "S4_excluded_biologies_intended": [
+     "FENG",
+     "HCT116",
+     "HEK293T",
+     "KOLF"
+    ],
+    "S4_excluded_biologies_effective": [
+     "FENG",
+     "HCT116",
+     "HEK293T",
+     "KOLF"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "HCT116": "same dataset",
+    "HEK293T": "same underlying Orion dataset (other line)"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  },
+  "KOLF": {
+   "truth_path": "vcc2026_data/reports/b19_sweep2_2026-09-18/full_metrics/KOLF/real_disjoint.h5ad",
+   "full_path": "vcc2026_data/harness/kolf_real.h5ad",
+   "plan_path_note": "plan: checkpoints/state/kolf_real.h5ad (absent); harness truth = reports/b19_sweep2_2026-09-18/full_metrics/KOLF/real_disjoint.h5ad; parent = vcc2026_data/harness/kolf_real.h5ad",
+   "destination_line": "KOLF2.1J iPSC",
+   "truth_dataset": "KOLF2.1J genome-scale CRISPRi (kolf_target store), disjoint-cell panel",
+   "n_targets": 279,
+   "cells_per_target_median": 200.0,
+   "n_control_cells": 11600,
+   "gene_count": 17971,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 16720,
+   "harness_n_cells_param": 200,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_KOLF.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_KOLF.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_KOLF.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_KOLF.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_KOLF.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_KOLF.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_KOLF.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_KOLF.npz"
+   },
+   "pack_families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "KOLF"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "KOLF"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "KOLF"
+    ],
+    "S4_part_key": "F",
+    "S4_excluded_biologies_intended": [
+     "FENGLKOLF2",
+     "FENGLKOLF3",
+     "KOLF"
+    ],
+    "S4_excluded_biologies_effective": [
+     "KOLF"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "KOLF": "same dataset",
+    "FENG": "pooled HipSci iPSC lines incl. kolf_2 (HPSI0114i-kolf_2, the parental line of KOLF2.1J) and kolf_3 (same donor)"
+   },
+   "leak": "LEAK",
+   "leak_detail": [
+    {
+     "source": "FENG",
+     "relation": "pooled HipSci iPSC lines incl. kolf_2 (HPSI0114i-kolf_2, the parental line of KOLF2.1J) and kolf_3 (same donor)",
+     "in_fusion_part": true,
+     "in_first_part_and_neighbour_library": true,
+     "in_S4_training": true
+    }
+   ],
+   "leak_summary": "FENG (pooled HipSci iPSC; FENG_T/GWF/GWN) contains kolf_2 = HPSI0114i-kolf_2, the parental line of KOLF2.1J, and kolf_3 (same donor): 11.5%/11.0%/17.6% of FENG targeted/GW-fitness/GW-nonfitness cells. FENG is NOT excluded for the KOLF destination in the M1 fusion part (weight 0.25 of 15.75 = 1.6 %), the equal-weight first part (1 of 9 families) or the neighbour library. In the S4 refit the per-line fengline/kolf_2 and kolf_3 contexts are filed under biology KOLF in table_v2 and ARE excluded, but the pooled Feng rows (xl/feng, fengpooled/fitness; biology FENG) still contain kolf_2/kolf_3 cells (ext_baselines.CONFLICT_GENE['KOLF'] = v1 labels FENGLKOLF2/3, absent from table_v2). Magnitude: kolf cells are ~0.2-0.3 % of the fusion weight and ~1.3-2 % of the first part -- small, but a same-line source by definition S3."
+  },
+  "RN_K562": {
+   "truth_path": "vcc2026_data/reports/simple_residual_2026-09-16/mock/K562/panel300/real.h5ad",
+   "full_path": "vcc2026_data/raw/scperturb/ReplogleWeissman2022_K562_gwps.h5ad",
+   "plan_path_note": "plan: raw/scperturb/ReplogleWeissman2022_K562_essential.h5ad; harness truth is subsampled from ReplogleWeissman2022_K562_gwps.h5ad (mock manifest `source`)",
+   "destination_line": "K562",
+   "truth_dataset": "Replogle 2022 K562 GWPS (raw/scperturb/ReplogleWeissman2022_K562_gwps.h5ad), 800 ctrl / <=200 cells",
+   "n_targets": 300,
+   "cells_per_target_median": 189.0,
+   "n_control_cells": 800,
+   "gene_count": 7678,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 7678,
+   "harness_n_cells_param": 189,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_RN_K562.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_RN_K562.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_RN_K562.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_RN_K562.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_RN_K562.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_RN_K562.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_RN_K562.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_RN_K562.npz"
+   },
+   "pack_families": [
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "K562",
+     "VIP"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "K562",
+     "VIP"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "K562",
+     "KOLF"
+    ],
+    "S4_part_key": "YnoKOLFFENG",
+    "S4_excluded_biologies_intended": [
+     "FENG",
+     "K562",
+     "KOLF"
+    ],
+    "S4_excluded_biologies_effective": [
+     "FENG",
+     "K562",
+     "KOLF"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "K562": "same dataset (replogle_nadig/K562 = GWPS, 9,729 targets)",
+    "VIP": "same line, other lab (VIPerturb-seq K562)"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  },
+  "RN_HepG2": {
+   "truth_path": "vcc2026_data/reports/simple_residual_2026-09-16/mock/HepG2/panel300/real.h5ad",
+   "full_path": "vcc2026_data/raw/scperturb/NadigOConner2024_hepg2.h5ad",
+   "plan_path_note": null,
+   "destination_line": "HepG2",
+   "truth_dataset": "Nadig 2025 HepG2 essential-scale CRISPRi",
+   "n_targets": 300,
+   "cells_per_target_median": 53.5,
+   "n_control_cells": 800,
+   "gene_count": 9022,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 9022,
+   "harness_n_cells_param": 53,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_RN_HepG2.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_RN_HepG2.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_RN_HepG2.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_RN_HepG2.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_RN_HepG2.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_RN_HepG2.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_RN_HepG2.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_RN_HepG2.npz"
+   },
+   "pack_families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "RNJURKAT",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "HEPG2"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "HEPG2"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "HEPG2",
+     "KOLF"
+    ],
+    "S4_part_key": "YnoKOLFFENG",
+    "S4_excluded_biologies_intended": [
+     "FENG",
+     "HEPG2",
+     "KOLF"
+    ],
+    "S4_excluded_biologies_effective": [
+     "FENG",
+     "HEPG2",
+     "KOLF"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "HEPG2": "same dataset"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  },
+  "RN_Jurkat": {
+   "truth_path": "vcc2026_data/reports/simple_residual_2026-09-16/mock/Jurkat/panel300/real.h5ad",
+   "full_path": "vcc2026_data/raw/scperturb/NadigOConner2024_jurkat.h5ad",
+   "plan_path_note": "plan: checkpoints/state/jurkat_real.h5ad (absent); harness truth = mock/Jurkat/panel300/real.h5ad (from NadigOConner2024_jurkat); vcc2026_data/harness/jurkat_real.h5ad is an older 12k-NTC Jurkat panel",
+   "destination_line": "Jurkat",
+   "truth_dataset": "Nadig 2025 Jurkat essential-scale CRISPRi",
+   "n_targets": 300,
+   "cells_per_target_median": 96.0,
+   "n_control_cells": 800,
+   "gene_count": 8282,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 8282,
+   "harness_n_cells_param": 96,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_RN_Jurkat.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_RN_Jurkat.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_RN_Jurkat.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_RN_Jurkat.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_RN_Jurkat.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_RN_Jurkat.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_RN_Jurkat.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_RN_Jurkat.npz"
+   },
+   "pack_families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RPE1"
+   ],
+   "excluded_sources": {
+    "all": [
+     "JURKAT",
+     "RNJURKAT"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "JURKAT",
+     "RNJURKAT"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "KOLF",
+     "RNJURKAT"
+    ],
+    "S4_part_key": "YnoKOLFFENG",
+    "S4_excluded_biologies_intended": [
+     "FENG",
+     "JURKAT",
+     "KOLF"
+    ],
+    "S4_excluded_biologies_effective": [
+     "FENG",
+     "JURKAT",
+     "KOLF"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "RNJURKAT": "same dataset",
+    "JURKAT": "same line, other lab (GSE249595, high-MOI)"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  },
+  "RN_RPE1": {
+   "truth_path": "vcc2026_data/reports/simple_residual_2026-09-16/mock/RPE1/panel300/real.h5ad",
+   "full_path": "vcc2026_data/raw/scperturb/ReplogleWeissman2022_rpe1.h5ad",
+   "plan_path_note": null,
+   "destination_line": "hTERT-RPE1",
+   "truth_dataset": "Replogle 2022 RPE1 essential-scale CRISPRi",
+   "n_targets": 300,
+   "cells_per_target_median": 85.0,
+   "n_control_cells": 800,
+   "gene_count": 8258,
+   "g_cap_size": 6014,
+   "genes_on_official_axis_with_ctrl_umi": 8258,
+   "harness_n_cells_param": 85,
+   "packs": {
+    "inputs": "vcc2026_data/reports/era_2026-10-07/packs/inputs_RN_RPE1.npz",
+    "score": "vcc2026_data/reports/era_2026-10-07/packs/score_RN_RPE1.npz",
+    "ctrlpc": "vcc2026_data/reports/era_2026-10-07/packs/ctrlpc_RN_RPE1.npz",
+    "ctrlvar": "vcc2026_data/reports/era_2026-10-07/packs/ctrlvar_RN_RPE1.npz",
+    "aux": "vcc2026_data/reports/era_2026-10-07/packs/aux_RN_RPE1.npz",
+    "post": "vcc2026_data/reports/era_2026-10-07/packs/post_RN_RPE1.npz",
+    "sunny_cos0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_cos0_RN_RPE1.npz",
+    "sunny_nce0": "vcc2026_data/reports/era_2026-10-07/packs/sunny_nce0_RN_RPE1.npz"
+   },
+   "pack_families": [
+    "K562",
+    "HCT116",
+    "HEK293T",
+    "CD4",
+    "FENG",
+    "H1",
+    "HEPG2",
+    "RNJURKAT"
+   ],
+   "excluded_sources": {
+    "all": [
+     "RPE1"
+    ],
+    "M1_first_part_and_neighbour_library": [
+     "RPE1"
+    ],
+    "M1_fusion_part_zero_weight": [
+     "KOLF",
+     "RPE1"
+    ],
+    "S4_part_key": "YnoKOLFFENG",
+    "S4_excluded_biologies_intended": [
+     "FENG",
+     "KOLF",
+     "RPE1"
+    ],
+    "S4_excluded_biologies_effective": [
+     "FENG",
+     "KOLF",
+     "RPE1"
+    ],
+    "M2_rho_hat": "leave-this-line-out per external/era-aivc/aivc/tasks/vcc_sum/task.py docstring (not re-derived)",
+    "notes": "KOLF family weight is 0 for every somatic destination (ml_h1fuse.pieces); H1GW/VIP/JURKAT have zero harness weight"
+   },
+   "same_line_or_dataset_sources": {
+    "RPE1": "same dataset"
+   },
+   "leak": "OK",
+   "leak_detail": []
+  }
+ },
+ "g_cap": {
+  "n": 6014,
+  "definition": "official-axis genes on all 7 panels' var axes with >=1 UMI in each panel's controls",
+  "file": "results/g_cap.json"
+ },
+ "other_packs": {
+  "OR_HCT116 (8th pack, not a paper panel)": {
+   "excluded": [
+    "HCT116"
+   ],
+   "note": "keeps HEK293T from the SAME Orion dataset as the truth (same-dataset, other line); OR_HCT116X exists to remove it"
+  }
+ },
+ "feng_kolf_cell_share": {
+  "GenomeWideScreen_FitnessGenes": {
+   "cells": 322746,
+   "lines": 24,
+   "kolf_2": 21065,
+   "kolf_3": 14418,
+   "kolf_frac": 0.1099
+  },
+  "GenomeWideScreen_NonFitnessGenes": {
+   "cells": 396458,
+   "lines": 34,
+   "kolf_2": 35625,
+   "kolf_3": 34098,
+   "kolf_frac": 0.1759
+  },
+  "TargetedScreen": {
+   "cells": 1161864,
+   "lines": 19,
+   "kolf_2": 64009,
+   "kolf_3": 69622,
+   "kolf_frac": 0.115
+  }
+ }
+}

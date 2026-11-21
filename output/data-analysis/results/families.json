@@ -1,0 +1,536 @@
+{
+ "frozen": "2026-11-05",
+ "registry_source": "vcc2026_data/scripts/tv2_model.py FAMILY + F2 spec weights (reports/final_2026-10-27/F1/F2_spec.json parts[1].cfg.weights)",
+ "definition_C_public": "plan op. def. 5: distinct cell lines/types with a public genome-scale or essential-scale CRISPRi/KO Perturb-seq response in the M1 registry; same line from different labs counts once",
+ "C_public": 11,
+ "C_public_sensitivity": {
+  "main": 11,
+  "without_DLD1_if_4714_targets_not_counted_as_essential_scale": 10,
+  "merging_HipSci_pool_with_KOLF2_1J_iPSC": 10,
+  "both": 9,
+  "counting_each_HipSci_donor_line_separately": "not applicable: per-line Feng broad screens have 1-2 cells per line-target (unusable per line); targeted screen is 445 targets"
+ },
+ "line_to_families": {
+  "K562": [
+   "K562",
+   "VIP (not counted: weight 0 or sub-scale)"
+  ],
+  "HCT116": [
+   "HCT116"
+  ],
+  "HEK293T": [
+   "HEK293T"
+  ],
+  "primary CD4+ T": [
+   "CD4"
+  ],
+  "KOLF2.1J iPSC": [
+   "KOLF"
+  ],
+  "HipSci iPSC pool": [
+   "FENG"
+  ],
+  "HepG2": [
+   "HEPG2"
+  ],
+  "Jurkat": [
+   "RNJURKAT",
+   "JURKAT (not counted: weight 0 or sub-scale)"
+  ],
+  "hTERT-RPE1": [
+   "RPE1"
+  ],
+  "DLD-1": [
+   "DLD1"
+  ],
+  "H1 hESC": [
+   "H1GW",
+   "H1 (not counted: weight 0 or sub-scale)"
+  ]
+ },
+ "families": [
+  {
+   "family": "K562",
+   "cell_line_or_type": "K562 (CML)",
+   "lab_dataset": "Replogle et al. 2022, Weissman lab: K562 GWPS",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "K562",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/K562.npz",
+     "store": "replogle_nadig/K562",
+     "n_targets": 9729,
+     "n_targets_built_for_final_panel": 663
+    }
+   ],
+   "n_targets": 9729,
+   "f2_fusion_weight": 8.0,
+   "harness_fusion_weight": 8.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "HCT116",
+   "cell_line_or_type": "HCT116 (colorectal)",
+   "lab_dataset": "Xaira X-Atlas/Orion 2025",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "HCT116",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/HCT116.npz",
+     "store": "orion_target_cellline_all",
+     "n_targets": 18292,
+     "n_targets_built_for_final_panel": 731
+    }
+   ],
+   "n_targets": 18292,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 1.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "HEK293T",
+   "cell_line_or_type": "HEK293T (embryonic kidney)",
+   "lab_dataset": "Xaira X-Atlas/Orion 2025",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "HEK293T",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/HEK293T.npz",
+     "store": "orion_target_cellline_all",
+     "n_targets": 18310,
+     "n_targets_built_for_final_panel": 731
+    }
+   ],
+   "n_targets": 18310,
+   "f2_fusion_weight": 0.5,
+   "harness_fusion_weight": 0.5,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "CD4",
+   "cell_line_or_type": "primary CD4+ T cells (3 states pooled)",
+   "lab_dataset": "genome-scale CD4 T-cell CRISPRi (citation resolved in Task 2)",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "CD4_Rest",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/CD4_Rest.npz",
+     "store": "cd4_target_condition_all",
+     "n_targets": 12633,
+     "n_targets_built_for_final_panel": 709
+    },
+    {
+     "source": "CD4_Stim8hr",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/CD4_Stim8hr.npz",
+     "store": "cd4_target_condition_all",
+     "n_targets": 12665,
+     "n_targets_built_for_final_panel": 711
+    },
+    {
+     "source": "CD4_Stim48hr",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/CD4_Stim48hr.npz",
+     "store": "cd4_target_condition_all",
+     "n_targets": 12660,
+     "n_targets_built_for_final_panel": 708
+    }
+   ],
+   "n_targets": 12665,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 1.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "KOLF",
+   "cell_line_or_type": "KOLF2.1J iPSC",
+   "lab_dataset": "KOLF2.1J CRISPRi Perturb-seq (citation resolved in Task 2)",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "KOLF",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/KOLF.npz",
+     "store": "kolf_target",
+     "n_targets": 11686,
+     "n_targets_built_for_final_panel": 700
+    }
+   ],
+   "n_targets": 11686,
+   "f2_fusion_weight": 0.25,
+   "harness_fusion_weight": 0.25,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "FENG",
+   "cell_line_or_type": "HipSci iPSC lines, pooled (24-34 donors incl. kolf_2/kolf_3)",
+   "lab_dataset": "Feng et al., HipSci CRISPRi Perturb-seq (citation resolved in Task 2)",
+   "scale": "genome-wide (fitness + non-fitness arms; 1-2 cells per line-target) + targeted 445",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "FENG_T",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/FENG_T.npz",
+     "store": "feng_targetedscreen_target",
+     "n_targets": 445,
+     "n_targets_built_for_final_panel": 28
+    },
+    {
+     "source": "FENG_GWF",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/FENG_GWF.npz",
+     "store": "feng_genomewidescreen_fitnessgenes_target",
+     "n_targets": 2256,
+     "n_targets_built_for_final_panel": 108
+    },
+    {
+     "source": "FENG_GWN",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/FENG_GWN.npz",
+     "store": "feng_genomewidescreen_nonfitnessgenes_target",
+     "n_targets": 4960,
+     "n_targets_built_for_final_panel": 429
+    }
+   ],
+   "n_targets": 4960,
+   "f2_fusion_weight": 0.25,
+   "harness_fusion_weight": 0.25,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "H1",
+   "cell_line_or_type": "H1 hESC",
+   "lab_dataset": "VCC 2025 training data (Arc Institute, 10x Flex)",
+   "scale": "other (300 targets)",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "H1",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/H1.npz",
+     "store": "vcc2025_target_batch",
+     "n_targets": 300,
+     "n_targets_built_for_final_panel": 300
+    }
+   ],
+   "n_targets": 300,
+   "f2_fusion_weight": 2.0,
+   "harness_fusion_weight": 2.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "JURKAT",
+   "cell_line_or_type": "Jurkat (T-ALL)",
+   "lab_dataset": "GSE249595 (high-MOI; deliberately weight 0)",
+   "scale": "other (2,733 targets, high-MOI)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "JURKAT_UNSTIM",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/JURKAT_UNSTIM.npz",
+     "store": "GSE249595",
+     "n_targets": 2725,
+     "n_targets_built_for_final_panel": 733
+    },
+    {
+     "source": "JURKAT_STIM",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/JURKAT_STIM.npz",
+     "store": "GSE249595",
+     "n_targets": 2733,
+     "n_targets_built_for_final_panel": 733
+    }
+   ],
+   "n_targets": 2733,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "VIP",
+   "cell_line_or_type": "K562 (CML)",
+   "lab_dataset": "VIPerturb-seq K562, 10x Flex (Zenodo 18460279); rejected as a source",
+   "scale": "genome-wide",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "VIP_K562",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/VIP_K562.npz",
+     "store": "VIPerturb-seq K562 genome-wide CRISPRi, 10x Flex (Zenodo 18460279, CC-BY-4.0)",
+     "n_targets": 6611,
+     "n_targets_built_for_final_panel": 258
+    }
+   ],
+   "n_targets": 6611,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "HEPG2",
+   "cell_line_or_type": "HepG2 (hepatocellular)",
+   "lab_dataset": "Nadig et al. 2025, Weissman lab",
+   "scale": "essential",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "RN_HepG2",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/RN_HepG2.npz",
+     "store": "replogle_nadig/HepG2",
+     "n_targets": 2010,
+     "n_targets_built_for_final_panel": 77
+    }
+   ],
+   "n_targets": 2010,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 1.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "RNJURKAT",
+   "cell_line_or_type": "Jurkat (T-ALL)",
+   "lab_dataset": "Nadig et al. 2025, Weissman lab",
+   "scale": "essential",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "RN_Jurkat",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/RN_Jurkat.npz",
+     "store": "replogle_nadig/Jurkat",
+     "n_targets": 2201,
+     "n_targets_built_for_final_panel": 94
+    }
+   ],
+   "n_targets": 2201,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 1.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "RPE1",
+   "cell_line_or_type": "hTERT-RPE1",
+   "lab_dataset": "Replogle et al. 2022, Weissman lab",
+   "scale": "essential",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "RN_RPE1",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources/RN_RPE1.npz",
+     "store": "replogle_nadig/RPE1",
+     "n_targets": 2122,
+     "n_targets_built_for_final_panel": 95
+    }
+   ],
+   "n_targets": 2122,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 1.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "DLD1",
+   "cell_line_or_type": "DLD-1 (colorectal)",
+   "lab_dataset": "GSE337988",
+   "scale": "large (4,714 targets; above essential-scale)",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "DLD1",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/DLD1.npz",
+     "store": "DLD1",
+     "n_targets": 4714,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 4714,
+   "f2_fusion_weight": 1.0,
+   "harness_fusion_weight": 0.0,
+   "role": "active in frozen F2",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "H1GW",
+   "cell_line_or_type": "H1 hESC",
+   "lab_dataset": "GSE295214 (Weissman lab, 10x 5')",
+   "scale": "genome-scale (2,747 targets passing QC)",
+   "perturbation": "CRISPRi",
+   "sources": [
+    {
+     "source": "H1GW",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/H1GW.npz",
+     "store": "H1GW",
+     "n_targets": 2747,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 2747,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "same-line/stem fallback (tv2_final --same-line; weight 0 for somatic D/E/F)",
+   "counts_for_C_public": true
+  },
+  {
+   "family": "MELANOMA",
+   "cell_line_or_type": "melanocytes",
+   "lab_dataset": "scPerturb: FrangiehIzar2021_RNA",
+   "scale": "other (217 targets)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "FrangiehIzar2021_RNA",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/FrangiehIzar2021_RNA.npz",
+     "store": "FrangiehIzar2021_RNA",
+     "n_targets": 217,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 217,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "TKIPSC",
+   "cell_line_or_type": "iPSC",
+   "lab_dataset": "scPerturb: TianKampmann2019_iPSC",
+   "scale": "other (26 targets)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "TianKampmann2019_iPSC",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/TianKampmann2019_iPSC.npz",
+     "store": "TianKampmann2019_iPSC",
+     "n_targets": 26,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 26,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "TKNEURON",
+   "cell_line_or_type": "iPSC-induced neuron",
+   "lab_dataset": "scPerturb: TianKampmann2019_day7neuron",
+   "scale": "other (26 targets)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "TianKampmann2019_day7neuron",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/TianKampmann2019_day7neuron.npz",
+     "store": "TianKampmann2019_day7neuron",
+     "n_targets": 26,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 26,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "TKNEURONI",
+   "cell_line_or_type": "iPSC-induced neuron",
+   "lab_dataset": "scPerturb: TianKampmann2021_CRISPRi",
+   "scale": "other (180 targets)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "TianKampmann2021_CRISPRi",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/TianKampmann2021_CRISPRi.npz",
+     "store": "TianKampmann2021_CRISPRi",
+     "n_targets": 180,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 180,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "THP1",
+   "cell_line_or_type": "monocytes",
+   "lab_dataset": "scPerturb: WesselsSatija2023, PapalexiSatija2021_eccite_RNA",
+   "scale": "other (27/25 targets)",
+   "perturbation": "CRISPR-cas13",
+   "sources": [
+    {
+     "source": "WesselsSatija2023",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/WesselsSatija2023.npz",
+     "store": "WesselsSatija2023",
+     "n_targets": 27,
+     "n_targets_built_for_final_panel": null
+    },
+    {
+     "source": "PapalexiSatija2021_eccite_RNA",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/PapalexiSatija2021_eccite_RNA.npz",
+     "store": "PapalexiSatija2021_eccite_RNA",
+     "n_targets": 25,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 27,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "PRIMARYT",
+   "cell_line_or_type": "T cells",
+   "lab_dataset": "scPerturb: ShifrutMarson2018",
+   "scale": "other (21 targets)",
+   "perturbation": "CRISPR",
+   "sources": [
+    {
+     "source": "ShifrutMarson2018",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/ShifrutMarson2018.npz",
+     "store": "ShifrutMarson2018",
+     "n_targets": 21,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 21,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  },
+  {
+   "family": "SUNSHINE",
+   "cell_line_or_type": "lung epithelial cells",
+   "lab_dataset": "scPerturb: SunshineHein2023",
+   "scale": "other (133 targets)",
+   "perturbation": "CRISPR-cas9",
+   "sources": [
+    {
+     "source": "SunshineHein2023",
+     "file": "vcc2026_data/reports/transfer_v2_2026-09-23/sources_new/SunshineHein2023.npz",
+     "store": "SunshineHein2023",
+     "n_targets": 133,
+     "n_targets_built_for_final_panel": null
+    }
+   ],
+   "n_targets": 133,
+   "f2_fusion_weight": 0.0,
+   "harness_fusion_weight": 0.0,
+   "role": "registered, weight 0",
+   "counts_for_C_public": false
+  }
+ ]
+}
