@@ -4,6 +4,11 @@
 !/.gitignore
 !/README.md
 !/CLAUDE.md
+# challenge record: write-up and the original lab notebooks it cites
+!/docs/
+!/AGENTS.md
+!/RESULTS.md
+!/VCC2026_gene_perturbation_report.md
 !/schema/
 !/scripts/
 !/input/
@@ -30,6 +35,9 @@ __pycache__/
 .research-library
 # The pipeline import closure (vcc2026_data/scripts, a few vcc2026_data/reports tools, external/era-aivc,
 # Apache-2.0) is tracked explicitly: `git add -f $(cat output/code/closure_files.txt)`.
+# The report archive cited by docs/ (vcc2026_data/reports/**/{FINDINGS,README,RESULTS,FINAL_REPORT}.md,
+# PROJECT_HISTORY.md, official_scores.csv) is tracked explicitly: `git add -f $(cat docs/archive_files.txt)`.
+# Other participants' names are redacted in these copies ("[another team]").
 
 # pre-change script copies (history now lives in git)
 *.pre_*_2026-*

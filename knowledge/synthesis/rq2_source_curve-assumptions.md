@@ -95,7 +95,7 @@ For each k = 1…K:
 - No LOFO CI excludes 0.
 - The LOFO value is carried by K562: its per-family ΔPDS is +0.014 on H1, +0.019 on OR_HCT116X, +0.014 on RN_HepG2 and +0.021 on RN_Jurkat. Most other families are ≈ 0 or negative (RPE1 −0.012 on RN_HepG2).
 
-**The S4-free curve is 4–8× steeper.** It reproduces the size of the old ml_ctx_curve slope (b ≈ 0.07 vs 0.048 there). On the
+**The S4-free curve is 1.6–14.8× steeper (median 5.5×; corrected 2026-11-22 from an earlier "4–8×" by re-deriving the per-panel log-linear slopes in `rq2_source_curve.json`).** It reproduces the size of the old ml_ctx_curve slope (b ≈ 0.07 vs 0.048 there). On the
 k-means it is mostly saturating (ΔAIC −4.7 to −21).
 
 **H1 per-context value (Task 18 input):**
