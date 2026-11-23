@@ -1,77 +1,168 @@
-# Data-limited, not model-limited — zero-shot perturbation prediction in unseen cell lines
+# Virtual Cell Challenge 2026 — participation record
 
-Research code, results and the pre-registered plan behind a preprint in preparation (target: arXiv cs.LG,
-late November 2026). The work grew out of our participation in the Arc Institute **Virtual Cell Challenge 2026**
-(zero-shot CRISPRi response prediction in unseen cell lines).
+This repository is our record of taking part in the Arc Institute **Virtual Cell Challenge 2026**: predicting the
+transcriptional response to CRISPRi knockdowns in cell lines a model has never seen (zero-shot), scored by
+`cell-eval2 --preset vcc2026`. It documents **what we tried, why most of it did not work, and which methods actually
+raised the score** — with the original lab notebooks, the code of the final system, and the follow-up analyses that
+tested our explanations.
 
-**Question.** When responses to CRISPRi knockdowns in an unseen cell line are predicted from public screens in other
-lines, is accuracy limited by model capacity, or by the data — the measurement-noise ceiling, the line × perturbation
-interaction that cannot be transferred, and the number of cell contexts available to learn from?
+> Private record. Large data, official challenge data and model checkpoints are not included. Other participants'
+> names in the archived notebooks are replaced by "[another team]".
 
-> Status: analysis complete; manuscript being drafted. This repository is private until the preprint is posted.
+## At a glance
 
-## Pre-registration
+| | |
+|---|---|
+| Official submissions | 38 (36 in the validation phase, 2 in the final phase) |
+| Best validation score | **0.2545** (S18) |
+| Standing at the end of validation | **129 of 1,635 teams (top 7.9 %)**; gap to the top-10 threshold 0.0649 |
+| Best standing during validation | 34 of 1,244 (top 2.7 %, 2026-09-30) |
+| Final-phase entry | F2 (uploaded 2026-10-28); final scores not yet published |
 
-The hypotheses, falsification criteria, stop criterion and task list were frozen before the confirmatory analyses ran:
+Details: [`docs/02-submission-history.md`](docs/02-submission-history.md).
 
-- Design: `input/ideas/zero-shot-limits-context-complexity-design.md` (approved 2026-11-05)
-- Plan: `input/ideas/zero-shot-limits-context-complexity-plan.md` — signed off 2026-11-05
-  (sha256 at sign-off `59503cbae05f2c5a210a7ba8bbf4f64a38ce7578075ab8012486ebc2dc9ccf18`); three pre-data amendments
-  (A1–A3) appended the same day (current sha256 `7adfc134514eea6ba9add95379f6da9e0b7ce62064e9eb5079c118b33e87114d`).
-  The original hypothesis text above the amendments is unchanged.
-- Every deviation, clarification and independent review is recorded in the project log (kept outside this repository)
-  and summarised in `knowledge/synthesis/results-summary.md`.
+**The final system** (F2) predicted each knockdown's response in a new cell line by **transferring measured responses
+from public Perturb-seq screens of other lines**, not by a learned cell model:
 
-## Results at a glance
+- **M1 — multi-source fold-change fusion.** Each public screen gave a fold change for the target. These were fused
+  across sources and applied to the destination's own control cells. A small learned part ("S4") and a co-essentiality
+  neighbour blend were mixed in.
+- **M2 — agreement amplitude.** Targets on which the sources agreed got larger predicted responses (rank^0.5).
+- **M3 — control-PC deflation.** For the weaker half of targets, the part of the prediction lying along the
+  destination's own top control-cell axes was shrunk (k = 8, η = 0.75).
+- **MSE budget at the "kink".** The total predicted response energy was matched to the point where the scorer's MSE
+  member stops rewarding more amplitude.
+- **Emission and DE side.** Count-level emission pinned the group sums and created the differential-expression
+  signal inside cells (dual-moment emission, cpc composition pin).
 
-| Hypothesis | Verdict | Key numbers |
-|---|---|---|
-| H2a — a learned context correction (Tahoe, 48 drug-treated lines) hurts at small C and breaks even at ≥ 24 contexts | **confirmed** | context-pathway gain at C = 12: −4.2e-4 [−5.2, −3.3]e-4; break-even **C\* ≈ 37.4** [33.3, > 40] |
-| H2b — a linear-Gaussian break-even formula predicts C\* within ×2 | **rejected** | C\*_theory 230 vs 37.4 (×6 too pessimistic) |
-| H2c — public genetic data lie below the break-even | **holds for distinct cell types, not donor lines** | C\*_min 16.45 vs 11 cell types / 25 donor lines |
-| H1 — the transfer pipeline reaches ≥ 0.7 of the zero-shot ceiling | **untestable** (registered ceiling internally inconsistent) | exploratory: 0.77 of a bounded ceiling |
-| H3a — transfer error concentrates on the destination's own control axes | **confirmed** | D_other 0.018 [0.009, 0.027]; halves at matched n, positive on 7/7 panels |
-| H3b — destination control-PC deflation beats five alternative corrections | **inconclusive** | beats all five on the 7-panel mean; loses to a Systema-style correction on the H1 real scorer |
-| H4 — one same-line screen is worth more than the largest modelling gain | **confirmed** | +0.069 composite vs +0.0075 (≈ ×9) |
+Details: [`docs/01-challenge-and-final-system.md`](docs/01-challenge-and-final-system.md).
 
-Figures: `output/article/figures/fig1.pdf` … `fig6.pdf` (captions in `output/article/figures/CAPTIONS.md`).
+## What raised the score
+
+The largest official gains, by size:
+
+| Change | Submissions | Official Δ | Attribution |
+|---|---|---|---|
+| Six-source mean + stochastic count rounding | B2 → B6 | +0.0750 | bundle of 2 |
+| Response scaled ×3 | B6 → B8 | +0.0447 | single (notes) |
+| Dual-moment emission (sums pinned, DE created within cells) | S8 → S10b | +0.0348 | bundle of 2 |
+| cpc composition pin (DE members) | S10b → S10c | +0.0247 | single |
+| **M2** agreement amplitude | S14fk2 → S15 | +0.0106 | single |
+
+Twenty changes raised the official score; the full ranked list, including M3 (which could only be measured inside a
+bundle, S16 → S18 +0.0070) and the small ride-alongs, is in
+[`docs/03-what-raised-the-score.md`](docs/03-what-raised-the-score.md). The single largest *local* lever — a same-line
+screen from another lab (+0.069 composite on an H1 panel, about nine times the largest modelling gain) — never reached an
+official entry, because no such screen existed for the validation or final cell lines.
+
+## What did not work
+
+- **Learned architectures.** All 17 architectures in a joint screen lost 0.04–0.22 composite to the transfer baseline,
+  mostly through PDS. Rerunning six of them with two more seeds confirmed it: none beats the baseline on the two-line
+  mean. The best one helped K562 and hurt HepG2.
+- **Context-conditioned models.** Training on more contexts did not help (flat from 6 to 35 contexts). On drug data,
+  models told contexts apart long before that made their predictions any better.
+- **Foundation models and embeddings.** STATE, scLong, UCE, ESM-2 and PIE gave no usable gain; random or zero gene
+  features matched or beat the embeddings.
+- **Drug data as a signal.** Tahoe-100M context models gained nothing even on drug data, the one valid drug→gene test
+  was null, and LINCS sources were rejected. After correcting for reliability, the drug–CRISPRi concordance explains
+  about 0.3 % of the reproducible response.
+- **Other sources and learned weighting.** VIPerturb-seq, DepMap beyond the neighbour blend, and response-space kNN did
+  not help, and learned source weighting failed six times.
+- **Amplitude and metric tricks.** Amplitude reshaping beyond M2, and moving the budget off the kink, traded PDS for MSE
+  or lost officially.
+- **The final "big-lever" search.** Every remaining public lever screened before the final phase was worth ≤ +0.005.
+
+Catalogue with numbers and evidence: [`docs/04-what-did-not-work.md`](docs/04-what-did-not-work.md).
+
+## Why
+
+- **The noise ceiling is low.** On average only about 28 % of a line's deviation from the cross-line mean was
+  reproducible (0.7 % on KOLF). The same target's response agreed poorly across cell lines.
+- **The interaction cannot be transferred.** The part of the response specific to a line × target combination cannot
+  be learned zero-shot. Weak responders, which decide PDS, are exactly the targets that transfer worst.
+- **Too few contexts.** A learned context correction needs many distinct cell contexts. In a follow-up experiment on
+  48 drug-treated lines it was harmful below about 24 contexts and broke even only near 37, while public genetic
+  Perturb-seq covers about 11 distinct cell types.
+- **The scorer reads sums.** PDS and MSE depend only on each target's summed counts and are decided in different
+  target populations (MSE in the strongest responders, PDS in the weakest). One reshaping lever cannot raise both, and
+  the MSE member has a kink set by the test data's noise.
+- **Local gains shrank officially.** The one valid learned-context case shrank about 19-fold, from +0.0247 locally to
+  +0.0013 officially.
+
+Explanations, scorer mechanics and lessons: [`docs/05-why-it-does-not-work.md`](docs/05-why-it-does-not-work.md).
+
+## Follow-up analyses
+
+After the challenge we tested these explanations with a pre-registered set of analyses (plan:
+`input/ideas/zero-shot-limits-context-complexity-plan.md`; summary: `knowledge/synthesis/results-summary.md`). Their
+outcomes:
+
+| Question | Outcome |
+|---|---|
+| Does a learned context correction need many contexts? (48 Tahoe drug lines) | yes — harmful at 12, break-even ≈ 37 [33.3, > 40] |
+| Does a linear-Gaussian formula predict that break-even? | no — ×6 too pessimistic (230 vs 37) |
+| Are public genetic data below the break-even? | for distinct cell types (11) yes; counting donor lines (25) no |
+| Does transfer error sit on the destination's own control axes? | yes, consistently across panels, but small on H1 |
+| Does M3 beat five alternative corrections? | inconclusive (wins on the 7-panel mean, loses on one panel) |
+| Is one same-line screen worth more than modelling? | yes — about 9× the largest modelling gain |
+| How close is the pipeline to the zero-shot ceiling? | untestable as registered; exploratory ≈ 0.77 of a bounded ceiling |
+
+The figures are `output/article/figures/fig1.pdf` … `fig6.pdf`, with captions in `CAPTIONS.md`. The analysis code is
+`output/data-analysis/` and its tests are `pytest output/data-analysis/tests`.
 
 ## Repository layout
 
 ```
-input/ideas/            design and pre-registered plan (earlier, superseded design/plan kept for the record)
-input/notes/            external gates (challenge rules, arXiv endorsement), Molina & Zhang overlap note
-input/bibliography/     literature guide and acquisition worklist (no PDFs)
-knowledge/              research wiki: theory, positioning, results summary, per-task assumption notes, source pages
-output/data-analysis/   analysis code (one script per plan task), tests, figure code, top-level result summaries
-output/article/         figures and captions (manuscript to follow)
-output/code/            input manifest (INPUTS.md, inputs.sha256), import-closure tool and list, data-restore script, conda envs
-output/bibtex/          references.bib (entries verified against Crossref/arXiv)
-vcc2026_data/scripts/   the challenge pipeline modules imported by the analysis (import closure only)
-external/era-aivc/      evaluator modules from google-research/era (Apache-2.0, LICENSE included)
-scripts/                job runner (run_detached.sh), wiki lint and graph tools
+docs/                    the write-up (start here: 01 → 05)
+AGENTS.md                the day-by-day lab notebook kept during the challenge (newest first)
+RESULTS.md, VCC2026_gene_perturbation_report.md   early results and the public-data survey
+vcc2026_data/reports/    archived notebooks: PROJECT_HISTORY.md (Sept 5–20), FINDINGS/README files per
+                         experiment, official_scores.csv, F1/F2 upload receipts (list: docs/archive_files.txt)
+vcc2026_data/scripts/    the challenge pipeline (modules used by the final system and the analyses)
+external/era-aivc/       offline evaluator modules from google-research/era (Apache-2.0)
+output/data-analysis/    follow-up analysis code, tests and result summaries
+output/article/figures/  figures 1–6
+output/code/             input manifest with sha256, conda environments, data-restore script
+knowledge/, input/ideas/ notes from the follow-up analyses (theory, results summary, analysis plan)
 ```
 
-## Reproducing
+## Notes
 
-1. **Environments:** `output/code/envs/vcc2026.yml` (pipeline, scorer) and `output/code/envs/ct_transfer.yml`
-   (Tahoe/genetic extraction, architecture screen). The official scorer is `cell-eval2 --preset vcc2026`
-   (`--set de.backend=pdex`).
-2. **Inputs:** all inputs are listed with sha256 in `output/code/INPUTS.md` / `inputs.sha256` (440 files, ~55 GB).
-   They are public datasets (Replogle 2022, Nadig 2025, X-Atlas/Orion, Tahoe-100M, GSE295214 H1 CRISPRi, KOLF2.1J,
-   HipSci/Feng, CD4 T-cell CRISPRi, DLD-1) plus derived tables. The Tahoe cell-level shards are restored with
-   `output/code/restore_tahoe_shards.py` (immutable revision `2dc57900…`, sha256-checked).
-   **Official Virtual Cell Challenge data are not redistributed**; only derived statistics are reported.
-3. **Run order** follows the plan's task numbers (`output/data-analysis/`): inputs `task04_freeze_inputs.py`;
-   RQ2 `rq2_tahoe_curve.py` → `rq2_h2a.py`, `rq2_params.py`, `rq2_gene_*.py`, `rq2_arch_replicate.sh`,
-   `rq2_source_curve*.py`; RQ1 `rq1_components.py` → `rq1_ceiling.py`; RQ3 `rq3_build_preds.py` → `rq3_energy.py` /
-   `rq3_h3a.py` → `rq3_corrections.py` (+ matched-n sensitivities); RQ4 `rq4_sameline.py`; record `e4_official.py`;
-   appendix `appx_drug_gene.py`; figures `figures.py`. Tests: `pytest output/data-analysis/tests`.
-4. **Compute:** CPU only; real-scorer runs take ~25 min and ~15 GB each and must run one at a time
-   (`scripts/run_detached.sh`, a shared `flock`). Paths in the scripts are absolute to the original workstation and
-   will be made relative for the public release.
+- **Data.** Inputs are public screens (Replogle 2022, Nadig 2025, X-Atlas/Orion, Tahoe-100M, GSE295214, KOLF2.1J,
+  HipSci, CD4 T-cell CRISPRi, DLD-1, DepMap), listed with sha256 in `output/code/INPUTS.md`. Official challenge data
+  are not redistributed.
+- **Paths.** Scripts use absolute paths of the original workstation.
+- **Licence.** Not yet chosen. `external/era-aivc` keeps its Apache-2.0 licence.
 
-## Licence and citation
+## 한국어 요약
 
-Licence to be decided before the public release; `external/era-aivc` keeps its Apache-2.0 licence. A citation entry
-will be added when the preprint is posted.
+Arc Institute **Virtual Cell Challenge 2026** 참가 기록입니다. 처음 보는 세포주의 CRISPRi 교란 반응을 예측하는
+대회였고, 무엇을 시도했는지, 왜 대부분 안 됐는지, 결국 무엇으로 점수를 올렸는지를 정리했습니다.
+
+**성적**
+- 공식 제출 38회
+- 검증 단계 최고 점수 0.2545(S18)
+- 검증 종료 시 1,635팀 중 129위(상위 7.9%), 기간 중 최고 순위 34위(상위 2.7%)
+- 최종 제출 F2의 점수는 아직 발표되지 않았습니다.
+
+**최종 시스템:** 학습형 모델이 아니라, 다른 세포주의 공개 Perturb-seq 반응을 옮겨 오는 방식이었습니다.
+- 여러 소스의 fold change를 융합해 목적지 세포의 control에 적용(M1)
+- 소스 간 일치도로 반응 크기를 조정(M2)
+- 약한 표적에서 목적지 control 주성분 방향 성분을 줄임(M3)
+- 채점기 MSE의 "꺾이는 점"에 반응 크기를 맞춤
+- 세포 수준 발현 생성(emission)
+
+**점수를 올린 것:** 6개 소스 평균과 확률적 반올림(+0.075), 반응 ×3(+0.045), 이중 모멘트 emission(+0.035),
+cpc 조성 고정(+0.025), M2(+0.011) 순이었습니다.
+
+**안 된 것:** 학습형 구조 17종, 맥락 조건 모델, 파운데이션 모델·임베딩, 약물 데이터, 그 밖의 공개 소스와
+학습형 가중치, 크기·예산 조정, 마지막 대형 레버 탐색까지 모두 기준선을 넘지 못했습니다.
+
+**이유:**
+- 재현 가능한 신호가 평균 28%뿐이었습니다.
+- 세포주×표적 상호작용은 옮겨 올 수 없습니다.
+- 맥락(세포주) 수가 부족했습니다. 대회 후 실험에서 학습형 맥락 보정은 세포주 약 37개에서야 본전이었는데,
+  공개 유전자 데이터에는 서로 다른 세포 유형이 약 11개뿐입니다.
+- 채점기가 합계만 봅니다. PDS와 MSE는 서로 다른 표적 집단에서 결정됩니다.
+- 로컬 이득이 공식 점수에서 크게 줄었습니다(약 1/19).
