@@ -12,7 +12,7 @@ Sources: `output/data-analysis/results/e4_official.json`; `knowledge/synthesis/e
 
 - **Labels** follow `output/data-analysis/results/official_record.csv`. For S3 onwards the `label` column holds the
   opaque model name and the S-label is in `s_label`; the S-label is used here. "prior A" and "prior B" are the CSV's
-  `이전A` / `이전B` ("earlier A/B"). S4gp and S4mix are called S5 and S6 in the working notes.
+  first two rows, whose labels mean "earlier A/B". S4gp and S4mix are called S5 and S6 in the working notes.
 - **Score** is the official composite (mean of the six component credits, `01-challenge-and-final-system.md` §1.4).
   **Rank** is the rank shown when the score was first retrieved, not a leaderboard-snapshot standing (§3).
 - **Δ** is the change against the nearest officially scored parent, as assigned in
